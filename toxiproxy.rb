@@ -11,7 +11,7 @@ class Toxiproxy < Formula
   depends_on :arch => :x86_64
 
   def install
-    bin.install "1.0.0-darwin-amd64" => "toxiproxy"
+    bin.install "toxiproxy-darwin-amd64" => "toxiproxy"
   end
 
   plist_options :manual => "toxiproxy"
