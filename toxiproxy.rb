@@ -4,9 +4,9 @@
 
 class Toxiproxy < Formula
   homepage "https://github.com/Shopify/toxiproxy"
-  url "https://github.com/Shopify/toxiproxy/releases/download/v1.0.1/toxiproxy-darwin-amd64"
+  url "https://github.com/Shopify/toxiproxy/releases/download/v1.0.2/toxiproxy-darwin-amd64"
   sha1 "79c9ea95a7e6926ef7a6d4b71e953e60fbbe5257"
-  version "1.0.1"
+  version "1.0.2"
 
   depends_on :arch => :x86_64
 
