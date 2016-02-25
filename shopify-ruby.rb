@@ -17,13 +17,14 @@ class ShopifyRuby < Formula
 
   bottle do
     root_url "http://burkelibbey.s3.amazonaws.com"
-    sha256 "f6a681111011a77f64e02bf2f3859d828bbdfbe60ac9cdfa2cf376c2befe8a43" => :el_capitan
+    revision 1
+    sha256 "7b63ba6fb49c81c2175294ceb5aa0140f63bed63365eeee5c57fbfeb8a27c3b5" => :el_capitan
   end
 
+  keg_only "because chruby"
+
   option :universal
-  option "with-suffix", "Suffix commands with '21'"
   option "with-doc", "Install documentation"
-  option "with-tcltk", "Install with Tcl/Tk support"
 
   depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
@@ -33,7 +34,6 @@ class ShopifyRuby < Formula
   depends_on "libffi" => :optional
   depends_on "libyaml"
   depends_on "openssl"
-  depends_on :x11 if build.with? "tcltk"
 
   fails_with :llvm do
     build 2326
@@ -55,8 +55,6 @@ class ShopifyRuby < Formula
       args << "--with-arch=#{Hardware::CPU.universal_archs.join(",")}"
     end
 
-    args << "--program-suffix=#{program_suffix}" if build.with? "suffix"
-    args << "--with-out-ext=tk" if build.without? "tcltk"
     args << "--disable-install-doc" if build.without? "doc"
     args << "--disable-dtrace" unless MacOS::CLT.installed?
     args << "--without-gmp" if build.without? "gmp"
@@ -109,10 +107,6 @@ class ShopifyRuby < Formula
     %w[sitearchdir vendorarchdir].each do |dir|
       mkdir_p `#{ruby} -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
     end
-  end
-
-  def program_suffix
-    build.with?("suffix") ? "21" : ""
   end
 
   def rubygems_bindir
