@@ -95,6 +95,10 @@ class ShopifyRuby < Formula
     elisp.install Dir["misc/*.el"].reject { |f| f == "misc/ruby-mode.el" }
   end
 
+  def program_suffix
+    ""
+  end
+
   def post_install
     # Customize rubygems to look/install in the global gem directory
     # instead of in the Cellar, making gems last across reinstalls
