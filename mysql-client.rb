@@ -47,7 +47,7 @@ class MysqlClient < Formula
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
       .
-      -DWITHOUT_SERVER
+      -DWITHOUT_SERVER=1
       -DCMAKE_INSTALL_PREFIX=#{prefix}
       -DCMAKE_FIND_FRAMEWORK=LAST
       -DCMAKE_VERBOSE_MAKEFILE=ON
