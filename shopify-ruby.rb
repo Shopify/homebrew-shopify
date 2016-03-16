@@ -2,6 +2,8 @@ class ShopifyRuby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
 
+  conflicts_with "ruby", :because => "both install ruby. `brew uninstall --force ruby` first."
+
   url "https://github.com/shopify/ruby.git",
     :tag => "v2_2_3_shopify2-1",
     :revision => "baa4f6f4a13080795c2263b42e29769be63d8c91"
