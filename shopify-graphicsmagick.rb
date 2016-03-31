@@ -11,8 +11,8 @@ class ShopifyGraphicsmagick < Formula
 
   bottle do
     root_url "http://burkelibbey.s3.amazonaws.com"
-    revision 1
-    sha256 "21f665017df8dcc7cda9003d6d829e27634096fcd49584ee816309fd28f04992" => :el_capitan
+    revision 2
+    sha256 "e8be87d71eda5206dbcf3e1c354049697014a8441e4843ca8e532fbd5774800c" => :el_capitan
   end
 
   conflicts_with "graphicsmagick", :because => "shopify-graphicsmagick is newer"
