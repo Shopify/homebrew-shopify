@@ -4,14 +4,20 @@
 
 class Toxiproxy < Formula
   homepage "https://github.com/Shopify/toxiproxy"
-  url "https://github.com/Shopify/toxiproxy/releases/download/v1.2.1/toxiproxy-darwin-amd64"
-  sha1 "939d78c8c17040e02156da4196eb198b8203e2d1"
-  version "1.2.1"
+  url "https://github.com/Shopify/toxiproxy/releases/download/v2.0.0/toxiproxy-server-darwin-amd64"
+  sha1 "9f49c19b384d8b196f6d448261e6c486a3817536"
+  version "2.0.0"
+
+  resource "cli" do
+    url "https://github.com/Shopify/toxiproxy/releases/download/v2.0.0/toxiproxy-cli-darwin-amd64"
+    sha1 "d0abc5ac2e5f7f3bf763868b0095d3f2eb82c510"
+  end
 
   depends_on :arch => :x86_64
 
   def install
-    bin.install "toxiproxy-darwin-amd64" => "toxiproxy"
+    bin.install "toxiproxy-server-darwin-amd64" => "toxiproxy-server"
+    bin.install "toxiproxy-cli-darwin-amd64" => "toxiproxy-cli"
   end
 
   plist_options :manual => "toxiproxy"
@@ -25,7 +31,7 @@ class Toxiproxy < Formula
         <string>#{plist_name}</string>
         <key>ProgramArguments</key>
         <array>
-          <string>#{opt_bin}/toxiproxy</string>
+          <string>#{opt_bin}/toxiproxy-server</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
