@@ -5,19 +5,21 @@
 class Toxiproxy < Formula
   homepage "https://github.com/Shopify/toxiproxy"
   url "https://github.com/Shopify/toxiproxy/releases/download/v2.0.0/toxiproxy-server-darwin-amd64"
-  sha1 "9f49c19b384d8b196f6d448261e6c486a3817536"
+  sha256 "59b88ce5ad4a76e2cc1794fde6f500d2de8d33acf69383b24667eb81d73a41df"
   version "2.0.0"
 
   resource "cli" do
     url "https://github.com/Shopify/toxiproxy/releases/download/v2.0.0/toxiproxy-cli-darwin-amd64"
-    sha1 "d0abc5ac2e5f7f3bf763868b0095d3f2eb82c510"
+    sha256 "5ac89fec1b4aab939e84563644f7155dd808a39b7745f3592b2cc2f6131929c4"
   end
 
   depends_on :arch => :x86_64
 
   def install
     bin.install "toxiproxy-server-darwin-amd64" => "toxiproxy-server"
-    bin.install "toxiproxy-cli-darwin-amd64" => "toxiproxy-cli"
+    resource("cli").stage do
+      bin.install "toxiproxy-cli-darwin-amd64" => "toxiproxy-cli"
+    end
   end
 
   plist_options :manual => "toxiproxy"
