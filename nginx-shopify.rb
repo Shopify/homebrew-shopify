@@ -97,6 +97,7 @@ class NginxShopify < Formula
       html.rmtree
       dst.mkpath
     else
+      dst.rmtree if dst.symlink? && !File.exist?(dst)
       dst.dirname.mkpath
       html.rename(dst)
     end
