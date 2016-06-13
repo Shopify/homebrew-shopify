@@ -5,11 +5,6 @@ class NginxShopify < Formula
   sha256 "2b4893076d28e6b4384bba8c4fdebfca6de6f8f68ec48a1ca94b9b855ff457d2"
   head "http://hg.nginx.org/nginx/", :using => :hg
 
-  bottle do
-    root_url "https://s3.amazonaws.com/homebrew-bottles"
-    sha256 "81f2ed640f64405fd6d2d11c6eeb526cd41d1025c0f714abcdea4eacb0958f48" => :el_capitan
-  end
-
   conflicts_with "nginx", :because => "shopify has a custom nginx build. `brew uninstall nginx` first"
 
   def self.nginx_modules
