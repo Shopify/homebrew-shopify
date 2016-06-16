@@ -46,6 +46,7 @@ class NginxShopify < Formula
       --with-stream
       --with-ipv6
       --with-pcre
+      --with-debug
       --sbin-path=#{bin}/nginx
       --with-cc-opt=#{cc_opt}
       --with-ld-opt=#{ld_opt}
