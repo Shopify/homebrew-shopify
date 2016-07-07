@@ -5,6 +5,11 @@ class Heka < Formula
 
   head "https://github.com/mozilla-services/heka.git"
 
+  bottle do
+    root_url "https://s3.amazonaws.com/homebrew-bottles"
+    sha256 "f90a10a101d3e8c115ed75cf56862534a260855d36743fbe1e56f2d3a6e5699e" => :el_capitan
+  end
+
   depends_on "homebrew/versions/go14" => :build # heka needs 1.4 to build
   depends_on "go" => :build # heka's 'mockgen' is hardcoded for 'go' - https://github.com/rafrombrc/gomock/blob/master/mockgen/reflect.go#L75
   depends_on "cmake30" => :build
