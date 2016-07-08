@@ -38,8 +38,6 @@ class CsOpenssl < Formula
   def configure_args; %W[
     --prefix=#{prefix}
     --openssldir=#{openssldir}
-    no-ssl2
-    no-ssl3
     zlib-dynamic
     shared
     enable-cms
