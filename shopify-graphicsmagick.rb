@@ -10,7 +10,7 @@ class ShopifyGraphicsmagick < Formula
   revision 2
 
   bottle do
-    root_url "http://burkelibbey.s3.amazonaws.com"
+    root_url "https://s3.amazonaws.com/burkelibbey"
     sha256 "625cb0e794c282e0724240e4627b63bb92d3ef32ecfdc783ad35e3f323d94278" => :sierra
   end
 

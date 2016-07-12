@@ -16,7 +16,7 @@ class ShopifyRuby < Formula
   end
 
   bottle do
-    root_url "http://burkelibbey.s3.amazonaws.com"
+    root_url "https://s3.amazonaws.com/burkelibbey"
     rebuild 2
     sha256 "78dbba5c1744c944cef438678c1d1371536fc10654735b630d8621863501806c" => :sierra
   end
