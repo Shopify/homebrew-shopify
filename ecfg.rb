@@ -4,7 +4,8 @@ class Ecfg < Formula
   desc 'ecfg is a small library to manage encrypted secrets using asymmetric encryption.'
   homepage 'https://github.com/Shopify/ecfg'
   url 'https://github.com/Shopify/ecfg/archive/0.2.0.tar.gz'
-  sha256 '1e97f4b31d3e28aab51d4f2f6e789a3df28094b01d9e313ad0edb0ea663e355f'
+  sha256 '242ca6f9dc41019f0971ee8cfd93f076d1ec416e13b1e6dbaa30a22dec8c0a7b'
+
 
   depends_on 'go' => :build
 
