@@ -5,8 +5,8 @@ class MysqlClient < Formula
   sha256 "1ea1644884d086a23eafd8ccb04d517fbd43da3a6a06036f23c5c3a111e25c74"
 
   bottle do
-    root_url "https://s3.amazonaws.com/homebrew-bottles"
-    sha256 "f7415bdac2ca8bbccd77d4f22d8a0bdd7280b065bd646a71a506b77c7a8bd169" => :el_capitan
+    root_url "http://burkelibbey.s3.amazonaws.com"
+    sha256 "922c3e8d858eef75bc9ee0db7dd455d588a17d5afc9282e77e7fad33a2191a4f" => :el_capitan
   end
 
   depends_on "cmake" => :build
