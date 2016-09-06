@@ -1,6 +1,6 @@
 # This was copied from  https://github.com/Homebrew/homebrew-core/blob/431e7b2fd379b3a604dd8a1964603ef022d9761d/Formula/libgraphqlparser.rb
 # As our gem version is outdated and doesn't support 0.5.0 yet
-class Libgraphqlparser < Formula
+class ShopifyLibgraphqlparser < Formula
   desc "GraphQL query parser in C++ with C and C++ APIs"
   homepage "https://github.com/graphql/libgraphqlparser"
   url "https://github.com/graphql/libgraphqlparser/archive/v0.4.1.tar.gz"
@@ -12,6 +12,8 @@ class Libgraphqlparser < Formula
     sha256 "4fed85aba87c4cb54168cb1e8c73d6e7d4eee9689b09f18c07137ffdfb850ac3" => :yosemite
     sha256 "1dfc83c494e8ceef8eb5d757190312d13ecafeb1b88464c44073417989bf5488" => :mavericks
   end
+
+  conflicts_with "libgraphqlparser", :because => "shopify-libgraphqlparser is different"
 
   depends_on "cmake" => :build
 
