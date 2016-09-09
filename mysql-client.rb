@@ -1,7 +1,7 @@
 class MysqlClient < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-5.7.10.tar.gz"
+  url "http://pkgs.fedoraproject.org/repo/pkgs/community-mysql/mysql-5.7.10.tar.gz/aabc96e8628228014479f7233d076877/mysql-5.7.10.tar.gz"
   sha256 "1ea1644884d086a23eafd8ccb04d517fbd43da3a6a06036f23c5c3a111e25c74"
 
   bottle do
