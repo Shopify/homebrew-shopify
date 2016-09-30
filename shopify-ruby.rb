@@ -15,12 +15,6 @@ class ShopifyRuby < Formula
     "2.2.3"
   end
 
-  bottle do
-    root_url "http://burkelibbey.s3.amazonaws.com"
-    revision 1
-    sha256 "7b63ba6fb49c81c2175294ceb5aa0140f63bed63365eeee5c57fbfeb8a27c3b5" => :el_capitan
-  end
-
   keg_only "because chruby"
 
   option :universal
