@@ -3,8 +3,8 @@ require 'fileutils'
 class Ecfg < Formula
   desc 'ecfg is a small library to manage encrypted secrets using asymmetric encryption.'
   homepage 'https://github.com/Shopify/ecfg'
-  url 'https://github.com/Shopify/ecfg/archive/0.3.0.tar.gz'
-  sha256 '507f6831d726590da71548d49fd1085099506756a8da6a0ee30a70b0b52f5b74'
+  url 'https://github.com/Shopify/ecfg/archive/0.3.1.tar.gz'
+  sha256 'a7c3659fc7b9fcba52f9843666f5b47f0231b104eb352a26ce0863dfcb931424'
 
   depends_on 'go' => :build
 
