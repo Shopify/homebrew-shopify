@@ -40,7 +40,7 @@ class ShopifyGraphicsmagick < Formula
   depends_on "jasper" => :optional
   depends_on "libwmf" => :optional
   depends_on "ghostscript" => :optional
-  depends_on "webp" => :optional
+  depends_on "webp"
 
   fails_with :llvm do
     build 2335
