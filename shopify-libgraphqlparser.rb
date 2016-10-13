@@ -13,6 +13,13 @@ class ShopifyLibgraphqlparser < Formula
     sha256 "1dfc83c494e8ceef8eb5d757190312d13ecafeb1b88464c44073417989bf5488" => :mavericks
   end
 
+  bottle do
+    root_url "http://burkelibbey.s3.amazonaws.com"
+    cellar :any
+    rebuild 1
+    sha256 "6b9f8ed85728208f184cd5a2fd218a768d6e7052200d21f3504593e05b1fc3ca" => :sierra
+  end
+
   conflicts_with "libgraphqlparser", :because => "shopify-libgraphqlparser is different"
 
   depends_on "cmake" => :build

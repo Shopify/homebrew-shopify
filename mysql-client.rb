@@ -6,7 +6,8 @@ class MysqlClient < Formula
 
   bottle do
     root_url "http://burkelibbey.s3.amazonaws.com"
-    sha256 "922c3e8d858eef75bc9ee0db7dd455d588a17d5afc9282e77e7fad33a2191a4f" => :el_capitan
+    rebuild 1
+    sha256 "6c1ca55896635994d1fac5cbc2703062443515d4eaa676d1251ab7a9a40d943a" => :sierra
   end
 
   depends_on "cmake" => :build
