@@ -27,6 +27,11 @@ class NginxShopify < Formula
     sha256 "73f29eb281e7da95f4db3b33e44d318e685fef7328e79c6c01a7393f88cef788"
   end
 
+  resource "lua-resty-core" do
+    url "https://github.com/openresty/lua-resty-core/archive/v0.1.8.tar.gz"
+    sha256 "0ac351516a66c64137e284b421c500959b11ad71efe4c413b4c45057adc46810"
+  end
+
   env :userpaths
   skip_clean "logs"
 
@@ -85,6 +90,10 @@ class NginxShopify < Formula
 
     (etc/"nginx/servers").mkpath
     (var/"run/nginx").mkpath
+
+    resource("lua-resty-core").stage do
+      (lib/"lua").install Dir['lua-resty-core', 'lib']
+    end
   end
 
   def post_install
