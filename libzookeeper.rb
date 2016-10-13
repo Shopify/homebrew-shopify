@@ -10,7 +10,8 @@ class Libzookeeper < Formula
   bottle do
     root_url "http://burkelibbey.s3.amazonaws.com"
     cellar :any
-    sha256 "20f915a20fb978941bb52af74b50c4cea5b09ce21caee078cb83a8a7671b073e" => :el_capitan
+    rebuild 1
+    sha256 "c9b20ecb4b96ba7cd9a4f21557df302bfc7bacb2e6439e8a73f1d8df05ab26cb" => :sierra
   end
 
   def install

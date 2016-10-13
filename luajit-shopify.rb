@@ -6,8 +6,9 @@ class LuajitShopify < Formula
   head "http://luajit.org/git/luajit-2.0.git"
 
   bottle do
-    root_url "https://s3.amazonaws.com/homebrew-bottles"
-    sha256 "d6999029f4d5a4e18c4f338aa8746aa1f2780da863611e802af377422d39d41d" => :el_capitan
+    root_url "http://burkelibbey.s3.amazonaws.com"
+    rebuild 1
+    sha256 "614270751ee3379f1aa931accefc6d29d0b97b3bdf19e1ef550bb8b32e0d7954" => :sierra
   end
 
   conflicts_with "luajit", :because => "shopify uses luajit 2.1. `brew uninstall luajit` first"

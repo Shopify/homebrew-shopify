@@ -14,11 +14,11 @@ class ShopifyRuby < Formula
   def abi_version
     "2.2.3"
   end
-  
+
   bottle do
     root_url "http://burkelibbey.s3.amazonaws.com"
-    revision 1
-    sha256 "7b63ba6fb49c81c2175294ceb5aa0140f63bed63365eeee5c57fbfeb8a27c3b5" => :el_capitan
+    rebuild 2
+    sha256 "78dbba5c1744c944cef438678c1d1371536fc10654735b630d8621863501806c" => :sierra
   end
 
   keg_only "because chruby"
