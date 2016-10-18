@@ -7,12 +7,11 @@ class ShopifyGraphicsmagick < Formula
   homepage "http://www.graphicsmagick.org/"
   url "http://apt.shopify.com/dist/graphicsmagick/GraphicsMagick-1.4.020150705.tar.bz2"
   sha256 "334fa009c7a1b5b91849b971ec85dffff19fb23737568cfdb49aee853731e7a5"
-  revision 1
+  revision 2
 
   bottle do
     root_url "http://burkelibbey.s3.amazonaws.com"
-    revision 2
-    sha256 "e8be87d71eda5206dbcf3e1c354049697014a8441e4843ca8e532fbd5774800c" => :el_capitan
+    sha256 "625cb0e794c282e0724240e4627b63bb92d3ef32ecfdc783ad35e3f323d94278" => :sierra
   end
 
   conflicts_with "graphicsmagick", :because => "shopify-graphicsmagick is newer"
@@ -40,7 +39,7 @@ class ShopifyGraphicsmagick < Formula
   depends_on "jasper" => :optional
   depends_on "libwmf" => :optional
   depends_on "ghostscript" => :optional
-  depends_on "webp" => :optional
+  depends_on "webp"
 
   fails_with :llvm do
     build 2335
@@ -66,13 +65,13 @@ class ShopifyGraphicsmagick < Formula
       --disable-static
       --disable-openmp
       --with-quantum-depth=#{quantum_depth}
+      --with-webp=yes
     ]
 
     args << "--without-gslib" if build.without? "ghostscript"
     args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
     args << "--without-magick-plus-plus" if build.without? "magick-plus-plus"
     args << "--with-perl" if build.with? "perl"
-    args << "--with-webp=yes" if build.with? "webp"
     args << "--without-x" if build.without? "x11"
     args << "--without-ttf" if build.without? "freetype"
     args << "--without-xml" if build.without? "svg"
