@@ -2,7 +2,7 @@ class RdsSsl < Formula
   desc "Root public key for Amazon redshift SSL connectivity"
   homepage "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Connect.html"
   url "http://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem"
-  sha256 "58c92aea3a96591abdd0c6ebb4116d9e33af946196bc1e43196961b1b0eac415"
+  sha256 "026a9420e4e6fefa882ce1d65a2bf0037946d83ff4becd089c4cca88a1af9bd7"
   version "0.2.0"
 
   def install
