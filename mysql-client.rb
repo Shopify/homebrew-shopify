@@ -5,7 +5,7 @@ class MysqlClient < Formula
   sha256 "1ea1644884d086a23eafd8ccb04d517fbd43da3a6a06036f23c5c3a111e25c74"
 
   bottle do
-    root_url "http://burkelibbey.s3.amazonaws.com"
+    root_url "https://s3.amazonaws.com/burkelibbey"
     rebuild 1
     sha256 "6c1ca55896635994d1fac5cbc2703062443515d4eaa676d1251ab7a9a40d943a" => :sierra
   end

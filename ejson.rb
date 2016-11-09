@@ -5,7 +5,7 @@ class Ejson < Formula
   sha256 'a0d351b53e8bf3368276fced733f94054aca88b4ef5ef0a3a5000dfb23f5435f'
 
   bottle do
-    root_url "http://burkelibbey.s3.amazonaws.com"
+    root_url "https://s3.amazonaws.com/burkelibbey"
     cellar :any_skip_relocation
     sha256 "3e47d357ebf78a91c83eb2f5c44a7d769b7558a310fcc99a17fa7258ef6f3d2d" => :sierra
     sha256 "4eb87a4dedc180cec1341280380febf81eaa6261a6811ea54d653d18eae0bc6f" => :el_capitan
