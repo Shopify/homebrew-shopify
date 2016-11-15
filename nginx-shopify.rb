@@ -27,6 +27,11 @@ class NginxShopify < Formula
     sha256 "73f29eb281e7da95f4db3b33e44d318e685fef7328e79c6c01a7393f88cef788"
   end
 
+  patch do
+    url "https://gist.githubusercontent.com/es/ff969cad8f7461cffe285954025d0901/raw/082ae31d0e0b1b6487eb03e52b38dd215ef7a0fc/vary_header_length.patch"
+    sha256 "b5125816f824c2a8048765bff6ae71bc757424ee9387d3de759100278eeffdef"
+  end
+
   resource "lua-resty-core" do
     url "https://github.com/openresty/lua-resty-core/archive/v0.1.8.tar.gz"
     sha256 "0ac351516a66c64137e284b421c500959b11ad71efe4c413b4c45057adc46810"
