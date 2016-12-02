@@ -7,7 +7,6 @@ class DockerSshAgentForward < Formula
     ENV['PATH']   = "#{ENV['PATH']}:/usr/local/bin"
     ENV['PREFIX'] = prefix
 
-    system "make"
     system "make", "install"
   end
 end
