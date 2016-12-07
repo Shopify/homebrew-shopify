@@ -11,6 +11,7 @@ class Toxiproxy < Formula
   resource "cli" do
     url "https://github.com/Shopify/toxiproxy/releases/download/v2.1.0/toxiproxy-cli-darwin-amd64"
     sha256 "48e26b3e79fe12be571cdac0661bdcfae883f4968d1411b36cfaf96eafa8090f"
+    version "2.1.0"
   end
 
   depends_on :arch => :x86_64
