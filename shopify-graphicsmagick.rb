@@ -5,8 +5,8 @@
 class ShopifyGraphicsmagick < Formula
   desc "Image processing tools collection"
   homepage "http://www.graphicsmagick.org/"
-  url "http://apt.shopify.com/dist/graphicsmagick/GraphicsMagick-1.4.020150705.tar.bz2"
-  sha256 "334fa009c7a1b5b91849b971ec85dffff19fb23737568cfdb49aee853731e7a5"
+  url "http://apt.shopify.com/dist/graphicsmagick/GraphicsMagick-1.4.020160531.tar.bz2"
+  sha256 "ac0a46e99d4fc9e77f647a7e7e5bd3c80c600ec75441c52ebdb0a0966ad50ae9"
   revision 2
 
   bottle do
@@ -66,6 +66,7 @@ class ShopifyGraphicsmagick < Formula
       --disable-openmp
       --with-quantum-depth=#{quantum_depth}
       --with-webp=yes
+      --enable-broken-coders
     ]
 
     args << "--without-gslib" if build.without? "ghostscript"
