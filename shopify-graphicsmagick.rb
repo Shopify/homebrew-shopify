@@ -7,7 +7,7 @@ class ShopifyGraphicsmagick < Formula
   homepage "http://www.graphicsmagick.org/"
   url "http://apt.shopify.com/dist/graphicsmagick/GraphicsMagick-1.4.020160531.tar.bz2"
   sha256 "ac0a46e99d4fc9e77f647a7e7e5bd3c80c600ec75441c52ebdb0a0966ad50ae9"
-  revision 2
+  revision 3
 
   bottle do
     root_url "https://s3.amazonaws.com/burkelibbey"
