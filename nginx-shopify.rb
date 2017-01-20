@@ -12,7 +12,8 @@ class NginxShopify < Formula
       "ngx-devel-kit" => :build,
       "lua-nginx-module" => :build,
       "lua-upstream-nginx-module" => :build,
-      "lua-nginx-internals-nginx-module" => :build
+      "lua-nginx-internals-nginx-module" => :build,
+      "echo-nginx-module" => :build
     }
   end
 
