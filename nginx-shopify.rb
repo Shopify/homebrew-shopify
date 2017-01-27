@@ -1,8 +1,8 @@
 class NginxShopify < Formula
   desc "HTTP(S) server, reverse proxy, IMAP/POP3 proxy server"
   homepage "http://nginx.org/"
-  url "https://nginx.org/download/nginx-1.10.1.tar.gz"
-  sha256 "1fd35846566485e03c0e318989561c135c598323ff349c503a6c14826487a801"
+  url "https://nginx.org/download/nginx-1.11.9.tar.gz"
+  sha256 "dc22b71f16b551705930544dc042f1ad1af2f9715f565187ec22c7a4b2625748"
   head "http://hg.nginx.org/nginx/", :using => :hg
 
   conflicts_with "nginx", :because => "shopify has a custom nginx build. `brew uninstall nginx` first"
