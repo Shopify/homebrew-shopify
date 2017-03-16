@@ -1,17 +1,17 @@
 require "language/node"
 
 class Yarn < Formula
-  desc "Javascript package manager"
+  desc "JavaScript package manager"
   homepage "https://yarnpkg.com/"
-  url "https://yarnpkg.com/downloads/0.16.1/yarn-v0.16.1.tar.gz"
-  sha256 "73be27c34ef1dd4217fec23cdfb6b800cd995e9079d4c4764724ef98e98fec07"
+  url "https://yarnpkg.com/downloads/0.21.3/yarn-v0.21.3.tar.gz"
+  sha256 "0946a4d1abc106c131b700cc31e5c3aa5f2205eb3bb9d17411f8115354a97d5d"
   head "https://github.com/yarnpkg/yarn.git"
 
   bottle do
-    root_url "https://s3.amazonaws.com/burkelibbey"
     cellar :any_skip_relocation
-    rebuild 3
-    sha256 "436c9a369065de3d17d037fc45cbf27312508eabd679f16d729198496f4f5267" => :sierra
+    sha256 "20ebc2f2bce300095a0af7b9ef2aca712992bb24a8410424610ed133c3eabdef" => :sierra
+    sha256 "80a321ef5d474ce6d4093b994f425f43e4de05cf93b366c29190fe618fc4711b" => :el_capitan
+    sha256 "086f619f9712c9e012e9c1797db630b2118e2d91ad3ebc8102038d3da427353a" => :yosemite
   end
 
   depends_on "node"
