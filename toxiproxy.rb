@@ -23,7 +23,7 @@ class Toxiproxy < Formula
     end
   end
 
-  plist_options :manual => "toxiproxy"
+  plist_options :manual => "toxiproxy-proxy"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
