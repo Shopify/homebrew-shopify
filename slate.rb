@@ -10,6 +10,9 @@ class Slate < Formula
   depends_on "node"
 
   def install
+    # remove me once https://github.com/Homebrew/brew/pull/2826 is released
+    inreplace "package.json", '"prepublish"', '"dont_run_me"'
+
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
