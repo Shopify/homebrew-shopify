@@ -4,14 +4,14 @@
 
 class Toxiproxy < Formula
   homepage "https://github.com/Shopify/toxiproxy"
-  url "https://github.com/Shopify/toxiproxy/releases/download/v2.1.1/toxiproxy-server-darwin-amd64"
+  url "https://github.com/Shopify/toxiproxy/releases/download/v2.1.2/toxiproxy-server-darwin-amd64"
   sha256 "9586e6f75edab06101fcea595e82178af95d50932974519061b66f67379dfd60"
-  version "2.1.1"
+  version "2.1.2"
 
   resource "cli" do
-    url "https://github.com/Shopify/toxiproxy/releases/download/v2.1.1/toxiproxy-cli-darwin-amd64"
+    url "https://github.com/Shopify/toxiproxy/releases/download/v2.1.2/toxiproxy-cli-darwin-amd64"
     sha256 "d34e2fd989a8d90b9c72cb7f52f354e4aa5fba5044eea98ad4ff83ca3a3aef2a"
-    version "2.1.1"
+    version "2.1.2"
   end
 
   depends_on :arch => :x86_64
