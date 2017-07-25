@@ -4,7 +4,7 @@ class Slate < Formula
   desc "Command line tool for Shopify Theme development"
   homepage "https://shopify.github.io/slate/"
   url "https://registry.npmjs.org/@shopify/slate/-/slate-0.11.0.tgz"
-  sha256 "6b54d1930a3f1c72b343a07fd2800e33bc59be6e11c4773785292f33beeb2df0"
+  sha256 "e94c1ab00e6cfaf0e4738a02e5cfff4debc2e702acd5491c53ee569f11a9fdb3"
   head "https://github.com/Shopify/slate-cli.git"
 
   depends_on "node"
