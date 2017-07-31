@@ -35,7 +35,7 @@ class ShopifyRuby < Formula
   depends_on "libyaml"
   depends_on "openssl"
 
-  fails_with :llvm do
+  fails_with :clang do
     build 2326
   end
 
