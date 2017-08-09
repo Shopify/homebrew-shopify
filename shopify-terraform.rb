@@ -1,9 +1,9 @@
 class ShopifyTerraform < Formula
   desc "Shopify fork of Terraform"
   homepage "https://github.com/Shopify/shopify-terraform"
-  url "https://s3.amazonaws.com/shopify-terraform-binaries/darwin_amd64_d9349fd80c39c9435ab5212279cc4befce589019.tar.gz"
-  sha256 "f5bbb7dabe0c400e60b62cc3cc46de886e3996cfb14ffde2365a623b9548ab77"
-  version "0.7.7-shopify"
+  url "https://s3.amazonaws.com/shopify-terraform-binaries/darwin_amd64_1872f858e30f77a1febce91fe375400e773213ef.tar.gz"
+  sha256 "d8096413e8103312a5d650ed15e7df734faa9cdafab0428ae1dc759bd837d69b"
+  version "0.7.13-shopify"
 
   conflicts_with "terraform", :because => "both install terraform binaries"
 
