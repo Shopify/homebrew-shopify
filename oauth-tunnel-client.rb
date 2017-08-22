@@ -1,29 +1,21 @@
 class OauthTunnelClient < Formula
-  desc 'Create a secure local proxy with Shopify GCP services'
-  homepage 'https://github.com/Shopify/oauth-tunnel-client'
-  url "https://storage.googleapis.com/artifacts.data-148903.appspot.com/containers/repositories/library/apps/development/oauth-tunnel-client/oauth-tunnel-client.tar.gz"
-  sha256 "b90f0a43237e9176d1e37af1ff26041bee714aa6f55a7857f0f3c4df1ced9acc"
-
-  depends_on "go" => :build
-
-  def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/Shopify/oauth-tunnel-client").install buildpath.children
-    cd "src/github.com/Shopify/oauth-tunnel-client" do
-      system "go", "build", "-o", bin/"oauth-tunnel-client"
+  class GoogleStorageDownloadStrategy < CurlDownloadStrategy
+    def ext
+      Pathname.new(basename_without_params).extname[/[^?]+/]
     end
   end
 
+  desc 'Create a secure local proxy with Shopify GCP services'
+  homepage 'https://github.com/Shopify/oauth-tunnel-client'
+  url 'https://storage.googleapis.com/artifacts.data-148903.appspot.com/containers/repositories/library/apps/development/oauth-tunnel-client/oauth-tunnel-client-binaries.tar.gz?GoogleAccessId=johnmartin-cloudsql-client@data-148903.iam.gserviceaccount.com&Expires=1534884426&Signature=wlB1%2FHiSokSrbURCY1d4A7O1Kmpeeib4nDQ5oai3ZhnEp00kqLw1FbMmUuXHpkKrpGsZWetD7RvpEb4E%2BejZYTzrqEcxZ9c4S6btyKZq13tdSvUsCJgG9LdvdtNJi5VazO0P%2FSOBAszNdk1bfR2XEE2mxl0NMGXKnIQwEZ1yBry7kWBlqd6WAJgAhRsvOzsxqe3%2FrY0halvuVdvyBsZ7lmx8CUVdHiKS8olnnOqg9ZpQh2zTy39LwbvhbVbrPfB2MVskZymGkYPHOQaF2vl60R%2F6k2W%2BfSgOIVgboUzkw960%2FhuXjZOrfhUq1WKzgRz8mgBs7D%2B%2BKM4AkgJ7SOBu2g%3D%3D', using: GoogleStorageDownloadStrategy
+  sha256 "a50448106a52c88c5f51d27cf0969adbe1ee19e37dc5a462442a2abaa49d01d7"
+  version "0.1"
+
+  def install
+    bin.install({'oauth-tunnel-client_darwin_amd64' => 'oauth-tunnel-client'})
+  end
+
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! For Homebrew/homebrew-core
-    # this will need to be a test that verifies the functionality of the
-    # software. Run the test with `brew test oauth`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
-    system "false"
+    system "#{bin}/oauth-tunnel-client_darwin_amd64", "version"
   end
 end
