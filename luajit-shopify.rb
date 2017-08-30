@@ -2,7 +2,7 @@ class LuajitShopify < Formula
   desc "Just-In-Time Compiler (JIT) for the Lua programming language"
   homepage "http://luajit.org/luajit.html"
   url "http://luajit.org/download/LuaJIT-2.1.0-beta3.tar.gz"
-  sha256 "713924ca034b9d99c84a0b7b701794c359ffb54f8e3aa2b84fad52d98384cf47"
+  sha256 "1ad2e34b111c802f9d0cdf019e986909123237a28c746b21295b63c9e785d9c3"
   head "http://luajit.org/git/luajit-2.0.git"
 
   bottle do
