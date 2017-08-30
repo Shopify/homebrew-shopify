@@ -1,8 +1,8 @@
 class NginxShopify < Formula
   desc "HTTP(S) server, reverse proxy, IMAP/POP3 proxy server"
   homepage "http://nginx.org/"
-  url "https://nginx.org/download/nginx-1.11.9.tar.gz"
-  sha256 "dc22b71f16b551705930544dc042f1ad1af2f9715f565187ec22c7a4b2625748"
+  url "https://nginx.org/download/nginx-1.13.4.tar.gz"
+  sha256 "de21f3c49ba65c611329d8759a63d72e5fcf719bc6f2a3270e2541348ef1fbba"
   head "http://hg.nginx.org/nginx/", :using => :hg
 
   conflicts_with "nginx", :because => "shopify has a custom nginx build. `brew uninstall nginx` first"
@@ -23,19 +23,9 @@ class NginxShopify < Formula
   depends_on "luajit-shopify"
   nginx_modules.each { |m, v| depends_on m => v }
 
-  patch do
-    url "https://gist.githubusercontent.com/csfrancis/4b6ca42b9903f4cef1e05580b2dba1d9/raw/4a64ab78362dfd876c9d4c61f2d11426a4d6de32/openresty-ssl_cert_db_yield.patch"
-    sha256 "73f29eb281e7da95f4db3b33e44d318e685fef7328e79c6c01a7393f88cef788"
-  end
-
-  patch do
-    url "https://gist.githubusercontent.com/es/ff969cad8f7461cffe285954025d0901/raw/082ae31d0e0b1b6487eb03e52b38dd215ef7a0fc/vary_header_length.patch"
-    sha256 "b5125816f824c2a8048765bff6ae71bc757424ee9387d3de759100278eeffdef"
-  end
-
   resource "lua-resty-core" do
-    url "https://github.com/openresty/lua-resty-core/archive/v0.1.8.tar.gz"
-    sha256 "0ac351516a66c64137e284b421c500959b11ad71efe4c413b4c45057adc46810"
+    url "https://github.com/openresty/lua-resty-core/archive/v0.1.12.tar.gz"
+    sha256 "a7945e57de5216838c34bf99f547cc17b63afc68668904dfc4fc86280a217236"
   end
 
   env :userpaths
