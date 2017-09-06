@@ -23,6 +23,18 @@ class NginxShopify < Formula
   depends_on "luajit-shopify"
   nginx_modules.each { |m, v| depends_on m => v }
 
+  # This patch can be viewed and edited via https://gist.github.com/marc-barry/63b7bc9481d73211a895efcb1b98b22e
+  patch do
+    url "https://gist.githubusercontent.com/marc-barry/63b7bc9481d73211a895efcb1b98b22e/raw/74f983ca4ab3974f7bcd059de9a6066cf5d3c430/openresty-ssl_cert_cb_yield.patch"
+    sha256 "73f29eb281e7da95f4db3b33e44d318e685fef7328e79c6c01a7393f88cef788"
+  end
+
+  # This patch can be viewed and edited via https://gist.github.com/marc-barry/cdf0eba34c02521ae9a3af27158b6ff9
+  patch do
+    url "https://gist.githubusercontent.com/marc-barry/cdf0eba34c02521ae9a3af27158b6ff9/raw/599c35039320b681bf2b64af9061f0dcbf64a8e0/vary_header_length.patch"
+    sha256 "b7360a6c4a90af321e235611cc88bc14f947b2bfe75cf9aaaaaced576fec3ed4"
+  end
+
   resource "lua-resty-core" do
     url "https://github.com/openresty/lua-resty-core/archive/v0.1.12.tar.gz"
     sha256 "a7945e57de5216838c34bf99f547cc17b63afc68668904dfc4fc86280a217236"
