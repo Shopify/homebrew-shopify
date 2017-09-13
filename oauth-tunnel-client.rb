@@ -7,7 +7,7 @@ class OauthTunnelClient < Formula
 
   desc 'Create a secure local proxy with Shopify GCP services'
   homepage 'https://github.com/Shopify/oauth-tunnel-client'
-  url 'https://storage.googleapis.com/artifacts.data-148903.appspot.com/containers/repositories/library/apps/development/oauth-tunnel-client/oauth-tunnel-client-binaries-99e7cbbe391e17ef298ead69e035d167bb191077.tar.gz?GoogleAccessId=johnmartin-cloudsql-client@data-148903.iam.gserviceaccount.com&Expires=1510414285&Signature=F%2BoTSNtwgsuGOXIc5GZ%2BcXeU3M6j6HOfcEt5F4FX8fKEtzp84lX%2BSOkSNPFi5Z0pjhXUE4OXq9PCd71mskoq89VsYTsb1%2BM9Zx7ZU1hBJGvEUIc7QGhwo9NMwqn1PL7yct8H%2FUJ%2BfeQmoICGOzYsdNPSeCvujRDtkgwceoMVhLx11lPjaViCLSa%2FdyL76ih5C9k1jFvloGCStpsk7LBCf7PSJfC2mB6iheyjyy0sDBwIS%2BrTPXK6aF7GGdY97Xv%2BdLkS3tpWBUth13OCkXB5A%2FsjPGJOefUWZ4qooRDDK5p4QDYbiESARocXTGr%2B7luMADy8lPybrbij8U70lI4Oxw%3D%3D', using: GoogleStorageDownloadStrategy
+  url 'https://storage.googleapis.com/oauth-tunnel-binaries/oauth-tunnel-client-binaries-99e7cbbe391e17ef298ead69e035d167bb191077.tar.gz?GoogleAccessId=johnmartin-cloudsql-client@data-148903.iam.gserviceaccount.com&Expires=1510506389&Signature=OuISGE7oMrOGDjAdt2Unvf4WQTM%2FyoIsQM41E%2BqsLjC%2FRfWdEiCV0r7tQXNMRdQXtWzBdkgpb%2FmHqjgduC%2B8unxSeDQjIOrdipOxLSGovDipBaVPSWp%2FifLM%2Fwd7a8Xk2Ya%2FLVJ%2Fl1WOenjKGjKuVfs2kG97C10x1YO1%2Bk6cIBybVVflGePBkURc7W3ugjcwMaAbkjHTCujcAnGaJAXh7kAHPCYy6%2BycrVa%2BkGTsxMlwugcdDSQnOY%2FjO%2Bg2VAZn92U1kFx3G13wIIP%2BWIrYNB8S2I1wGrPv06YCi4fkCdrm7UCGLr6iwroWiI8eotx6liNkuUIe3I1K1UOW%2BrjsUg%3D%3D', using: GoogleStorageDownloadStrategy
   sha256 "323a8cee3daf1aab0a53ac3f7ff6d406f83227eee614a2f66b021d9ab9e44532"
   version "0.1"
 
