@@ -1,4 +1,4 @@
-class RedshiftSsl < Formula
+class RedshiftCa < Formula
   desc "Amazon Redshift certificate authority bundle for SSL connectivity"
   homepage "http://docs.aws.amazon.com/redshift/latest/mgmt/connecting-transitioning-to-acm-certs.html#connecting-transitioning-to-acm-other-ssl-types"
   url "https://s3.amazonaws.com/redshift-downloads/redshift-ca-bundle.crt"
