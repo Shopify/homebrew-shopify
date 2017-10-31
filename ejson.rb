@@ -1,14 +1,13 @@
 class Ejson < Formula
   desc 'EJSON is a small library to manage encrypted secrets using asymmetric encryption.'
   homepage 'https://github.com/Shopify/ejson'
-  url 'https://github.com/Shopify/ejson/archive/1.0.1.tar.gz'
-  sha256 'a0d351b53e8bf3368276fced733f94054aca88b4ef5ef0a3a5000dfb23f5435f'
+  url 'https://github.com/Shopify/ejson/archive/1.1.0.tar.gz'
+  sha256 'edf474588357074ed3f0e2b7f1ecacd006bd6edde32e2fb7ffc3d7fe4040e029'
 
   bottle do
     root_url "https://s3.amazonaws.com/burkelibbey"
     cellar :any_skip_relocation
-    sha256 "3e47d357ebf78a91c83eb2f5c44a7d769b7558a310fcc99a17fa7258ef6f3d2d" => :sierra
-    sha256 "4eb87a4dedc180cec1341280380febf81eaa6261a6811ea54d653d18eae0bc6f" => :el_capitan
+    sha256 "17a5f58a5555dc90cb29b340e15c7fffd8290930a0200f94c874dd5be7390eaa" => :high_sierra
   end
 
   depends_on 'go' => :build
