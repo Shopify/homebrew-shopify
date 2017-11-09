@@ -13,6 +13,7 @@ class OauthTunnelClient < Formula
 
   def install
     bin.install({'oauth-tunnel-client_darwin_amd64' => 'oauth-tunnel-client'})
+    Dir.mkdir(File.join(Dir.home, ".config", "oauth-client"), 0755)
   end
   def plist
     home = Dir.home
