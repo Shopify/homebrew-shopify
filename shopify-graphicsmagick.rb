@@ -17,7 +17,7 @@ class ShopifyGraphicsmagick < Formula
 
   conflicts_with "graphicsmagick", :because => "shopify-graphicsmagick is newer"
 
-  head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
+  head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg, :revision => "be20577ab948"
 
   option "with-quantum-depth-8", "Compile with a quantum depth of 8 bit"
   option "with-quantum-depth-16", "Compile with a quantum depth of 16 bit (default)"
