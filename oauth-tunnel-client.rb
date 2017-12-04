@@ -28,7 +28,7 @@ class OauthTunnelClient < Formula
         <string>/usr/local/bin/oauth-tunnel-client</string>
       </array>
       <key>RunAtLoad</key>
-      <false/>
+      <true/>
       <key>StandardOutPath</key>
       <string>#{home}/.oauth-tunnel-client/tunnel-client-out.log</string>
       <key>StandardErrorPath</key>
