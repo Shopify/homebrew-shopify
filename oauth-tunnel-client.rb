@@ -7,8 +7,8 @@ class OauthTunnelClient < Formula
 
   desc 'Create a secure local proxy with Shopify GCP services'
   homepage 'https://github.com/Shopify/oauth-tunnel-client'
-  url 'https://storage.googleapis.com/oauth-tunnel-binaries/oauth-tunnel-client-binaries-1dc1346d9b1450d81fdf309610cef75067e67683.tar.gz?GoogleAccessId=data-gcs-readonly@data-148903.iam.gserviceaccount.com&Expires=1514662945&Signature=HLY4XQu0kcB2s3Y09sPgngCKTD8A3%2BrHA%2Fk%2BQveP9oinlzSx4wKbBf2a8sVKmoeLWeuTUCjOAYu93OkjTUhTvHDUMH3e6MMhVnIO%2FKlVOl0mjtLfYf2Wi6aFhA7VbroppN%2BwAIOmjNWiLRecpB5gmTXyTrzZgWIgbkOGNpeoNDqAqqsFMCabaGI03y1h%2FD%2Bzlf9orV9Vib3dPpwZ27OaauP2yMMEsKP8ir%2Bg2QrmijkMdO5O6jS883jnPJYGLrtTewdSf63mR9EKBKVgMFXbybUKMRrA2E%2BOVFvbkKv1Tm%2FHtjYEgvWg0tTJnwO3Q55w5Mq23Nf8gmRjsDk%2B6sfPwg%3D%3D', using: GoogleStorageDownloadStrategy
-  sha256 "af7bb1c94db322f3a88dae6649a5004cd42a27ad80df0babdea55764cd18e44f"
+  url 'https://storage.googleapis.com/oauth-tunnel-binaries/oauth-tunnel-client-binaries-08e20d74b6992411aa203d296eb7ed7a1ac089ba.tar.gz?GoogleAccessId=pipa-production@shopify-docker-images.iam.gserviceaccount.com&Expires=1513005948&Signature=mpd7rbZa%2BxC0ceVrluc8H9uxwrfOuJdGYvn0eLzsI%2BuN41Pyfe3tkMAdepTrpOHu8MUm4ADovk8FJHxdtWbWdqkkTHZkw8NGF4VOfKIzqGXVPzE58DGMaxw2B2AFSj4rFCApltHxesW6Hd%2Fo%2BIf%2BryWQ9AjpKLXchy%2B%2BOB0FZxMuayLbA5aazLr%2B%2BGrA7XW7tFuwjzlgt%2F8aqy7qvtOdAcG5V8dvKw0DV9UcZb5GlveNQdqSaYEBst85eNRDTq%2B8uKvs1cd%2FVQTfyrymHa3bC%2BRFyvHEuQKk33dhknUxjnb%2Fue%2FSkuEDBmUd8JL3QzZ8SGuC2GEXxLgGQ2X%2BzOcqXw%3D%3D', using: GoogleStorageDownloadStrategy
+  sha256 "8a8cfc2305093f5c255899380327d0441f72191231bb38f7dfb6c8101baf1195"
   version "0.1"
 
   def install
