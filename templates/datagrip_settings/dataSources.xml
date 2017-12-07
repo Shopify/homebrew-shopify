@@ -1,0 +1,36 @@
+<application>
+  <component name="dataSourceStorage" format="xml">
+    <data-source source="LOCAL" name="Redshift" uuid="aca15fcb-2ec3-406e-b9cf-040ebef29e5c">
+      <driver-ref>c8f2a82f-0851-4bb9-b5e8-a53daa9f28b5</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://redshift.data.shopify.com:5439/warehouse</jdbc-url>
+      <driver-properties>
+        <property name="ssl" value="true" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="MySQL - Aggregates Aurora" uuid="4a9b6294-32af-4153-b099-ac5b17777381">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://aggregates-aurora.data.shopify.com:3306/starscream</jdbc-url>
+      <driver-properties>
+        <property name="autoReconnect" value="true" />
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+        <property name="characterEncoding" value="utf8" />
+        <property name="characterSetResults" value="utf8" />
+        <property name="yearIsDateType" value="false" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="Presto" uuid="75d56f6d-cd76-4bb7-a56d-5391b6ebe873">
+      <driver-ref>01d7217a-711d-421d-99d3-cb47a2426cd8</driver-ref>
+      <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
+      <jdbc-driver>com.facebook.presto.jdbc.PrestoDriver</jdbc-driver>
+      <jdbc-url>jdbc:presto://ods1.hu131.data-chi.shopify.com:8082</jdbc-url>
+      <default-dialect>PostgreSQL</default-dialect>
+      <vm-options>-Duser.timezone=&quot;UTC&quot;</vm-options>
+    </data-source>
+  </component>
+</application>

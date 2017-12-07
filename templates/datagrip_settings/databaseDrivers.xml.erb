@@ -1,0 +1,18 @@
+<application>
+  <component name="LocalDatabaseDriverManager" version="141+">
+    <driver id="c8f2a82f-0851-4bb9-b5e8-a53daa9f28b5" name="Redshift" dialect="PostgreSQL" driver-class="com.amazon.redshift.jdbc42.Driver">
+      <option name="auto-commit" value="true" />
+      <option name="auto-sync" value="true" />
+      <library>
+        <url>file://usr/local/Cellar/redshift-jdbc/<%= redshift_jdbc_driver_version %>/RedshiftJDBC<%= redshift_jdbc_driver_version %>.jar</url>
+      </library>
+    </driver>
+    <driver id="01d7217a-711d-421d-99d3-cb47a2426cd8" name="Presto Driver" driver-class="com.facebook.presto.jdbc.PrestoDriver">
+      <option name="auto-commit" value="true" />
+      <option name="auto-sync" value="true" />
+      <library>
+        <url>file://usr/local/Cellar/presto-jdbc/<%= presto_version %>/presto-jdbc-<%= presto_version %>.jar</url>
+      </library>
+    </driver>
+  </component>
+</application>
