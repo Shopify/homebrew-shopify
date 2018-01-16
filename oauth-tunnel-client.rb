@@ -7,8 +7,8 @@ class OauthTunnelClient < Formula
 
   desc 'Create a secure local proxy with Shopify GCP services'
   homepage 'https://github.com/Shopify/oauth-tunnel-client'
-  url 'https://storage.googleapis.com/oauth-tunnel-binaries/oauth-tunnel-client-binaries-02ec2ac7fb1e6bb5d587d6418ae714731cc0355e.tar.gz?GoogleAccessId=pipa-production@shopify-docker-images.iam.gserviceaccount.com&Expires=1518965251&Signature=zc%2FtNlj9KKPohMgguxrO%2FcXBEcDaEz%2FTLv5U72lhkJoyc6X%2BJ7Ct2S%2B8TIg7EPofkNQNVnqIVAXZpd5wXny%2Be6LgVNsDYe6prcl1ROvg9Y%2FfXS%2BgX21x9i8HnCpcaWuOAdn5fmcQUh30u6uosn7fUwpAzsQFKgh7QMbHJxjCFGjVOnI%2F4szHmwr1rbSd1G2YW8sy0D3b5qvXabPQ%2BflYnAhMzaDG5av2LD8Dk2Pd4ZuRFrBrb32IBWgkS9USjgQVAljIgE8CZoQa%2BWshISvqHuDMWQae85Ym0kBvLSb%2BrpWlRtyy%2B7l2KHv9fCeiRxDxNNEZ1wnvl0l2NbDrKYkRKA%3D%3D', using: GoogleStorageDownloadStrategy
-  sha256 "91579ff7640f42c3682025e2eef2ded434f7088fcd7e64bd1da82dba54231f89"
+  url 'https://storage.googleapis.com/oauth-tunnel-binaries/oauth-tunnel-client-binaries-0f60c23ea7ace2b6bb2b78f99d3c9b7ce2aed004.tar.gz?GoogleAccessId=pipa-production@shopify-docker-images.iam.gserviceaccount.com&Expires=1521301754&Signature=pMhFmL8HrPVcL34zVBloH5jKf%2Br3iME%2BbblU20eHbjaL1SMtkQk2FEAXV3eCXBkur1jtmUvdoop3hUuh7D1nn%2FdxtXvDcilTfpzzmFoJ9IUeHUwUuvFW7fFqL1Z43Cizi7RydCP1gYc0x7dLsFuHj1efPu%2BDDDWYJtNqPbUWoUEaK5lDvmsNbQ4cPukM5N3z7OLXFAO4n%2Fj98lagJZBx0%2BvI9Y06vU1XaLhDnl%2BLElr7VFr3ag900h20Dypg%2FwaaM3UITqnnGbp%2F1b%2BC%2FMKIH77DrvR2qAMWxtibKcCtfLd9smo9bSccKnyAY1PJd%2FAPrT4s3INWVTYfg06MGq%2BeSg%3D%3D', using: GoogleStorageDownloadStrategy
+  sha256 "0c8ca864da2e76b0f91070f56854a40dd3a998c0af3a0b6ce06c345f0a80d8d3"
   version "0.1"
 
   def install
@@ -30,9 +30,9 @@ class OauthTunnelClient < Formula
       <key>RunAtLoad</key>
       <true/>
       <key>StandardOutPath</key>
-      <string>#{home}/.oauth-tunnel-client/tunnel-client-out.log</string>
+      <string>/var/log/oauth-tunnel-client/tunnel-client-out.log</string>
       <key>StandardErrorPath</key>
-      <string>#{home}/.oauth-tunnel-client/tunnel-client-err.log</string>
+      <string>/var/log/oauth-tunnel-client/tunnel-client-err.log</string>
       <key>Debug</key>
       <true/>
     </dict>
