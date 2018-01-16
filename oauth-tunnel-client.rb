@@ -30,9 +30,9 @@ class OauthTunnelClient < Formula
       <key>RunAtLoad</key>
       <true/>
       <key>StandardOutPath</key>
-      <string>#{home}/.oauth-tunnel-client/tunnel-client-out.log</string>
+      <string>/var/log/oauth-tunnel-client/tunnel-client-out.log</string>
       <key>StandardErrorPath</key>
-      <string>#{home}/.oauth-tunnel-client/tunnel-client-err.log</string>
+      <string>/var/log/oauth-tunnel-client/tunnel-client-err.log</string>
       <key>Debug</key>
       <true/>
     </dict>
