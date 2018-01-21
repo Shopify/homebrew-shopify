@@ -16,7 +16,7 @@ class OauthTunnelClient < Formula
   end
   def plist
     home = Dir.home
-    <<-EOS.undent
+    <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -29,12 +29,6 @@ class OauthTunnelClient < Formula
       </array>
       <key>RunAtLoad</key>
       <true/>
-      <key>StandardOutPath</key>
-      <string>/var/log/oauth-tunnel-client/tunnel-client-out.log</string>
-      <key>StandardErrorPath</key>
-      <string>/var/log/oauth-tunnel-client/tunnel-client-err.log</string>
-      <key>Debug</key>
-      <true/>
     </dict>
     </plist>
     EOS
@@ -43,3 +37,4 @@ class OauthTunnelClient < Formula
     system "#{bin}/oauth-tunnel-client_darwin_amd64", "version"
   end
 end
+
