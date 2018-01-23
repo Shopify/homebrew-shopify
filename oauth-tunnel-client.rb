@@ -13,14 +13,22 @@ class OauthTunnelClient < Formula
 
   def install
     bin.install({'oauth-tunnel-client_darwin_amd64' => 'oauth-tunnel-client'})
+    mkdir_p('/usr/local/var/log/oauth-tunnel-client/')
+    chown(ENV['USER'], 'staff', '/usr/local/var/log/oauth-tunnel-client/')
+    chmod(0750, '/usr/local/var/log/oauth-tunnel-client/', :verbose => true)
   end
   def plist
     home = Dir.home
-    <<-EOS.undent
+    <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
     <dict>
+      <key>EnvironmentVariables</key>
+      <dict>
+       <key>GIN_MODE</key>
+       <string>release</string>
+      </dict>
       <key>Label</key>
       <string>com.shopify.oauth-tunnel-client</string>
       <key>ProgramArguments</key>
@@ -29,12 +37,10 @@ class OauthTunnelClient < Formula
       </array>
       <key>RunAtLoad</key>
       <true/>
-      <key>StandardOutPath</key>
-      <string>/var/log/oauth-tunnel-client/tunnel-client-out.log</string>
       <key>StandardErrorPath</key>
-      <string>/var/log/oauth-tunnel-client/tunnel-client-err.log</string>
-      <key>Debug</key>
-      <true/>
+      <string>/usr/local/var/log/oauth-tunnel-client/oauth-tunnel-client_err.log</string>
+      <key>StandardOutPath</key>
+      <string>/usr/local/var/log/oauth-tunnel-client/oauth-tunnel-client.log</string>
     </dict>
     </plist>
     EOS
