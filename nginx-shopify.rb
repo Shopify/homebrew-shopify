@@ -21,6 +21,7 @@ class NginxShopify < Formula
   depends_on "geoip"
   depends_on "openssl"
   depends_on "luajit-shopify"
+  depends_on "libcidr-shopify"
   nginx_modules.each { |m, v| depends_on m => v }
 
   # This patch can be viewed and edited via https://gist.github.com/marc-barry/63b7bc9481d73211a895efcb1b98b22e
