@@ -2,11 +2,11 @@ class LibcidrShopify < Formula
   desc 'Libcidr is a library that provides utility functions to handle IP addresses and net blocks.'
   homepage 'https://www.over-yonder.net/~fullermd/projects/libcidr'
   url 'http://bazaar.launchpad.net/~fullermd/libcidr/trunk/tarball/302'
-  sha256 'cb3c51ffec7c6dd83dca1e7f3a92852e4febd230624e84457c269bec82432719'
+  sha256 '44d99c491a90d01baf0e074f6b5bac48e7eab93e97835819f631ef2a8bd12935'
 
   patch do
-    url "https://gist.githubusercontent.com/fmejia97/ad72a1f2b5d4b77a2921f32d861850b8/raw/7888c4a21a1e2afcaf0cdff627d5643574d020a0/mac_os_libcidr_support.patch"
-    sha256 "8578885fd5d8a5c5bf64b92283292c568ba8b38bf7d411a79b0533cfee8a546f"
+    url "https://gist.githubusercontent.com/fmejia97/ad72a1f2b5d4b77a2921f32d861850b8/raw/151aabb91fe183ca3d18521c29f90007aa690592/mac_os_libcidr_support.patch"
+    sha256 "76459e78199b2ea94f0522af24262ea259fb74e5ba38acd9619a58390eafd599"
   end
 
   def install
