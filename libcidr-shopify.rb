@@ -5,8 +5,8 @@ class LibcidrShopify < Formula
   sha256 'afbe266a9839775a21091b0e44daaf890a46ea4c2d3f5126b3048d82b9bfbbc4'
 
   patch do
-    url "https://gist.githubusercontent.com/fmejia97/ad72a1f2b5d4b77a2921f32d861850b8/raw/cd2d5d2c3737f585fc71226786ea82279bf36645/mac_os_libcidr_support.patch"
-    sha256 "92b72bdc3fab7c95f3689d451d67848b1c4d1d9da58561e3db6e3d5ca57cb399"
+    url "https://raw.githubusercontent.com/Shopify/homebrew-shopify/3b468e634f3084d1ad2eed26d8b24fd2c61bfbfe/patch/mac_os_libcidr_support.patch"
+    sha256 "fac7310e3dda9ac2a7fc4abd435f1ddcd2300191523b7a83bf2b9eaa683a1271"
   end
 
   def install
