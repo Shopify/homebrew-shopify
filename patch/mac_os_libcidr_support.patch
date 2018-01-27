@@ -1,0 +1,49 @@
+diff --git a/libcidr/trunk/Makefile b/libcidr/trunk/Makefile
+index c72131f..46adb34 100644
+--- a/libcidr/trunk/Makefile
++++ b/libcidr/trunk/Makefile
+@@ -70,7 +70,7 @@ install-examples:
+
+ # Wrapup install of everything
+ install: install-lib install-dev install-cidrcalc \
+-  install-man install-docs install-examples
++  install-man install-examples
+ 	@${ECHO} ""
+ 	@${ECHO} "libcidr install complete"
+
+diff --git a/libcidr/trunk/Makefile.inc b/libcidr/trunk/Makefile.inc
+index 3c44a94..108fb31 100644
+--- a/libcidr/trunk/Makefile.inc
++++ b/libcidr/trunk/Makefile.inc
+@@ -2,8 +2,8 @@
+
+ # Library naming and versioning
+ LIB_VERS = 0
+-SHLIB_NAME = libcidr.so.${LIB_VERS}
+-SHLIB_LINK = libcidr.so
++SHLIB_LINK = libcidr.dylib
++SHLIB_NAME = ${SHLIB_LINK}.${LIB_VERS}
+
+ # Define some destination directories
+ # Where we think of ourselves as living
+diff --git a/libcidr/trunk/src/Makefile.inc b/libcidr/trunk/src/Makefile.inc
+index 7300414..089fd2b 100644
+--- a/libcidr/trunk/src/Makefile.inc
++++ b/libcidr/trunk/src/Makefile.inc
+@@ -45,7 +45,7 @@ def: all
+
+ ${SHLIB_NAME}: ${SO_FILES}
+ 	@echo Linking ${SHLIB_NAME}...
+-	${CC} -shared -Wl,-x -o ${@} -Wl,-soname,${SHLIB_NAME} \
++	${CC} -shared -Wl,-x -o ${@} -Wl,-install_name,${SHLIB_NAME} \
+ 			`${LORDER} ${SO_FILES} | ${TSORT}`
+ 	${LN} -sf ${SHLIB_NAME} ${SHLIB_LINK}
+
+@@ -70,7 +70,7 @@ clean allclean:
+ # These paths wind up relative to src/{test,examples}/*
+ CFLAGS += -I../../../include
+ L_FLAGS += -g -pipe -L../..
+-LCIDR = ../../libcidr.so
++LCIDR = ../../${SHLIB_LINK}
+
+ CLEAN_FILES = ${O_FILES} ${PROGNAME} *core .depend
