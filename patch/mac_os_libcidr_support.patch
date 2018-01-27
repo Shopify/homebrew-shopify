@@ -1,7 +1,7 @@
-diff --git a/libcidr/trunk/Makefile b/libcidr/trunk/Makefile
+diff --git a/Makefile b/Makefile
 index c72131f..46adb34 100644
---- a/libcidr/trunk/Makefile
-+++ b/libcidr/trunk/Makefile
+--- a/Makefile
++++ b/Makefile
 @@ -70,7 +70,7 @@ install-examples:
 
  # Wrapup install of everything
@@ -11,10 +11,10 @@ index c72131f..46adb34 100644
  	@${ECHO} ""
  	@${ECHO} "libcidr install complete"
 
-diff --git a/libcidr/trunk/Makefile.inc b/libcidr/trunk/Makefile.inc
+diff --git a/Makefile.inc b/Makefile.inc
 index 3c44a94..108fb31 100644
---- a/libcidr/trunk/Makefile.inc
-+++ b/libcidr/trunk/Makefile.inc
+--- a/Makefile.inc
++++ b/Makefile.inc
 @@ -2,8 +2,8 @@
 
  # Library naming and versioning
@@ -26,10 +26,10 @@ index 3c44a94..108fb31 100644
 
  # Define some destination directories
  # Where we think of ourselves as living
-diff --git a/libcidr/trunk/src/Makefile.inc b/libcidr/trunk/src/Makefile.inc
-index 7300414..089fd2b 100644
---- a/libcidr/trunk/src/Makefile.inc
-+++ b/libcidr/trunk/src/Makefile.inc
+diff --git a/src/Makefile.inc b/src/Makefile.inc
+index 653357b..e6ca131 100644
+--- a/src/Makefile.inc
++++ b/src/Makefile.inc
 @@ -45,7 +45,7 @@ def: all
 
  ${SHLIB_NAME}: ${SO_FILES}
