@@ -7,7 +7,7 @@ class NoExpatFramework < Requirement
     !File.exist? expat_framework
   end
 
-  def message; <<-EOS.undent
+  def message; <<~EOS
     Detected #{expat_framework}
 
     This will be picked up by CMake's build system and likely cause the
