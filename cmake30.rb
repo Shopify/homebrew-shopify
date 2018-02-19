@@ -32,7 +32,7 @@ class Cmake30 < Formula
   end
 
   option "without-docs", "Don't build man pages"
-  depends_on :python => :build if MacOS.version <= :snow_leopard && build.with?("docs")
+  depends_on "python" => :build if MacOS.version <= :snow_leopard && build.with?("docs")
 
   depends_on "qt" => :optional
 
