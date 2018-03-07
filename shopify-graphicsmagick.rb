@@ -10,9 +10,8 @@ class ShopifyGraphicsmagick < Formula
   revision 2
 
   bottle do
-    root_url "https://s3.amazonaws.com/burkelibbey"
-    rebuild 1
-    sha256 "48c71aba65768b1ef75ef7636579a32d891fae4bdbc979f8c2c17f77797fbef3" => :sierra
+    root_url "https://storage.googleapis.com/shopify-dev-public"
+    sha256 "c4e248c17e8e40cc0a3b7c701d6b95ed8e3c58076c399cdd645340100410f8c2" => :high_sierra
   end
 
   conflicts_with "graphicsmagick", :because => "shopify-graphicsmagick is newer"
