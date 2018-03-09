@@ -7,7 +7,7 @@ class NoExpatFramework < Requirement
     !File.exist? expat_framework
   end
 
-  def message; <<-EOS.undent
+  def message; <<~EOS
     Detected #{expat_framework}
 
     This will be picked up by CMake's build system and likely cause the
@@ -32,7 +32,7 @@ class Cmake30 < Formula
   end
 
   option "without-docs", "Don't build man pages"
-  depends_on :python => :build if MacOS.version <= :snow_leopard && build.with?("docs")
+  depends_on "python" => :build if MacOS.version <= :snow_leopard && build.with?("docs")
 
   depends_on "qt" => :optional
 

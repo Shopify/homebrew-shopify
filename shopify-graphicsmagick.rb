@@ -89,7 +89,7 @@ class ShopifyGraphicsmagick < Formula
 
   def caveats
     if build.with? "perl"
-      <<-EOS.undent
+      <<~EOS
         The Graphics::Magick perl module has been installed under:
 
           #{lib}

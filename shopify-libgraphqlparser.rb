@@ -34,7 +34,7 @@ class ShopifyLibgraphqlparser < Formula
   test do
     require "utils/json"
 
-    sample_query = <<-EOS.undent
+    sample_query = <<~EOS
       { user }
     EOS
 

@@ -113,7 +113,7 @@ class ShopifyRuby < Formula
     "#{HOMEBREW_PREFIX}/bin"
   end
 
-  def rubygems_config; <<-EOS.undent
+  def rubygems_config; <<~EOS
     module Gem
       class << self
         alias :old_default_dir :default_dir
