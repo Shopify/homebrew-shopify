@@ -1,8 +1,8 @@
 cask 'tunnel-client-app' do
   version '0.1.0'
-  sha256 'ef1398a235b6e1d7ad2fd7e0a9d5dbf3d1b5a086bb171cc615943bae244fea29'
+  sha256 '562ff71232d120ae64e2be9f683296687d8a1c5f9e1cfb3d8ee315b1e57ac205'
 
-  url 'https://storage.googleapis.com/tunnel-client-app-binaries/TunnelClient.app-c1382d0e6f4607b9739a0422468000536491f0e8.tar.gz'
+  url 'https://storage.googleapis.com/tunnel-client-app-binaries/TunnelClient.app-430b1d1967a808ad919f43a3617bb74f595bb528.tar.gz'
   name 'Tunnel Client App'
   homepage 'https://github.com/Shopify/tunnel-client-app'
 
