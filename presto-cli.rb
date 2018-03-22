@@ -16,7 +16,7 @@ class PrestoCli < Formula
   def wrapper_script; <<~EOS
     #!/bin/bash
 
-    java -Duser.timezone=UTC -jar #{lib}/presto-cli-#{version}-executable.jar --user $(whoami) --server ods1.hu131.data-chi.shopify.com:8082 "$@"
+    java -Duser.timezone=UTC -jar #{lib}/presto-cli-#{version}-executable.jar --user $(whoami) --server presto-for-datachi.presto.tunnel.shopifykloud.com:8675 "$@"
     EOS
   end
 end
