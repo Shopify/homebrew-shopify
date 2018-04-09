@@ -3,7 +3,7 @@ class Libzookeeper < Formula
   homepage "https://zookeeper.apache.org/"
 
   stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=zookeeper/zookeeper-3.4.7/zookeeper-3.4.7.tar.gz"
+    url "http://archive.apache.org/dist/zookeeper/zookeeper-3.4.7/zookeeper-3.4.7.tar.gz"
     sha256 "2e043e04c4da82fbdb38a68e585f3317535b3842c726e0993312948afcc83870"
   end
 
