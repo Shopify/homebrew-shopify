@@ -9,11 +9,6 @@ class ShopifyImagemagickAT6 < Formula
   sha256 "62f25d46bfbcffe00b84e167994d593868a9a47d4defc489a429cae1d6aab9f7"
   head "https://github.com/imagemagick/imagemagick.git", :branch => "ImageMagick-6"
 
-  bottle do
-    root_url "http://burkelibbey.s3.amazonaws.com"
-    sha256 "1c2df5a7a1f4a17a6b4cbc8a4324114539cb9cceb3c78c96e74a4c3633acbaa4" => :high_sierra
-  end
-
   conflicts_with "imagemagick@6", :because => "imagemagick@6 is newer but unsupported in rmagick"
 
   keg_only :versioned_formula
