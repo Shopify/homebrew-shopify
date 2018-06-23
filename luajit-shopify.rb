@@ -16,7 +16,7 @@ class LuajitShopify < Formula
   # https://github.com/LuaJIT/LuaJIT/issues/180
   patch do
     url "https://github.com/LuaJIT/LuaJIT/commit/5837c2a2fb1ba6651.diff"
-    sha256 "622ee354f58d2bde2adbfdf432d4f276ddc83a3b5d11b6cab06fb89f381cfcb3"
+    sha256 "793d3243b277cc272ec5cf20e75ec2545fa71ab57fcb0d04b5ab5dc77566ff9d"
   end
 
   deprecated_option "enable-debug" => "with-debug"
