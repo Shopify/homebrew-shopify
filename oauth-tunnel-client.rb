@@ -1,9 +1,4 @@
 class OauthTunnelClient < Formula
-  class GoogleStorageDownloadStrategy < CurlDownloadStrategy
-    def ext
-      Pathname.new(basename_without_params).extname[/[^?]+/]
-    end
-  end
 
   desc 'Create a secure local proxy with Shopify GCP services'
   homepage 'https://github.com/Shopify/oauth-tunnel-client'
