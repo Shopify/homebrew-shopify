@@ -4,12 +4,11 @@ class Ejson2env < Formula
   url 'https://github.com/Shopify/ejson2env/archive/v1.0.1.tar.gz'
   sha256 'f8599c2dca6053914ea4731f4c8d539919917b6af2fc02951ca65400f567b296'
 
-  # bottle do
-  #   root_url "https://s3.amazonaws.com/burkelibbey"
-  #   cellar :any_skip_relocation
-  #   rebuild 1
-  #   sha256 "a06274cc855a7204a600510c037646a05b05392bb609bba4a4d57e234b9b9022" => :high_sierra
-  # end
+  bottle do
+    root_url "https://s3.amazonaws.com/burkelibbey"
+    cellar :any_skip_relocation
+    sha256 "02b6d26a60455a520286400b7db6613ee300bdcebbc2b44bc9740c283d72aa94" => :high_sierra
+  end
 
    depends_on 'go' => :build
 
