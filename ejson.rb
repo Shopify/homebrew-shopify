@@ -6,6 +6,7 @@ class Ejson < Formula
   bottle do
     root_url "https://s3.amazonaws.com/burkelibbey"
     cellar :any_skip_relocation
+    sha256 "b7add2e890b2dac8580cdd43de77fa7f979758f66d7ecb470ab1e9e73065c04c" => :high_sierra
   end
 
   depends_on 'go' => :build
