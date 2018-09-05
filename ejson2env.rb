@@ -1,13 +1,13 @@
 class Ejson2env < Formula
   desc 'Ejson2env is a utility to export decrypted ejson secrets as environment variable assignments'
   homepage 'https://github.com/Shopify/ejson2env'
-  url 'https://github.com/Shopify/ejson2env/archive/v1.0.1.tar.gz'
-  sha256 'f8599c2dca6053914ea4731f4c8d539919917b6af2fc02951ca65400f567b296'
+  url 'https://github.com/Shopify/ejson2env/archive/v1.0.2.tar.gz'
+  sha256 'ff80d4059d140b0431eb85b390224fd9b7e841cf93bea823493934ad201608cf'
 
   bottle do
     root_url "https://s3.amazonaws.com/burkelibbey"
     cellar :any_skip_relocation
-    sha256 "02b6d26a60455a520286400b7db6613ee300bdcebbc2b44bc9740c283d72aa94" => :high_sierra
+    sha256 "e140877bc369c5f7cb81abe04971bd6523d2556e57c4018d2a059b63ae0f2458" => :high_sierra
   end
 
    depends_on 'go' => :build
