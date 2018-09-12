@@ -5,13 +5,12 @@ class Ejson2env < Formula
   sha256 '805b84fae096b3b55de870ca9e83817c3bff0c1581cd09f70c99cc8321c8a025'
 
   bottle do
+    root_url "https://github.com/Shopify/ejson2env/releases/download/v1.0.3/"
     cellar :any_skip_relocation
     sha256 "116419c566abe4d86f6317aac77940cde9071b1793c21dbcd2436e920569a37d" => :high_sierra
-    root_url "https://github.com/Shopify/ejson2env/releases/download/v1.0.3/"
   end
 
-
-   depends_on 'go' => :build
+  depends_on 'go' => :build
 
   def install
     ENV['GEM_HOME'] = buildpath/'.gem'
