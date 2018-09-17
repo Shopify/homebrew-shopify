@@ -2,9 +2,9 @@ class OauthTunnelClient < Formula
 
   desc 'Create a secure local proxy with Shopify GCP services'
   homepage 'https://github.com/Shopify/oauth-tunnel-client'
-  url 'https://storage.googleapis.com/binaries.shopifykloud.com/oauth-tunnel/oauth-tunnel-client-0b2d81e1e059dec61aaf8a0962f06ac761befaa1.tar.gz'
-  sha256 '2cf270c6a2777cb18071c3eb1be990036feb3a075273915b613858527cb205c3'
-  version "0.3.2"
+  url 'https://storage.googleapis.com/binaries.shopifykloud.com/oauth-tunnel/oauth-tunnel-client-cb1489c167049627ed5b96b903948af80b482191.tar.gz'
+  sha256 '301289281727f8317dbebc7f72ac7d743783ef6431c754907c6b534e74b084ed'
+  version "0.3.3"
 
   def install
     bin.install({'oauth-tunnel-client_darwin_amd64' => 'oauth-tunnel-client'})
