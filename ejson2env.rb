@@ -8,6 +8,7 @@ class Ejson2env < Formula
     root_url "https://github.com/Shopify/ejson2env/releases/download/v1.0.4/"
     cellar :any_skip_relocation
     sha256 "e8fedfe95dc94e481a8b5e3125e6b86bd9a0e4d2f9578e7a609bce7cd1cf363f" => :high_sierra
+    sha256 "8808f5080cb858dadaad98980e62520f1421c78f46f5f5413e68201568ca9095" => :mojave
   end
 
   depends_on 'go' => :build

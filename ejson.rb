@@ -7,6 +7,7 @@ class Ejson < Formula
     root_url "https://s3.amazonaws.com/burkelibbey"
     cellar :any_skip_relocation
     sha256 "b7add2e890b2dac8580cdd43de77fa7f979758f66d7ecb470ab1e9e73065c04c" => :high_sierra
+    sha256 "9f94ed3c05634be285c85e4488d3bdaf5a5e40306d99a3af5c968a38be011bbf" => :mojave
   end
 
   depends_on 'go' => :build

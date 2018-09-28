@@ -12,6 +12,7 @@ class SecretSender < Formula
     root_url "https://github.com/Shopify/secret-sender/releases/download/v1.0.0"
     cellar :any_skip_relocation
     sha256 "d99c4766085be488aff1f00e4c07af0690e1817fde68a4f660e496f60dc1a12d" => :high_sierra
+    sha256 "f302e954ef6fce38d9973a88017beebdd4ab81455e83930b27626ac734dad76e" => :mojave
   end
 
   def install
