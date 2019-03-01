@@ -9,11 +9,6 @@ class ShopifyGraphicsmagick < Formula
   sha256 "334fa009c7a1b5b91849b971ec85dffff19fb23737568cfdb49aee853731e7a5"
   revision 2
 
-  bottle do
-    root_url "https://storage.googleapis.com/shopify-dev-public"
-    sha256 "c4e248c17e8e40cc0a3b7c701d6b95ed8e3c58076c399cdd645340100410f8c2" => :high_sierra
-  end
-
   conflicts_with "graphicsmagick", :because => "shopify-graphicsmagick is newer"
 
   head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
