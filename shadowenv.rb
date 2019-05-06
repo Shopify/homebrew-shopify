@@ -15,6 +15,12 @@ class Shadowenv < Formula
     man5.install "#{buildpath}/man/man5/shadowlisp.5"
   end
 
+  bottle do
+    root_url "https://github.com/Shopify/shadowenv/releases/download/0.3.1"
+    cellar :any_skip_relocation
+    sha256 "a1feec3a22b876b511ebce116fcc78c580596a25722c51a582d85dabd8507202" => :mojave
+  end
+
   test do
     assert_equal "shadowenv 0.3.1", shell_output("#{bin}/shadowenv -V").chomp
   end
