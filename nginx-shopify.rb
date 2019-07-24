@@ -37,8 +37,8 @@ class NginxShopify < Formula
   end
 
   resource "lua-resty-core" do
-    url "https://github.com/openresty/lua-resty-core/archive/v0.1.12.tar.gz"
-    sha256 "a7945e57de5216838c34bf99f547cc17b63afc68668904dfc4fc86280a217236"
+    url "https://github.com/openresty/lua-resty-core/archive/v0.1.16.tar.gz"
+    sha256 "a6bd1c27291eed3df01225931346a0c78651a71d7c52839227e466eec2df2e63"
   end
 
   env :userpaths
