@@ -3,8 +3,8 @@ require 'fileutils'
 class SecretSender < Formula
   desc 'SecretSender is a little utility to securely share secrets to other users.'
   homepage 'https://github.com/Shopify/secret-sender'
-  url 'https://github.com/Shopify/secret-sender/archive/v1.0.0.tar.gz'
-  sha256 'f395b5da63d6c031b756622b6ad8430e8ca54d60d8d7266d7132b1265c4e2d39'
+  url 'https://github.com/Shopify/secret-sender/archive/v2.0.0.tar.gz'
+  sha256 '282a90308b401f99f21885a34f9b5859ee90e9863ef2e87b4f522e57c9e53be6'
 
   depends_on 'go' => :build
 
