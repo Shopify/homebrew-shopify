@@ -1,13 +1,13 @@
 class Ejson2env < Formula
   desc 'Ejson2env is a utility to export decrypted ejson secrets as environment variable assignments'
   homepage 'https://github.com/Shopify/ejson2env'
-  url 'https://github.com/Shopify/ejson2env/archive/v1.1.0.tar.gz'
-  sha256 '546515d6220017812ec7369dfdccca6c2edc1d991ebaf25f78b5b09bf2497b6a'
+  url 'https://github.com/Shopify/ejson2env/archive/v2.0.0.tar.gz'
+  sha256 '77e9ac0c546a41741448375955557f24d96b09ba8a715216b1fee008ae165f5b'
 
   bottle do
-    root_url "https://github.com/Shopify/ejson2env/releases/download/v1.1.0/"
     cellar :any_skip_relocation
-    sha256 "23454ba67b4fc551722d22bb86685025765bba07f6bd57974d93de2aec4eb8f2" => :mojave
+    root_url "https://github.com/Shopify/ejson2env/releases/download/v2.0.0/ejson2env-2.0.0.mojave.bottle.tar.gz"
+    sha256 "6e24d9eab03fde39db3a4539e19a1634a93e0d6c03fcc0a427b419483e3cc79f" => :mojave
   end
 
   depends_on 'go' => :build
@@ -20,7 +20,15 @@ class Ejson2env < Formula
     system('mkdir', '-p', buildpath/'.gopath/src/github.com/Shopify')
     ENV['GOPATH'] = buildpath/'.gopath'
     system('ln', '-sf', buildpath, buildpath/'.gopath/src/github.com/Shopify/ejson2env')
-    system('go', 'build', '-o', 'ejson2env', 'github.com/Shopify/ejson2env/cmd/ejson2env')
+    system(
+      'go',
+      'build',
+      '-ldflags',
+      '-s -w -X main.version=2.0.0',
+      '-o',
+      'ejson2env',
+      'github.com/Shopify/ejson2env/cmd/ejson2env'
+    )
     system('make', 'man')
 
     bin.install 'ejson2env'
