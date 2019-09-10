@@ -3,15 +3,9 @@ class BuildkiteAgent < Formula
   homepage "https://buildkite.com/docs/agent"
 
   stable do
-    version "3.12.0"
-    url     "https://github.com/buildkite/agent/releases/download/v3.12.0/buildkite-agent-darwin-amd64-3.12.0.tar.gz"
-    sha256  "c3e26dcfb729b7112761d4e6c1ac037f43ce5918c624427a817ded790fe769c7"
-  end
-
-  devel do
-    version "3.0-beta.44"
-    url     "https://github.com/buildkite/agent/releases/download/v3.0-beta.44/buildkite-agent-darwin-amd64-3.0-beta.44.tar.gz"
-    sha256  "fe53562074dc40683f89f7429e1a256c9a891615b63ec1238d13ba6d0eed7d96"
+    version "3.14.0"
+    url     "https://github.com/buildkite/agent/releases/download/v3.14.0/buildkite-agent-darwin-amd64-3.14.0.tar.gz"
+    sha256  "25484cc4601da2008ad0cef65c4295ac0db5eea929212a35acf432f08366bd39"
   end
 
   option "token=", "Your account's agent token to add to the config on install"
@@ -96,19 +90,25 @@ class BuildkiteAgent < Formula
   def caveats
     <<~EOS
       \033[32mbuildkite-agent is now installed!\033[0m#{agent_token_reminder}
+
       Configuration file (to configure agent meta-data, priority, name, etc):
           #{agent_config_path}
+
       Hooks directory (for customising the agent):
           #{agent_hooks_path}
+
       Builds directory:
           #{agent_builds_path}
+
       Log paths:
           #{var}/log/buildkite-agent.log
           #{var}/log/buildkite-agent.error.log
+
       If you set up the LaunchAgent, set your machine to auto-login as
       your current user. It's also recommended to install Caffeine
       (http://lightheadsw.com/caffeine/) to prevent your machine from going to
       sleep or logging out.
+
       To run multiple agents simply run the buildkite-agent start command
       multiple times, or duplicate the LaunchAgent plist to create another
       that starts on login.
@@ -125,8 +125,10 @@ class BuildkiteAgent < Formula
       <dict>
         <key>Label</key>
         <string>#{plist_name}</string>
+
         <key>WorkingDirectory</key>
         <string>#{HOMEBREW_PREFIX}/bin</string>
+
         <key>ProgramArguments</key>
         <array>
           <string>#{HOMEBREW_PREFIX}/bin/buildkite-agent</string>
@@ -135,24 +137,31 @@ class BuildkiteAgent < Formula
           <string>#{agent_config_path}</string>
           <!--<string>--debug</string>-->
         </array>
+
         <key>EnvironmentVariables</key>
         <dict>
           <key>PATH</key>
           <string>#{HOMEBREW_PREFIX}/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
         </dict>
+
         <key>RunAtLoad</key>
         <true/>
+
         <key>KeepAlive</key>
         <dict>
           <key>SuccessfulExit</key>
           <false/>
         </dict>
+
         <key>ProcessType</key>
         <string>Interactive</string>
+
         <key>ThrottleInterval</key>
         <integer>30</integer>
+
         <key>StandardOutPath</key>
         <string>#{var}/log/buildkite-agent.log</string>
+
         <key>StandardErrorPath</key>
         <string>#{var}/log/buildkite-agent.log</string>
       </dict>
