@@ -7,6 +7,11 @@ class NginxShopify < Formula
 
   conflicts_with "nginx", :because => "shopify has a custom nginx build. `brew uninstall nginx` first"
 
+  bottle do
+    root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
+    sha256 "611ce9040178270471d3bc231f139f1bc31fed9e4c832088e706c6b8be3f159b" => :catalina
+  end
+
   def self.nginx_modules
     {
       "ngx-devel-kit" => :build,
