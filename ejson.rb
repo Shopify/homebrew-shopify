@@ -10,6 +10,13 @@ class Ejson < Formula
     sha256 "9f94ed3c05634be285c85e4488d3bdaf5a5e40306d99a3af5c968a38be011bbf" => :mojave
   end
 
+  bottle do
+    cellar :any_skip_relocation
+    rebuild 1
+    root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
+    sha256 "f3d395b49bf9e877de1ef0a0e4b3f9ca7d78ef800fbd51bb723e0c2a52162288" => :catalina
+  end
+
   depends_on 'go' => :build
 
   def install

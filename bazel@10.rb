@@ -10,6 +10,13 @@ class BazelAT10 < Formula
     sha256 "d7b4922e6975445039caa632c3bc1490cfad8561a7b16dc26b0d875aac168323" => :high_sierra
   end
 
+  bottle do
+    cellar :any_skip_relocation
+    rebuild 1
+    root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
+    sha256 "13a977fbb0910b5ef04baec6476c8c99c0844ba58f3486ad189a2fd69f7c1fcb" => :catalina
+  end
+
   depends_on :java => "1.8"
   depends_on :macos => :yosemite
 

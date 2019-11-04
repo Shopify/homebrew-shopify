@@ -13,6 +13,13 @@ class Yarn < Formula
     sha256 "b43c66a5cc378712dc9871bcc31abb78ad1f9790a9b1226109bc1c2f98d1e626" => :sierra
   end
 
+  bottle do
+    cellar :any_skip_relocation
+    rebuild 1
+    root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
+    sha256 "6061af0e52d8bdf82af1dcc65c17d879130eab0100275b89f3c416105a484a44" => :catalina
+  end
+
   depends_on "node"
 
   def install
