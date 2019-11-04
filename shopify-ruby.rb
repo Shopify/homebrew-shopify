@@ -21,6 +21,12 @@ class ShopifyRuby < Formula
     sha256 "78dbba5c1744c944cef438678c1d1371536fc10654735b630d8621863501806c" => :sierra
   end
 
+  bottle do
+    rebuild 3
+    root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
+    sha256 "e2de4422c5d2e8afe822184fac0b84e17d1e5f7e22a6f9fd53e14ec64070c320" => :catalina
+  end
+
   keg_only "because chruby"
 
   option :universal

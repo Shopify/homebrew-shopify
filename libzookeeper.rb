@@ -14,6 +14,13 @@ class Libzookeeper < Formula
     sha256 "c9b20ecb4b96ba7cd9a4f21557df302bfc7bacb2e6439e8a73f1d8df05ab26cb" => :sierra
   end
 
+  bottle do
+    cellar :any
+    rebuild 2
+    root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
+    sha256 "d0b6bb4485c4c7870ce9864936adab5b90a015f3e3fd209fa855887e03f2fe53" => :catalina
+  end
+
   def install
     ENV["ARCHFLAGS"] = Hardware::CPU.universal_archs.as_arch_flags
 

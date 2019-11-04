@@ -11,6 +11,12 @@ class Libgda < Formula
     sha256 "01e46f8673fcf3fad0bccdd70e9bd6fac08f0f5b7035e85318a3add4db329a9b" => :yosemite
   end
 
+  bottle do
+    rebuild 1
+    root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
+    sha256 "fe62586e3751f33162cdc975ac027f27a89743fb6299a7ae27dfdfa91348b357" => :catalina
+  end
+
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
