@@ -16,6 +16,12 @@ class Openssl < Formula
     sha256 "bdbc44c56f63f27ab4dc12583b7f46a6485500f2a583dc8c9b848c4063f58927" => :sierra
   end
 
+  bottle do
+    rebuild 1
+    root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
+    sha256 "f886fe40deee308c0ff3d46c8e65b11c212958ebca5e02a8d56ea83ef1bad6e4" => :catalina
+  end
+
   keg_only :provided_by_macos,
     "Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries"
 
