@@ -16,6 +16,12 @@ class MysqlClient < Formula
     sha256 "6107451cb3315bee712b4f9102fbd8da5528fb4b4b2d5bb40e277ab3c21764ce" => :catalina
   end
 
+  bottle do
+    rebuild 3
+    root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
+    sha256 "e96b0f67ee3a67c98a9b94b9a04d4168efa011062f9afa4cd1a0f7fba356c337" => :catalina
+  end
+
   depends_on "cmake" => :build
   depends_on "shopify/shopify/openssl@1.0"
 
