@@ -23,6 +23,11 @@ class MysqlClient < Formula
     sha256 "e96b0f67ee3a67c98a9b94b9a04d4168efa011062f9afa4cd1a0f7fba356c337" => :catalina
   end
 
+  bottle do
+    rebuild 4
+    sha256 "3f736ef6b47c66475b84680df591f4bdac32d40dcf5ca3e8ed629dc42827135e" => :catalina
+  end
+
   depends_on "cmake" => :build
   depends_on "shopify/shopify/openssl"
 
