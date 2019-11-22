@@ -19,6 +19,7 @@ class MysqlClient < Formula
   bottle do
     rebuild 3
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
+    sha256 "d29a632d2f300d5b583a7b1ff0534fc21547762e5a6d03d89fa5b28b31c733f5" => :mojave
     sha256 "e96b0f67ee3a67c98a9b94b9a04d4168efa011062f9afa4cd1a0f7fba356c337" => :catalina
   end
 
