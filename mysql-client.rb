@@ -24,7 +24,7 @@ class MysqlClient < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "shopify/shopify/openssl@1.0"
+  depends_on "shopify/shopify/openssl"
 
   conflicts_with "mysql", "mariadb", "percona-server",
     :because => "mysql-client, mysql, mariadb, and percona install the same binaries."
