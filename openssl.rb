@@ -19,8 +19,7 @@ class Openssl < Formula
   bottle do
     rebuild 1
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
-    sha256 "f886fe40deee308c0ff3d46c8e65b11c212958ebca5e02a8d56ea83ef1bad6e4" => :catalina
-    sha256 "ea23d155d3f67a4710c6b80b2667b556aaa4b42fd37a0f93b0fc18aa2fef6cfb" => :mojave
+    sha256 "d6ff923b88b2f99aacf9ff5da2a96ce5466bdab26b2f86c11ed3cf6b21eada63" => :catalina
   end
 
   keg_only :provided_by_macos,
