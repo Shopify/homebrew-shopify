@@ -19,6 +19,7 @@ class OpensslAT10 < Formula
   bottle do
     rebuild 1
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
+    sha256 "d04c7b2574f4d2bc95b302eb83311b6a6550533efe34436e67d52ef29851fd78" => :mojave
     sha256 "357a7d64e8ff35266f7aa028883f3dd5b59e7916f4e51817c658233015dff350" => :catalina
   end
 
