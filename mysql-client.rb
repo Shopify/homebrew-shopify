@@ -25,6 +25,7 @@ class MysqlClient < Formula
 
   bottle do
     rebuild 4
+    sha256 "2fef84eac45f963cc36a5a0b6f8902b48e737de8d4916b7c8cd60ca05c12eba3" => :mojave
     sha256 "3f736ef6b47c66475b84680df591f4bdac32d40dcf5ca3e8ed629dc42827135e" => :catalina
   end
 
