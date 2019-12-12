@@ -1,9 +1,9 @@
 class Themekit < Formula
   desc 'Theme Kit is a tool kit for manipulating shopify themes'
   homepage 'https://shopify.github.io/themekit/'
-  url 'https://shopify-themekit.s3.amazonaws.com/v1.0.0/darwin-amd64/theme'
-  sha256 '2105cea9086fde0b6a43ff4b63ab451b5a6619333f9a6e4844e9e1a98b3accdd'
-  version 'v1.0.0'
+  url 'https://shopify-themekit.s3.amazonaws.com/v1.0.2/darwin-amd64/theme'
+  sha256 '4b734d08db62e001adcf8ac5607414aa9cb6cfb410faa8f53b02f9f5c8a5733c'
+  version 'v1.0.2'
 
   def install
     bin.install 'theme'
