@@ -41,6 +41,11 @@ class NginxShopify < Formula
     sha256 "8f5f76d2689a3f6b0782f0a009c56a65e4c7a4382be86422c9b3549fe95b0dc4"
   end
 
+  resource "lua-resty-lrucache" do
+    url "https://github.com/openresty/lua-resty-lrucache/archive/v0.09.tar.gz"
+    sha256 "42f0384f80b6a9b4f42f91ee688baf69165d0573347e6ea84ebed95e928211d7"
+  end
+
   env :userpaths
   skip_clean "logs"
 
@@ -100,8 +105,26 @@ class NginxShopify < Formula
     (etc/"nginx/servers").mkpath
     (var/"run/nginx").mkpath
 
+    # Merge the resources, copying their lib folders to /usr/local/share/lua,
+    # such that, for example, /usr/local/share/lua/5.1/resty/core.lua exists
     resource("lua-resty-core").stage do
-      (lib/"lua").install Dir['lua-resty-core', 'lib']
+      Dir.chdir('lib') do
+        Dir['**/*'].each do |p|
+          next if File.directory?(p)
+
+          (share / File.join("lua", "5.1", File.dirname(p))).install p
+        end
+      end
+    end
+
+    resource("lua-resty-lrucache").stage do
+      Dir.chdir('lib') do
+        Dir['**/*'].each do |p|
+          next if File.directory?(p)
+
+          (share / File.join("lua", "5.1", File.dirname(p))).install p
+        end
+      end
     end
   end
 
