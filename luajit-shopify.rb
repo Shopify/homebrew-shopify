@@ -1,30 +1,24 @@
 class LuajitShopify < Formula
   desc "Just-In-Time Compiler (JIT) for the Lua programming language"
   homepage "http://luajit.org/luajit.html"
-  url "http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz"
-  sha256 "713924ca034b9d99c84a0b7b701794c359ffb54f8e3aa2b84fad52d98384cf47"
+  url "http://luajit.org/download/LuaJIT-2.1.0-beta3.tar.gz"
+  sha256 "1ad2e34b111c802f9d0cdf019e986909123237a28c746b21295b63c9e785d9c3"
   head "http://luajit.org/git/luajit-2.0.git"
 
-  bottle do
-    root_url "http://burkelibbey.s3.amazonaws.com"
-    rebuild 1
-    sha256 "614270751ee3379f1aa931accefc6d29d0b97b3bdf19e1ef550bb8b32e0d7954" => :sierra
-  end
+  # bottle do
+  #   root_url "http://burkelibbey.s3.amazonaws.com"
+  #   rebuild 1
+  #   sha256 "614270751ee3379f1aa931accefc6d29d0b97b3bdf19e1ef550bb8b32e0d7954" => :sierra
+  # end
 
-  bottle do
-    cellar :any
-    rebuild 2
-    root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
-    sha256 "6cd0b33945a84dea501fa204ec4029cfe6ba9c0e4eba326cf66cc6fe1d8ca60b" => :catalina
-  end
+  # bottle do
+  #   cellar :any
+  #   rebuild 2
+  #   root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
+  #   sha256 "6cd0b33945a84dea501fa204ec4029cfe6ba9c0e4eba326cf66cc6fe1d8ca60b" => :catalina
+  # end
 
   conflicts_with "luajit", :because => "shopify uses luajit 2.1. `brew uninstall luajit` first"
-
-  # https://github.com/LuaJIT/LuaJIT/issues/180
-  patch do
-    url "https://github.com/LuaJIT/LuaJIT/commit/5837c2a2fb1ba6651.diff"
-    sha256 "793d3243b277cc272ec5cf20e75ec2545fa71ab57fcb0d04b5ab5dc77566ff9d"
-  end
 
   deprecated_option "enable-debug" => "with-debug"
 
