@@ -37,11 +37,15 @@ class LuajitShopify < Formula
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
     # is not set then it's forced to 10.4, which breaks compile on Mojave.
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
-
+      
     ENV.O2 # Respect the developer's choice.
 
     args = %W[PREFIX=#{prefix}]
-    args << "XCFLAGS=-DLUAJIT_ENABLE_LUA52COMPAT" if build.with? "52compat"
+    cflags = []
+    cflags << "-DLUAJIT_ENABLE_LUA52COMPAT" if build.with? "52compat"
+    cflags << "-fno-stack-check" if MacOS.version == "10.15"
+
+    args << "XCFLAGS=#{cflags.join(" ")}" if cflags.present?
 
     # This doesn't yet work under superenv because it removes "-g"
     args << "CCDEBUG=-g" if build.with? "debug"
