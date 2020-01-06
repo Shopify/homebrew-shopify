@@ -43,7 +43,6 @@ class LuajitShopify < Formula
     args = %W[PREFIX=#{prefix}]
     cflags = []
     cflags << "-DLUAJIT_ENABLE_LUA52COMPAT" if build.with? "52compat"
-    cflags << "-fno-stack-check" if MacOS.version == "10.15"
 
     args << "XCFLAGS=#{cflags.join(" ")}" if cflags.present?
 
