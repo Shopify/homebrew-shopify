@@ -11,12 +11,11 @@ class LuajitShopify < Formula
   #   sha256 "614270751ee3379f1aa931accefc6d29d0b97b3bdf19e1ef550bb8b32e0d7954" => :sierra
   # end
 
-  # bottle do
-  #   cellar :any
-  #   rebuild 2
-  #   root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
-  #   sha256 "6cd0b33945a84dea501fa204ec4029cfe6ba9c0e4eba326cf66cc6fe1d8ca60b" => :catalina
-  # end
+  bottle do
+    root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
+    cellar :any
+    sha256 "0d8d72fb092e26c30bc0519626044b8d49bdc1e1a2301eab58ccbe0796233ec2" => :catalina
+  end
 
   conflicts_with "luajit", :because => "shopify uses luajit 2.1. `brew uninstall luajit` first"
 
