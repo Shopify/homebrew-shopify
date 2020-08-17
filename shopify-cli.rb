@@ -1,8 +1,8 @@
 class ShopifyCli < Formula
-  version '1.0.4'
+  version '1.0.5'
   homepage 'https://shopify.github.io/shopify-app-cli'
   url "https://rubygems.org/downloads/shopify-cli-#{version}.gem"
-  sha256 '922049d63b99cac00241b645d045734f556ce53a678a4630509cfd1043d8d046'
+  sha256 'cefbba9e7e3c436d9f4727feae30f9ea119c4e8a833d2319271f8889c2255e68'
   desc <<~DESC
     Shopify CLI helps you build Shopify apps faster. It quickly scaffolds Node.js
     and Ruby on Rails embedded apps. It also automates many common tasks in the
