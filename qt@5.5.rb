@@ -20,13 +20,6 @@ class QtAT55 < Formula
 
   depends_on :xcode => :build
 
-  # OS X 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
-  # configuration and thus untested in practice. Builds on OS X 10.7 have been
-  # reported to fail: <https://github.com/Homebrew/homebrew/issues/45284>.
-  # 10.7 Lion is no longer supported in brew. See:
-  # https://github.com/Shopify/homebrew-shopify/issues/125.
-  depends_on :macos => :mavericks
-
   # Build error: Fix library detection for QtWebEngine with Xcode 7.
   # https://codereview.qt-project.org/#/c/1w27759/
   patch do
