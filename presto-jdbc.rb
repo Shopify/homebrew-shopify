@@ -1,9 +1,9 @@
 class PrestoJdbc < Formula
   desc "JAR file for connecting to Presto over JDBC"
-  homepage "https://prestosql.io/docs/336/installation/jdbc.html"
-  url "https://repo1.maven.org/maven2/io/prestosql/presto-jdbc/336/presto-jdbc-336.jar"
-  sha256 "fc7794d5a44ebf9619267da0b6bd75dad7dea660752d4964200dbec023d8cb49"
-  version "336"
+  homepage "https://prestosql.io/docs/338/installation/jdbc.html"
+  url "https://repo1.maven.org/maven2/io/prestosql/presto-jdbc/338/presto-jdbc-338.jar"
+  sha256 "3b96c19ec74909c7da4856eb7ff3f4bdff3965ce462826a3b74d5e405ff85754"
+  version "338"
 
   def install
     libexec.install "presto-jdbc-#{version}.jar"
