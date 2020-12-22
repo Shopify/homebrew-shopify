@@ -17,7 +17,7 @@ class BazelAT10 < Formula
     sha256 "13a977fbb0910b5ef04baec6476c8c99c0844ba58f3486ad189a2fd69f7c1fcb" => :catalina
   end
 
-  depends_on :java => "1.8"
+  depends_on "openjdk@8"
   depends_on :macos => :yosemite
 
   def install
