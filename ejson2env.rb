@@ -1,20 +1,14 @@
 class Ejson2env < Formula
   desc 'Ejson2env is a utility to export decrypted ejson secrets as environment variable assignments'
   homepage 'https://github.com/Shopify/ejson2env'
-  url 'https://github.com/Shopify/ejson2env/archive/v2.0.0.tar.gz'
-  sha256 '77e9ac0c546a41741448375955557f24d96b09ba8a715216b1fee008ae165f5b'
+  url 'https://github.com/Shopify/ejson2env/archive/v2.0.1.tar.gz'
+  sha256 'b6fdae0b9e8f5f74124ecf3c25dee8c36dfaac0ac6b85d82250761e5ebd58de2'
 
   bottle do
     cellar :any_skip_relocation
-    root_url "https://github.com/Shopify/ejson2env/releases/download/v2.0.0/ejson2env-2.0.0.mojave.bottle.tar.gz"
-    sha256 "6e24d9eab03fde39db3a4539e19a1634a93e0d6c03fcc0a427b419483e3cc79f" => :mojave
-  end
-
-  bottle do
-    cellar :any_skip_relocation
-    rebuild 1
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
-    sha256 "b404911246f78cc2ae55a34953d939fdc89b8988d2779486d2ea22a9aede8bdf" => :catalina
+    sha256 "e55edfb055c4c6b7258f18f9d1677e9d545902009b0d9f8b43f60bbef02def73" => :catalina
+    sha256 "c65f899fd64aaa487e945da0e80e8bc17611ed8c1bd4d56a7067fc3824de4912" => :big_sur
   end
 
   depends_on 'go' => :build
@@ -31,7 +25,7 @@ class Ejson2env < Formula
       'go',
       'build',
       '-ldflags',
-      '-s -w -X main.version=2.0.0',
+      '-s -w -X main.version=2.0.1',
       '-o',
       'ejson2env',
       'github.com/Shopify/ejson2env/cmd/ejson2env'
