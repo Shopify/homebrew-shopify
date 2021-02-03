@@ -106,7 +106,7 @@ class ShopifyImagemagickAT6 < Formula
     args << "--without-pango" if build.without? "pango"
     args << "--without-threads" if build.without? "threads"
     args << "--with-rsvg" if build.with? "librsvg"
-    args << "--without-x" if build.without? "x11"
+    args << "--without-x" if build.without? "libx11"
     args << "--with-fontconfig=yes" if build.with? "fontconfig"
     args << "--with-freetype=yes" if build.with? "freetype"
     args << "--enable-zero-configuration" if build.with? "zero-configuration"

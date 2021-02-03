@@ -29,7 +29,7 @@ class ShopifyGraphicsmagick < Formula
   depends_on "libtiff" => :recommended
   depends_on "freetype" => :recommended
 
-  depends_on :x11 => :optional
+  depends_on "libx11" => :optional
   depends_on "little-cms2" => :optional
   depends_on "jasper" => :optional
   depends_on "libwmf" => :optional
@@ -63,7 +63,7 @@ class ShopifyGraphicsmagick < Formula
     args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
     args << "--without-magick-plus-plus" if build.without? "magick-plus-plus"
     args << "--with-perl" if build.with? "perl"
-    args << "--without-x" if build.without? "x11"
+    args << "--without-x" if build.without? "libx11"
     args << "--without-ttf" if build.without? "freetype"
     args << "--without-xml" if build.without? "svg"
     args << "--without-lcms2" if build.without? "little-cms2"
