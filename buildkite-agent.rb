@@ -8,14 +8,8 @@ class BuildkiteAgent < Formula
     sha256  "6cb1949b106c92d33dee51da3febcb9a271a1e2ab1c55bb729c043bdea3c8502"
   end
 
-  option "token=", "Your account's agent token to add to the config on install"
-
   def default_agent_token
     "xxx"
-  end
-
-  def agent_token
-    ARGV.value("token") || default_agent_token
   end
 
   def agent_etc
@@ -72,7 +66,7 @@ class BuildkiteAgent < Formula
       puts "\033[35mIgnoring existing config file at #{agent_config_path}\033[0m"
       puts "\033[35mFor changes see the updated dist copy at #{agent_config_dist_path}\033[0m"
     else
-      agent_config_path.write(default_config_file(agent_token))
+      agent_config_path.write(default_config_file)
     end
 
     bin.install "buildkite-agent"
