@@ -44,8 +44,8 @@ class ThemeCheck < Formula
   include RubyBin
 
   url "theme-check", using: RubyGemsDownloadStrategy
-  version "0.2.2"
-  sha256 '7b246318033acbf76e8cec1b6775a87e81c751abaedd73260713d22552ab6121'
+  version "0.3.0"
+  sha256 '1b4f051a2c074f5d3094ec55e4bb26073376dfff8c3ecc64023635b37c8e6122'
   depends_on "ruby"
 
   def install
@@ -61,12 +61,16 @@ class ThemeCheck < Formula
       ENV['PATH'] = ENV['PATH'].sub(HOMEBREW_SHIMS_PATH.to_s, '/usr/local/bin')
     end
 
-    system("#{ruby_bin}/gem", "install", cached_download,
-             "--no-document",
-             "--no-wrapper",
-             "--no-user-install",
-             "--install-dir", prefix,
-             "--bindir", bin)
+    system(
+      "#{ruby_bin}/gem",
+      "install",
+      cached_download,
+      "--no-document",
+      "--no-wrapper",
+      "--no-user-install",
+      "--install-dir", prefix,
+      "--bindir", bin
+    )
 
     raise "gem install 'theme-check' failed with status #{$CHILD_STATUS.exitstatus}" unless $CHILD_STATUS.success?
 
