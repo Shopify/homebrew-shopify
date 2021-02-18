@@ -44,8 +44,8 @@ class ThemeCheck < Formula
   include RubyBin
 
   url "theme-check", using: RubyGemsDownloadStrategy
-  version "0.3.2"
-  sha256 'b5570d7723fcf992055edd7c422035cf492cddd1db34f9f5738720d8a1c27435'
+  version "0.3.3"
+  sha256 '5c2302c26dac52f0bc1b7ebb478ab99ec220bb167d6368827256d96b95bb055f'
   depends_on "ruby"
 
   def install
