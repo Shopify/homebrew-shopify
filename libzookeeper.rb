@@ -1,3 +1,6 @@
+# typed: false
+# frozen_string_literal: true
+
 class Libzookeeper < Formula
   desc "Centralized server for distributed coordination of services - library and headers only"
   homepage "https://zookeeper.apache.org/"
@@ -8,10 +11,9 @@ class Libzookeeper < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 2
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
-    sha256 "d0b6bb4485c4c7870ce9864936adab5b90a015f3e3fd209fa855887e03f2fe53" => :catalina
+    sha256 cellar: :any, catalina: "d0b6bb4485c4c7870ce9864936adab5b90a015f3e3fd209fa855887e03f2fe53"
   end
 
   def install
@@ -19,12 +21,11 @@ class Libzookeeper < Formula
 
     cd "src/c" do
       system "./configure", "--disable-dependency-tracking",
-                            "--prefix=#{prefix}",
-                            "--without-cppunit"
+             "--prefix=#{prefix}",
+             "--without-cppunit"
       system "make", "install"
     end
 
     rm_rf bin
   end
-
 end
