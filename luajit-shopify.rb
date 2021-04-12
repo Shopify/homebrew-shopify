@@ -16,12 +16,12 @@ class LuajitShopify < Formula
     sha256 cellar: :any, catalina: "0d8d72fb092e26c30bc0519626044b8d49bdc1e1a2301eab58ccbe0796233ec2"
   end
 
-  conflicts_with "luajit", :because => "shopify uses luajit 2.1. `brew uninstall luajit` first"
+  option "with-debug", "Build with debugging symbols"
+  option "with-52compat", "Build with additional Lua 5.2 compatibility"
 
   deprecated_option "enable-debug" => "with-debug"
 
-  option "with-debug", "Build with debugging symbols"
-  option "with-52compat", "Build with additional Lua 5.2 compatibility"
+  conflicts_with "luajit", because: "shopify uses luajit 2.1. `brew uninstall luajit` first"
 
   def install
     # 1 - Override the hardcoded gcc.
@@ -35,7 +35,7 @@ class LuajitShopify < Formula
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
     # is not set then it's forced to 10.4, which breaks compile on Mojave.
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
-      
+
     ENV.O2 # Respect the developer's choice.
 
     args = %W[PREFIX=#{prefix}]
@@ -59,7 +59,7 @@ class LuajitShopify < Formula
     lib.install_symlink lib/"libluajit-5.1.a" => "libluajit.a"
 
     # Having an empty Lua dir in lib/share can mess with other Homebrew Luas.
-    %W[ #{lib}/lua #{share}/lua ].each { |d| rm_rf d }
+    %W[#{lib}/lua #{share}/lua].each { |d| rm_rf d }
   end
 
   test do
