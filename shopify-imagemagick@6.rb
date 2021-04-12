@@ -4,9 +4,9 @@ class ShopifyImagemagickAT6 < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.9-40.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.9-40.tar.xz"
-  sha256 "62f25d46bfbcffe00b84e167994d593868a9a47d4defc489a429cae1d6aab9f7"
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.12-6.tar.xz"
+  mirror "https://download.imagemagick.org/ImageMagick/download/releases/ImageMagick-6.9.12-6.tar.xz"
+  sha256 "e994047fea5c923aefe0e5b78de27e14f90891deb832cf6ad082ad88a7cb4d45"
   head "https://github.com/imagemagick/imagemagick.git", :branch => "ImageMagick-6"
 
   conflicts_with "imagemagick@6", :because => "imagemagick@6 is newer but unsupported in rmagick"
