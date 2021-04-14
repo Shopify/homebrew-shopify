@@ -5,10 +5,9 @@ class Ejson2env < Formula
   sha256 'b6fdae0b9e8f5f74124ecf3c25dee8c36dfaac0ac6b85d82250761e5ebd58de2'
 
   bottle do
-    cellar :any_skip_relocation
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
-    sha256 "e55edfb055c4c6b7258f18f9d1677e9d545902009b0d9f8b43f60bbef02def73" => :catalina
-    sha256 "c65f899fd64aaa487e945da0e80e8bc17611ed8c1bd4d56a7067fc3824de4912" => :big_sur
+    sha256 cellar: :any_skip_relocation, catalina: "e55edfb055c4c6b7258f18f9d1677e9d545902009b0d9f8b43f60bbef02def73"
+    sha256 cellar: :any_skip_relocation, big_sur: "c65f899fd64aaa487e945da0e80e8bc17611ed8c1bd4d56a7067fc3824de4912"
   end
 
   depends_on 'go' => :build

@@ -25,10 +25,9 @@ class Cmake30 < Formula
   sha256 "6b4ea61eadbbd9bec0ccb383c29d1f4496eacc121ef7acf37c7a24777805693e"
 
   bottle do
-    cellar :any
-    sha256 "71b46be0b22a43368e8beddeb50c758d281684597bfb578c0e883151c968869f" => :yosemite
-    sha256 "5cbd2d245b6bb71480ac15d901d2caa8558f4429d2535fbef662e53431679cb2" => :mavericks
-    sha256 "21a42c38e5b78dac6598d3eedf7b26e1c856410614384ca747e277428254a4a8" => :mountain_lion
+    sha256 cellar: :any, yosemite: "71b46be0b22a43368e8beddeb50c758d281684597bfb578c0e883151c968869f"
+    sha256 cellar: :any, mavericks: "5cbd2d245b6bb71480ac15d901d2caa8558f4429d2535fbef662e53431679cb2"
+    sha256 cellar: :any, mountain_lion: "21a42c38e5b78dac6598d3eedf7b26e1c856410614384ca747e277428254a4a8"
   end
 
   option "without-docs", "Don't build man pages"

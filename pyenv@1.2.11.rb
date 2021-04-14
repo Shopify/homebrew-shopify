@@ -7,10 +7,9 @@ class PyenvAT1211 < Formula
   head "https://github.com/pyenv/pyenv.git"
 
   bottle do
-    cellar :any
     rebuild 1
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
-    sha256 "28f6c6c76c6a7cef12d0fc27c7bd19f5e8672ab30aa6946935ce00b3e2ddcf0a" => :catalina
+    sha256 cellar: :any, catalina: "28f6c6c76c6a7cef12d0fc27c7bd19f5e8672ab30aa6946935ce00b3e2ddcf0a"
   end
 
   bottle do

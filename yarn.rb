@@ -9,8 +9,7 @@ class Yarn < Formula
 
   bottle do
     root_url "https://burkelibbey.s3.amazonaws.com"
-    cellar :any_skip_relocation
-    sha256 "b43c66a5cc378712dc9871bcc31abb78ad1f9790a9b1226109bc1c2f98d1e626" => :sierra
+    sha256 cellar: :any_skip_relocation, sierra: "b43c66a5cc378712dc9871bcc31abb78ad1f9790a9b1226109bc1c2f98d1e626"
   end
 
   bottle do

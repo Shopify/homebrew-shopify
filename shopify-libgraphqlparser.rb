@@ -7,10 +7,9 @@ class ShopifyLibgraphqlparser < Formula
   sha256 "2ed66fd38b6e8a4a39c646fe713b5893d3d6b076dcd34be28a356cb3cb879595"
 
   bottle do
-    cellar :any
-    sha256 "52afe0dcec93ec9b886c3d7ecacf64c81f3887e299d3238aff7b4fd295a24329" => :el_capitan
-    sha256 "4fed85aba87c4cb54168cb1e8c73d6e7d4eee9689b09f18c07137ffdfb850ac3" => :yosemite
-    sha256 "1dfc83c494e8ceef8eb5d757190312d13ecafeb1b88464c44073417989bf5488" => :mavericks
+    sha256 cellar: :any, el_capitan: "52afe0dcec93ec9b886c3d7ecacf64c81f3887e299d3238aff7b4fd295a24329"
+    sha256 cellar: :any, yosemite: "4fed85aba87c4cb54168cb1e8c73d6e7d4eee9689b09f18c07137ffdfb850ac3"
+    sha256 cellar: :any, mavericks: "1dfc83c494e8ceef8eb5d757190312d13ecafeb1b88464c44073417989bf5488"
   end
 
   bottle do
