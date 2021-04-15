@@ -5,9 +5,8 @@ class BazelAT10 < Formula
   sha256 "708248f6d92f2f4d6342006c520f22dffa2f8adb0a9dc06a058e3effe7fee667"
 
   bottle do
-    cellar :any_skip_relocation
     root_url "https://s3.amazonaws.com/burkelibbey"
-    sha256 "d7b4922e6975445039caa632c3bc1490cfad8561a7b16dc26b0d875aac168323" => :high_sierra
+    sha256 cellar: :any_skip_relocation, high_sierra: "d7b4922e6975445039caa632c3bc1490cfad8561a7b16dc26b0d875aac168323"
   end
 
   bottle do

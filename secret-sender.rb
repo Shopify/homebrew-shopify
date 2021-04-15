@@ -10,16 +10,14 @@ class SecretSender < Formula
 
   bottle do
     root_url "https://github.com/Shopify/secret-sender/releases/download/v2.0.0"
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "54e2bd8d55fefdb813168c300e79751353eddde775671471980966960b58d342" => :mojave
+    sha256 cellar: :any_skip_relocation, mojave: "54e2bd8d55fefdb813168c300e79751353eddde775671471980966960b58d342"
   end
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 2
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
-    sha256 "79ac412956c31da9a3c70c7d78de249d16b9375bd5f0034d7d58c5a881c0b222" => :catalina
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, catalina: "79ac412956c31da9a3c70c7d78de249d16b9375bd5f0034d7d58c5a881c0b222"
   end
 
   def install
