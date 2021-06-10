@@ -13,10 +13,9 @@ class Yarn < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
-    sha256 "6061af0e52d8bdf82af1dcc65c17d879130eab0100275b89f3c416105a484a44" => :catalina
+    sha256 cellar: :any_skip_relocation, catalina: "6061af0e52d8bdf82af1dcc65c17d879130eab0100275b89f3c416105a484a44"
   end
 
   depends_on "node"

@@ -14,7 +14,7 @@ class Libgda < Formula
   bottle do
     rebuild 1
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
-    sha256 "fe62586e3751f33162cdc975ac027f27a89743fb6299a7ae27dfdfa91348b357" => :catalina
+    sha256 catalina: "fe62586e3751f33162cdc975ac027f27a89743fb6299a7ae27dfdfa91348b357"
   end
 
   depends_on "pkg-config" => :build
