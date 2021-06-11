@@ -24,7 +24,7 @@ class ShopifyRuby < Formula
   bottle do
     rebuild 3
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
-    sha256 "e2de4422c5d2e8afe822184fac0b84e17d1e5f7e22a6f9fd53e14ec64070c320" => :catalina
+    sha256 catalina: "e2de4422c5d2e8afe822184fac0b84e17d1e5f7e22a6f9fd53e14ec64070c320"
   end
 
   keg_only "because chruby"

@@ -10,10 +10,9 @@ class BazelAT10 < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
-    sha256 "13a977fbb0910b5ef04baec6476c8c99c0844ba58f3486ad189a2fd69f7c1fcb" => :catalina
+    sha256 cellar: :any_skip_relocation, catalina: "13a977fbb0910b5ef04baec6476c8c99c0844ba58f3486ad189a2fd69f7c1fcb"
   end
 
   depends_on "openjdk@8"

@@ -13,9 +13,8 @@ class PyenvAT1211 < Formula
   end
 
   bottle do
-    cellar :any
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
-    sha256 "14c889febc0ba01b956d34021afd2225ef2ef41ad4fdb2d29f7d2d077afdb6cc" => :mojave
+    sha256 cellar: :any, mojave: "14c889febc0ba01b956d34021afd2225ef2ef41ad4fdb2d29f7d2d077afdb6cc"
   end
 
   depends_on "autoconf"

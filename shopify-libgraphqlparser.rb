@@ -14,16 +14,14 @@ class ShopifyLibgraphqlparser < Formula
 
   bottle do
     root_url "http://burkelibbey.s3.amazonaws.com"
-    cellar :any
     rebuild 1
-    sha256 "6b9f8ed85728208f184cd5a2fd218a768d6e7052200d21f3504593e05b1fc3ca" => :sierra
+    sha256 cellar: :any, sierra: "6b9f8ed85728208f184cd5a2fd218a768d6e7052200d21f3504593e05b1fc3ca"
   end
 
   bottle do
-    cellar :any
     rebuild 2
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
-    sha256 "1b8878441192cc22b9dc03dd4071346c970bcdc7d0af7068cdf7d6138bc65f42" => :catalina
+    sha256 cellar: :any, catalina: "1b8878441192cc22b9dc03dd4071346c970bcdc7d0af7068cdf7d6138bc65f42"
   end
 
   conflicts_with "libgraphqlparser", :because => "shopify-libgraphqlparser is different"
