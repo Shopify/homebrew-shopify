@@ -7,9 +7,6 @@ class TrinoCli < Formula
 
   def install
     lib.install "trino-cli-#{version}-executable.jar"
-
-    File.write("trino", wrapper_script)
-
     bin.install "trino"
   end
 end
