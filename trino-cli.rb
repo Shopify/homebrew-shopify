@@ -6,7 +6,6 @@ class TrinoCli < Formula
   version "359"
 
   def install
-    lib.install "trino-cli-#{version}-executable.jar"
-    bin.install "trino"
+    bin.install "trino-cli-#{version}-executable.jar" => "trino"
   end
 end
