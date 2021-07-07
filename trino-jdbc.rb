@@ -10,6 +10,6 @@ class TrinoJdbc < Formula
   end
 
   def post_install
-      lib.install_symlink "#{version}/libexec/trino-jdbc-#{version}.jar" => "../../trino-jdbc-latest.jar"
+    lib.install_symlink "#{version}/libexec/trino-jdbc-#{version}.jar" => "../../trino-jdbc-latest.jar"
   end
 end
