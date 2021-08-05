@@ -46,7 +46,6 @@ class NginxShopify < Formula
     sha256 "42f0384f80b6a9b4f42f91ee688baf69165d0573347e6ea84ebed95e928211d7"
   end
 
-  env :userpaths
   skip_clean "logs"
 
   def install
@@ -85,7 +84,7 @@ class NginxShopify < Formula
       args << "--add-module=#{HOMEBREW_PREFIX}/share/#{m}"
     end
 
-    luajit_path = `brew --prefix luajit-shopify`.chomp
+    luajit_path = `#{HOMEBREW_PREFIX}/bin/brew --prefix luajit-shopify`.chomp
     ENV["LUAJIT_LIB"] = "#{luajit_path}/lib"
     ENV["LUAJIT_INC"] = "#{luajit_path}/include/luajit-2.1"
 
