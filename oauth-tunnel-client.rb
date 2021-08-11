@@ -4,7 +4,7 @@ class OauthTunnelClient < Formula
   homepage 'https://github.com/Shopify/oauth-tunnel-client'
   url 'https://storage.googleapis.com/binaries.shopifykloud.com/oauth-tunnel/oauth-tunnel-client-cb1489c167049627ed5b96b903948af80b482191.tar.gz'
   sha256 '1edfc34429674e739f843f99f2c960306f154fcd3dfac66f9b2e9c676fd419a4'
-  version "0.3.3"
+  version "0.3.4"
 
   def install
     bin.install({'oauth-tunnel-client_darwin_amd64' => 'oauth-tunnel-client'})
@@ -25,7 +25,7 @@ class OauthTunnelClient < Formula
        <string>release</string>
       </dict>
       <key>Label</key>
-      <string>com.shopify.oauth-tunnel-client</string>
+      <string>#{plist_name}</string>
       <key>ProgramArguments</key>
       <array>
         <string>/usr/local/bin/oauth-tunnel-client</string>
