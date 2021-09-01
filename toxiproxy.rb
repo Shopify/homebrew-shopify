@@ -4,26 +4,61 @@
 
 class Toxiproxy < Formula
   homepage "https://github.com/Shopify/toxiproxy"
-  url "https://github.com/Shopify/toxiproxy/releases/download/v2.1.2/toxiproxy-server-darwin-amd64"
-  sha256 "320581f9a190592bdcefffb158c7ec971d9fbe193e7718be3d8c75aa2204ef7f"
-  version "2.1.2"
+  license "MIT"
+  version "2.1.5"
 
-  resource "cli" do
-    url "https://github.com/Shopify/toxiproxy/releases/download/v2.1.2/toxiproxy-cli-darwin-amd64"
-    sha256 "7fe3be75cdabb925d4a7b3e430bda0a2833ac9ff0edf9ab9f1d3c985766b89ba"
-    version "2.1.2"
+  case
+  when OS.mac? && Hardware::CPU.intel?
+    url "https://github.com/Shopify/toxiproxy/releases/download/v2.1.5/toxiproxy-server-darwin-amd64"
+    sha256 "3f3875d0e5873fc47213f2c758b8c9706d94b2c88ad061816216d59529916620"
+  when OS.mac? && Hardware::CPU.arm?
+    url "https://github.com/Shopify/toxiproxy/releases/download/v2.1.5/toxiproxy-server-darwin-arm64"
+    sha256 "b815f7d98deb8e17bc92a5a30c1b7fb9dbba4efbf28278faf9c5e81882c77e89"
+  when OS.linux? && Hardware::CPU.intel?
+    url "https://github.com/Shopify/toxiproxy/releases/download/v2.1.5/toxiproxy-server-linux-amd64"
+    sha256 "076e8b510fa7901bf244ab5407d120300dab68767637b599a109eacd15ba7087"
+  when OS.linux? && Hardware::CPU.arm?
+    url "https://github.com/Shopify/toxiproxy/releases/download/v2.1.5/toxiproxy-server-linux-arm64"
+    sha256 "8b5edc3a213239a1fd9a86612a0f87f5a1e3d2a382e0fba7f4ffe1389de887bd"
+  else
+    odie "Unexpected platform!"
   end
 
-  depends_on :arch => :x86_64
-
-  def install
-    bin.install "toxiproxy-server-darwin-amd64" => "toxiproxy-server"
-    resource("cli").stage do
-      bin.install "toxiproxy-cli-darwin-amd64" => "toxiproxy-cli"
+  resource "cli" do
+    case
+    when OS.mac? && Hardware::CPU.intel?
+      url "https://github.com/Shopify/toxiproxy/releases/download/v2.1.5/toxiproxy-cli-darwin-amd64"
+      sha256 "94bca471e5f11aab79e780a667b8e56cc9d6b934a6f83610b512e1762507231e"
+    when OS.mac? && Hardware::CPU.arm?
+      url "https://github.com/Shopify/toxiproxy/releases/download/v2.1.5/toxiproxy-cli-darwin-arm64"
+      sha256 "0ef88ea04ce5f28dd84a84f77a5952035a7baa8d1acfc25d6491b57845602022"
+    when OS.linux? && Hardware::CPU.intel?
+      url "https://github.com/Shopify/toxiproxy/releases/download/v2.1.5/toxiproxy-cli-linux-amd64"
+      sha256 "4a7cd5ddae87eb09d5db5be09e05e62aa91b69604ac98e3789732bdada04ccf6"
+    when OS.linux? && Hardware::CPU.arm?
+      url "https://github.com/Shopify/toxiproxy/releases/download/v2.1.5/toxiproxy-cli-linux-arm64"
+      sha256 "4bb45553ddabcf3a6c544666e9cbd73ba71c354d085133b30a97efa58500faf9"
     end
   end
 
-  plist_options :manual => "toxiproxy"
+  test do
+    resource("cli").stage do
+      assert_match "toxiproxy-cli version 2.1.5", shell_output("#{bin}/toxiproxy-cli --version")
+    end
+  end
+
+  def install
+    host_os = OS.mac? ? "darwin" : "linux"
+    host_arch = Hardware::CPU.arm? ? "arm64" : "amd64"
+    platform = "#{host_os}-#{host_arch}"
+
+    bin.install "toxiproxy-server-#{platform}" => "toxiproxy-server"
+    resource("cli").stage do
+      bin.install "toxiproxy-cli-#{platform}" => "toxiproxy-cli"
+    end
+  end
+
+  plist_options manual: "toxiproxy"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
