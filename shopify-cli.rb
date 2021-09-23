@@ -6,7 +6,7 @@
 require "formula"
 require "fileutils"
 
-class ShopifyCli < Formula
+class ShopifyCLI < Formula
   module RubyBin
     def ruby_bin
       Formula["ruby"].opt_bin
@@ -46,8 +46,8 @@ class ShopifyCli < Formula
   include RubyBin
 
   url "shopify-cli", using: RubyGemsDownloadStrategy
-  version "2.4.0"
-  sha256 "962a4d8ea0f656646511b0f04300f48abb4072fa858d649061dbf5399735d73e"
+  version "2.5.0"
+  sha256 "192d53ab43223a3187cbf6d04408e6a602a87c5ea3d83e153bd993493df80916"
   depends_on "ruby"
   depends_on "git"
 
