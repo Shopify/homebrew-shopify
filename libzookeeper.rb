@@ -10,6 +10,7 @@ class Libzookeeper < Formula
 
   bottle do
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
+    sha256 cellar: :any, big_sur: "291ff13634c99bb305c4b88c976fb1ff4ca28dc66f9f8537a0dd35bbf64721c1"
     sha256 cellar: :any, arm64_monterey: "698d0b4cf2320364f57f4ca1c2cbc2b0b17a61fa172cdd613a6a6fa414170728"
   end
 
