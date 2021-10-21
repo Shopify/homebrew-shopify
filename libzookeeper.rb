@@ -9,9 +9,8 @@ class Libzookeeper < Formula
   end
 
   bottle do
-    rebuild 2
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
-    sha256 cellar: :any, catalina: "d0b6bb4485c4c7870ce9864936adab5b90a015f3e3fd209fa855887e03f2fe53"
+    sha256 cellar: :any, arm64_monterey: "698d0b4cf2320364f57f4ca1c2cbc2b0b17a61fa172cdd613a6a6fa414170728"
   end
 
   depends_on "autoconf" => :build
