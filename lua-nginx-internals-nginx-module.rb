@@ -3,8 +3,6 @@ class LuaNginxInternalsNginxModule < Formula
   homepage "https://github.com/openresty/lua-upstream-nginx-module"
   head "https://github.com/shopify/lua-nginx-internals-nginx-module.git"
 
-  bottle :unneeded
-
   depends_on "lua-nginx-module"
 
   def install

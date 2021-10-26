@@ -5,8 +5,6 @@ class LuaUpstreamNginxModule < Formula
   sha256 "2a69815e4ae01aa8b170941a8e1a10b6f6a9aab699dee485d58f021dd933829a"
   head "https://github.com/openresty/lua-upstream-nginx-module.git"
 
-  bottle :unneeded
-
   depends_on "lua-nginx-module"
 
   def install
