@@ -4,10 +4,10 @@ class ShopifyImagemagickAT6 < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://download.imagemagick.org/ImageMagick/download/releases/ImageMagick-6.9.9-51.tar.xz"
-  mirror "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding/ImageMagick-6.9.9-51.tar.xz"
-  sha256 "aa5f6b1e97bd98fbf642c47487531bea0faf675c728d01130b52d2b46849104a"
-  head "https://github.com/imagemagick/imagemagick.git", :branch => "ImageMagick-6"
+  url "https://download.imagemagick.org/ImageMagick/download/releases/ImageMagick-6.9.12-26.tar.xz"
+  mirror "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding/ImageMagick-6.9.12-26.tar.xz"
+  sha256 "e0a7661f921ce73a5fced9b4e607a7a75c95b22b78f4eae4dd3ea59f0f413bc5"
+  head "https://github.com/imagemagick/imagemagick6.git"
 
   conflicts_with "imagemagick@6", :because => "imagemagick@6 is newer but unsupported in rmagick"
 
@@ -58,6 +58,9 @@ class ShopifyImagemagickAT6 < Formula
   skip_clean :la
 
   def install
+     # Avoid references to shim
+    inreplace Dir["**/*-config.in"], "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
+
     args = %W[
       --disable-osx-universal-binary
       --prefix=#{prefix}
@@ -113,7 +116,7 @@ class ShopifyImagemagickAT6 < Formula
     args << "--without-wmf" if build.without? "libwmf"
 
     # versioned stuff in main tree is pointless for us
-    inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
+    inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_BASE_VERSION}", "${PACKAGE_NAME}"
     system "./configure", *args
     system "make", "install"
   end
