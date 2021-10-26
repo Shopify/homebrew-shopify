@@ -1,13 +1,14 @@
 class Ejson2env < Formula
   desc 'Ejson2env is a utility to export decrypted ejson secrets as environment variable assignments'
   homepage 'https://github.com/Shopify/ejson2env'
-  url 'https://github.com/Shopify/ejson2env/archive/v2.0.1.tar.gz'
-  sha256 'b6fdae0b9e8f5f74124ecf3c25dee8c36dfaac0ac6b85d82250761e5ebd58de2'
+  url 'https://github.com/Shopify/ejson2env/archive/v2.0.2.tar.gz'
+  sha256 '6fed90dfe6ccb8537ac7e226f19db4fe293fce2958f37530537748d2cb81fde2'
 
   bottle do
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
-    sha256 cellar: :any_skip_relocation, catalina: "e55edfb055c4c6b7258f18f9d1677e9d545902009b0d9f8b43f60bbef02def73"
-    sha256 cellar: :any_skip_relocation, big_sur: "c65f899fd64aaa487e945da0e80e8bc17611ed8c1bd4d56a7067fc3824de4912"
+    sha256 cellar: :any_skip_relocation, big_sur: "e1a65c8f25324ed4294a7fbc77b24f979906d1d03d5e65bee4a3f44c675681c2"
+    sha256 cellar: :any_skip_relocation, monterey: "8a241cbf57802bb0516528496b7894e0ea2354cdf5a4dd4b9d28f2e2e9a831a0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2bd3d5c09d67d67a21f4d932668a909ce5d0fabbf4b473afe5f611f660e540b"
   end
 
   depends_on 'go' => :build
