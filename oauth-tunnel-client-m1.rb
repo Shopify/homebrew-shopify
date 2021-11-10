@@ -8,9 +8,9 @@ class OauthTunnelClientM1 < Formula
 
   def install
     bin.install({'oauth-tunnel-client_darwin_arm64' => 'oauth-tunnel-client'})
-    mkdir_p('/usr/local/var/log/oauth-tunnel-client/')
-    chown(ENV['USER'], 'staff', '/usr/local/var/log/oauth-tunnel-client/')
-    chmod(0750, '/usr/local/var/log/oauth-tunnel-client/', :verbose => true)
+    mkdir_p('/opt/homebrew/var/log/oauth-tunnel-client/')
+    chown(ENV['USER'], 'admin', '/opt/homebrew/var/log/oauth-tunnel-client/')
+    chmod(0750, '/opt/homebrew/var/log/oauth-tunnel-client/', :verbose => true)
   end
   def plist
     home = Dir.home
@@ -28,14 +28,14 @@ class OauthTunnelClientM1 < Formula
       <string>#{plist_name}</string>
       <key>ProgramArguments</key>
       <array>
-        <string>/usr/local/bin/oauth-tunnel-client</string>
+        <string>/opt/homebrew/bin/oauth-tunnel-client</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
       <key>StandardErrorPath</key>
-      <string>/usr/local/var/log/oauth-tunnel-client/oauth-tunnel-client_err.log</string>
+      <string>/opt/homebrew/var/log/oauth-tunnel-client/oauth-tunnel-client_err.log</string>
       <key>StandardOutPath</key>
-      <string>/usr/local/var/log/oauth-tunnel-client/oauth-tunnel-client.log</string>
+      <string>/opt/homebrew/var/log/oauth-tunnel-client/oauth-tunnel-client.log</string>
     </dict>
     </plist>
     EOS
