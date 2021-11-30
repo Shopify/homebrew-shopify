@@ -1,16 +1,16 @@
 class OauthTunnelClient < Formula
-
   desc 'Create a secure local proxy with Shopify GCP services'
   homepage 'https://github.com/Shopify/oauth-tunnel-client'
-  url 'https://storage.googleapis.com/binaries.shopifykloud.com/oauth-tunnel/oauth-tunnel-client-cb1489c167049627ed5b96b903948af80b482191.tar.gz'
-  sha256 '1edfc34429674e739f843f99f2c960306f154fcd3dfac66f9b2e9c676fd419a4'
-  version "0.3.4"
+  url 'https://storage.googleapis.com/binaries.shopifykloud.com/oauth-tunnel/oauth-tunnel-client-c3219ecfeef1965c6524040f99aea53bdbfde9af.tar.gz'
+  sha256 'c1b3d5b5ee6b92f4f44795b23e76742398759f21b235a386f7cf9d507cbc099a'
+  version "1.0.0"
+
+  arch = Hardware::CPU.intel? ? "amd64" : "arm64"
+  binary_name = "oauth-tunnel-client_darwin_#{arch}" 
 
   def install
-    bin.install({'oauth-tunnel-client_darwin_amd64' => 'oauth-tunnel-client'})
-    mkdir_p('/usr/local/var/log/oauth-tunnel-client/')
-    chown(ENV['USER'], 'staff', '/usr/local/var/log/oauth-tunnel-client/')
-    chmod(0750, '/usr/local/var/log/oauth-tunnel-client/', :verbose => true)
+    bin.install({binary_name => 'oauth-tunnel-client'})
+    mkdir_p var/"log/oauth-tunnel-client"
   end
   def plist
     home = Dir.home
@@ -28,19 +28,19 @@ class OauthTunnelClient < Formula
       <string>#{plist_name}</string>
       <key>ProgramArguments</key>
       <array>
-        <string>/usr/local/bin/oauth-tunnel-client</string>
+        <string>/opt/homebrew/bin/oauth-tunnel-client</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
       <key>StandardErrorPath</key>
-      <string>/usr/local/var/log/oauth-tunnel-client/oauth-tunnel-client_err.log</string>
+      <string>/opt/homebrew/var/log/oauth-tunnel-client/oauth-tunnel-client_err.log</string>
       <key>StandardOutPath</key>
-      <string>/usr/local/var/log/oauth-tunnel-client/oauth-tunnel-client.log</string>
+      <string>/opt/homebrew/var/log/oauth-tunnel-client/oauth-tunnel-client.log</string>
     </dict>
     </plist>
     EOS
   end
   test do
-    system "#{bin}/oauth-tunnel-client_darwin_amd64", "version"
+    system "#{bin}/#{binary_name}", "version"
   end
 end
