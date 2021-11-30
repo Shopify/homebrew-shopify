@@ -6,10 +6,10 @@ class OauthTunnelClient < Formula
   version "1.0.0"
 
   arch = Hardware::CPU.intel? ? "amd64" : "arm64"
-  binary_name = "oauth-tunnel-client_darwin_#{arch}" 
+  @@binary_name = "oauth-tunnel-client_darwin_#{arch}" 
 
   def install
-    bin.install({binary_name => 'oauth-tunnel-client'})
+    bin.install({@@binary_name => 'oauth-tunnel-client'})
     mkdir_p var/"log/oauth-tunnel-client"
   end
   def plist
@@ -28,19 +28,19 @@ class OauthTunnelClient < Formula
       <string>#{plist_name}</string>
       <key>ProgramArguments</key>
       <array>
-        <string>/opt/homebrew/bin/oauth-tunnel-client</string>
+        <string>#{bin}/oauth-tunnel-client</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
       <key>StandardErrorPath</key>
-      <string>/opt/homebrew/var/log/oauth-tunnel-client/oauth-tunnel-client_err.log</string>
+      <string>#{var}/log/oauth-tunnel-client/oauth-tunnel-client_err.log</string>
       <key>StandardOutPath</key>
-      <string>/opt/homebrew/var/log/oauth-tunnel-client/oauth-tunnel-client.log</string>
+      <string>#{var}/log/oauth-tunnel-client/oauth-tunnel-client.log</string>
     </dict>
     </plist>
     EOS
   end
   test do
-    system "#{bin}/#{binary_name}", "version"
+    system "#{bin}/#{@@binary_name}", "version"
   end
 end
