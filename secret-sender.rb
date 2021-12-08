@@ -3,28 +3,19 @@ require 'fileutils'
 class SecretSender < Formula
   desc 'SecretSender is a little utility to securely share secrets to other users.'
   homepage 'https://github.com/Shopify/secret-sender'
-  url 'https://github.com/Shopify/secret-sender/archive/v2.0.0.tar.gz'
-  sha256 '282a90308b401f99f21885a34f9b5859ee90e9863ef2e87b4f522e57c9e53be6'
+  url 'https://github.com/Shopify/secret-sender/archive/v2.0.1.tar.gz'
+  sha256 '404f490140a843e3d196598bd0892d3991f27a2d3e6e70899553a5f702235ff6'
 
   depends_on 'go' => :build
 
   bottle do
-    root_url "https://github.com/Shopify/secret-sender/releases/download/v2.0.0"
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, mojave: "54e2bd8d55fefdb813168c300e79751353eddde775671471980966960b58d342"
-  end
-
-  bottle do
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, catalina: "79ac412956c31da9a3c70c7d78de249d16b9375bd5f0034d7d58c5a881c0b222"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b1342e171060b9bd5cb8b32f423ae631c23dde0045140791aa5d0d46fe87a580"
+    sha256 cellar: :any_skip_relocation, monterey: "463966f8acaaeb21f9d73e04cb3f8c2ee6f6c7ddc8e6fb047062f069e0eead5a"
   end
 
   def install
-    FileUtils.mkdir_p('src/github.com/Shopify')
-    FileUtils.ln_sf(Dir.pwd, 'src/github.com/Shopify/secret-sender')
-    ENV['GOPATH'] = Dir.pwd
-    system('go', 'build', '-o', 'secret-sender', 'github.com/Shopify/secret-sender')
+    system('go', 'build')
     bin.install('secret-sender')
     man1.install('secret-sender.1')
   end
