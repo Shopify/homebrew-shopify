@@ -7,6 +7,7 @@ class Ejson < Formula
   bottle do
     root_url "https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d8b39327e7d88a5523ae64449b80c51a67f1e8419770e44831a30d1ad879c689"
+    sha256 cellar: :any_skip_relocation, monterey: "fe5b00098bb320eee19250f1e6317242cd15cbe8bc538c899acebafcdeee62db"
   end
 
   depends_on 'go' => :build
