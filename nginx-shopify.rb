@@ -19,7 +19,7 @@ class NginxShopify < Formula
 
   depends_on "pcre"
   depends_on "geoip"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "luajit-shopify"
   depends_on "libcidr-shopify"
   nginx_modules.each { |m, v| depends_on m => v }
