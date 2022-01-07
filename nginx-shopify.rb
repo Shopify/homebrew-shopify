@@ -1,8 +1,8 @@
 class NginxShopify < Formula
   desc "HTTP(S) server, reverse proxy, IMAP/POP3 proxy server"
   homepage "http://nginx.org/"
-  url "https://nginx.org/download/nginx-1.13.9.tar.gz"
-  sha256 "5faea18857516fe68d30be39c3032bd22ed9cf85e1a6fdf32e3721d96ff7fa42"
+  url "https://nginx.org/download/nginx-1.21.3.tar.gz"
+  sha256 "14774aae0d151da350417efc4afda5cce5035056e71894836797e1f6e2d1175a"
   head "http://hg.nginx.org/nginx/", :using => :hg
 
   conflicts_with "nginx", :because => "shopify has a custom nginx build. `brew uninstall nginx` first"
@@ -19,7 +19,7 @@ class NginxShopify < Formula
 
   depends_on "pcre"
   depends_on "geoip"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "luajit-shopify"
   depends_on "libcidr-shopify"
   nginx_modules.each { |m, v| depends_on m => v }
