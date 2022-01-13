@@ -92,6 +92,7 @@ class ShopifyCli < Formula
         #!#{ruby_bin}/ruby --disable-gems
         ENV['GEM_HOME']="#{prefix}"
         ENV['GEM_PATH']="#{prefix}"
+        ENV['RUBY_BINDIR']="#{ruby_bin}/"
         require 'rubygems'
         $:.unshift(#{ruby_libs.map(&:inspect).join(",")})
         load "#{file}"
