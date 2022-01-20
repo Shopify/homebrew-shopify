@@ -5,8 +5,18 @@ class OauthTunnelClient < Formula
   sha256 'c1b3d5b5ee6b92f4f44795b23e76742398759f21b235a386f7cf9d507cbc099a'
   version "1.0.0"
 
-  arch = Hardware::CPU.intel? ? "amd64" : "arm64"
-  @@binary_name = "oauth-tunnel-client_darwin_#{arch}" 
+  case
+  when OS.mac? && Hardware::CPU.intel?
+    @@binary_name = "oauth-tunnel-client_darwin_amd64" 
+  when OS.mac? && Hardware::CPU.arm?
+    @@binary_name = "oauth-tunnel-client_darwin_arm64" 
+  when OS.linux? && Hardware::CPU.intel?
+    @@binary_name = "oauth-tunnel-client_linux_amd64" 
+  when OS.linux? && Hardware::CPU.arm?
+    @@binary_name = "oauth-tunnel-client_linux_arm64" 
+  else
+    odie "Unexpected platform!"
+  end
 
   def install
     bin.install({@@binary_name => 'oauth-tunnel-client'})
