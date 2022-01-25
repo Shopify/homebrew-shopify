@@ -1,5 +1,9 @@
 # frozen_string_literal: true
-
+#
+# The canonical copy of this file is hosted at
+# https://github.com/Shopify/shopify-cli/blob/main/packaging/homebrew/shopify-cli.base.rb
+# so please make all updates there.
+#
 # Modified from formula originally generated via `brew-gem` using
 # `brew gem formula shopify-cli`
 
@@ -46,8 +50,8 @@ class ShopifyCli < Formula
   include RubyBin
 
   url "shopify-cli", using: RubyGemsDownloadStrategy
-  version "2.9.0"
-  sha256 "1752b9f9cf3c23ac528ba73d405ef9a0cf9d92747ac43e6e36a6e074fe1dde75"
+  version "2.10.0"
+  sha256 "94d4123d1c2f5f15249e2881d6a0e60551426c5c2b92054cc3fdbfbb2584efad"
   depends_on "ruby" => "3"
   depends_on "git"
 
