@@ -1,3 +1,4 @@
+
 class OauthTunnelClient < Formula
   desc 'Create a secure local proxy with Shopify GCP services'
   homepage 'https://github.com/Shopify/oauth-tunnel-client'
@@ -9,11 +10,9 @@ class OauthTunnelClient < Formula
   when OS.mac? && Hardware::CPU.intel?
     @@binary_name = "oauth-tunnel-client_darwin_amd64" 
   when OS.mac? && Hardware::CPU.arm?
-    @@binary_name = "oauth-tunnel-client_darwin_arm64" 
-  when OS.linux? && Hardware::CPU.is_32_bit?
-    @@binary_name = "oauth-tunnel-client_linux_386"
+    @@binary_name = "oauth-tunnel-client_darwin_arm64"
   when OS.linux? && Hardware::CPU.intel?
-    @@binary_name = "oauth-tunnel-client_linux_amd64" 
+    @@binary_name = "oauth-tunnel-client_linux_386"
   when OS.linux? && Hardware::CPU.arm?
     @@binary_name = "oauth-tunnel-client_linux_arm64" 
   else
@@ -21,6 +20,7 @@ class OauthTunnelClient < Formula
   end
 
   def install
+    ENV["HOMEBREW_OAUTH_TUNNEL_CLIENT__BIN_PATH"] = bin
     bin.install({@@binary_name => 'oauth-tunnel-client'})
     mkdir_p var/"log/oauth-tunnel-client"
   end
