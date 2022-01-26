@@ -1,4 +1,3 @@
-
 class OauthTunnelClient < Formula
   desc 'Create a secure local proxy with Shopify GCP services'
   homepage 'https://github.com/Shopify/oauth-tunnel-client'
@@ -20,7 +19,6 @@ class OauthTunnelClient < Formula
   end
 
   def install
-    ENV["HOMEBREW_OAUTH_TUNNEL_CLIENT__BIN_PATH"] = bin
     bin.install({@@binary_name => 'oauth-tunnel-client'})
     mkdir_p var/"log/oauth-tunnel-client"
   end
