@@ -13,7 +13,7 @@ require "fileutils"
 class ShopifyCli < Formula
   module RubyBin
     def ruby_bin
-      Formula["ruby"].opt_bin
+      Formula["ruby@3.0"].opt_bin
     end
   end
 
@@ -24,7 +24,10 @@ class ShopifyCli < Formula
       ohai("Fetching shopify-cli from gem source")
       cache.cd do
         ENV["GEM_SPEC_CACHE"] = "#{cache}/gem_spec_cache"
-        system("#{ruby_bin}/gem", "fetch", "shopify-cli", "--version", gem_version)
+        _, err, status = Open3.capture3("#{ruby_bin}/gem", "fetch", "shopify-cli", "--version", gem_version)
+        unless status.success?
+          odie err
+        end
       end
     end
 
@@ -50,8 +53,8 @@ class ShopifyCli < Formula
   include RubyBin
 
   url "shopify-cli", using: RubyGemsDownloadStrategy
-  version "2.11.1"
-  sha256 "ca9eb606da350e9d731f622e9f3abbe0a27af755f55339809f7afd915c8a2448"
+  version "2.11.2"
+  sha256 "fe2bc030a4c2a9baf4b7309ad6f7b584984da2eb38027b08a52f8b4925631f8b"
   depends_on "ruby@3.0"
   depends_on "git"
 
