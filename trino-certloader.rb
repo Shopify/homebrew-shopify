@@ -70,18 +70,19 @@ class TrinoCertloader < Formula
     end
   end
 
+  @@version = "0.1.1"
 
   desc 'Manage mTLS certificates for Conductor and Trino'
   homepage 'https://github.com/Shopify/certloader'
-  version "0.1.1"
+  version @@version
   plist_options manual: "export GIN_MODE=release && #{HOMEBREW_PREFIX}/opt/trino-certloader/bin/trino-certloader"
 
   case
   when OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/Shopify/certloader/releases/download/0.1.1/certloader_darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+    url "https://github.com/Shopify/certloader/releases/download/#{@@version}/certloader_darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
     sha256 '3f9a180af25ab655d21ddc6bdf0c7e0a212d1bba0f0ad379b358ad5d31051778'
   when OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/Shopify/certloader/releases/download/0.1.1/certloader_darwin_amd64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+    url "https://github.com/Shopify/certloader/releases/download/#{@@version}/certloader_darwin_amd64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
     sha256 'd90bac7df7a028c948be01a9e9e0cc44900e52853ccf6374591af9b78f191f0a'
   else
     odie "Unexpected platform!"
