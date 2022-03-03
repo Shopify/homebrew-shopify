@@ -1,22 +1,94 @@
 class TrinoCertloader < Formula
+  # GitHubPrivateRepositoryReleaseDownloadStrategy downloads tarballs from GitHub
+  # Release assets. To use it, add
+  # `using: GitHubPrivateRepositoryReleaseDownloadStrategy` to the URL section of
+  # your formula. This download strategy uses GitHub access tokens from `dev github print-auth`
+  # to sign the request.
+  class GitHubPrivateRepositoryReleaseDownloadStrategy < CurlDownloadStrategy
+    require "utils/formatter"
+    require "utils/github"
+
+    def initialize(url, name, version, **meta)
+      super
+      set_github_token
+      parse_url_pattern
+    end
+
+    def set_github_token
+      creds_filepath = "/opt/dev/var/private/git_credential_store"
+
+      unless File.file?(creds_filepath)
+        raise CurlDownloadStrategyError, "No github auth credentials found. Please run `dev github auth`."
+      end
+
+      file = File.open(creds_filepath)
+      contents = file.read.strip!
+      creds = URI.parse(contents)
+
+      @github_token = creds.password
+
+      unless @github_token
+        raise CurlDownloadStrategyError, "No github auth found. Please run `dev github auth`."
+      end
+    end
+
+    def parse_url_pattern
+      unless match = url.match(%r{https://github.com/([^/]+)/([^/]+)/releases/download/([^/]+)/(\S+)})
+        raise CurlDownloadStrategyError, "Invalid url pattern for GitHub Release."
+      end
+
+      _, @owner, @repo, @tag, @filename = *match
+    end
+
+    def download_url
+      "https://#{@github_token}@api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{asset_id}"
+    end
+
+    private
+
+    def _fetch(url:, resolved_url:, timeout:)
+      # HTTP request header `Accept: application/octet-stream` is required.
+      # Without this, the GitHub API will respond with metadata, not binary.
+      curl_download download_url, "--header", "Accept: application/octet-stream", to: temporary_path
+    end
+
+    def asset_id
+      @asset_id ||= resolve_asset_id
+    end
+
+    def resolve_asset_id
+      release_metadata = fetch_release_metadata
+      assets = release_metadata["assets"].select { |a| a["name"] == @filename }
+      raise CurlDownloadStrategyError, "Asset file not found." if assets.empty?
+
+      assets.first["id"]
+    end
+
+    def fetch_release_metadata
+      release_url = "https://#{@github_token}@api.github.com/repos/#{@owner}/#{@repo}/releases/tags/#{@tag}"
+      GitHub::API.open_rest(release_url)
+    end
+  end
+
+
   desc 'Manage mTLS certificates for Conductor and Trino'
   homepage 'https://github.com/Shopify/certloader'
-  url 'https://storage.googleapis.com/binaries.shopifykloud.com/certloader/certloader.target.zip'
-  sha256 '63200d5dc9536652ffccde46d69ee389a6a490593118bb953bca20c0499a5b16'
-  version "1.0.0"
+  version "0.1.1"
   plist_options manual: "export GIN_MODE=release && #{HOMEBREW_PREFIX}/opt/trino-certloader/bin/trino-certloader"
 
   case
-  when OS.mac? && Hardware::CPU.intel?
-    @@binary_name = "certloader-darwin_amd64"
   when OS.mac? && Hardware::CPU.arm?
-    @@binary_name = "certloader-darwin_arm64"
+    url "https://github.com/Shopify/certloader/releases/download/0.1.1/certloader_darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+    sha256 '3f9a180af25ab655d21ddc6bdf0c7e0a212d1bba0f0ad379b358ad5d31051778'
+  when OS.mac? && Hardware::CPU.intel?
+    url "https://github.com/Shopify/certloader/releases/download/0.1.1/certloader_darwin_amd64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+    sha256 'd90bac7df7a028c948be01a9e9e0cc44900e52853ccf6374591af9b78f191f0a'
   else
     odie "Unexpected platform!"
   end
 
   def install
-    bin.install({@@binary_name => "trino-certloader"})
+    bin.install({"certloader" => "trino-certloader"})
     mkdir_p var/"log/trino-certloader"
     mkdir_p var/"trino-certloader/certs"
   end
@@ -58,6 +130,6 @@ class TrinoCertloader < Formula
     EOS
   end
   test do
-    system "#{bin}/#{@@binary_name}", "--help"
+    system "#{bin}/certloader", "--help"
   end
 end
