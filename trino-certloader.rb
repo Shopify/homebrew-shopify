@@ -80,10 +80,10 @@ class TrinoCertloader < Formula
   case
   when OS.mac? && Hardware::CPU.arm?
     url "https://github.com/Shopify/certloader/releases/download/#{@@version}/certloader_darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 '3f9a180af25ab655d21ddc6bdf0c7e0a212d1bba0f0ad379b358ad5d31051778'
+    sha256 '5ae8f3f4d238e9981dad8183c0a1adbfa38140df32b80486df47d399d8f2470f'
   when OS.mac? && Hardware::CPU.intel?
     url "https://github.com/Shopify/certloader/releases/download/#{@@version}/certloader_darwin_amd64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 'd90bac7df7a028c948be01a9e9e0cc44900e52853ccf6374591af9b78f191f0a'
+    sha256 '6e126804d3c84a545ab94a7892b4d0f74d4da1c5bf7a3fe4b4a1265a5315c566'
   else
     odie "Unexpected platform!"
   end
@@ -111,8 +111,10 @@ class TrinoCertloader < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{bin}/trino-certloader</string>
-        <string>--no-tracing</string>
         <string>-o=#{var}/trino-certloader/certs</string>
+        <string>--no-tracing</string>
+        <string>--log-metrics</string>
+        <string>--combined-pem</string>
         <string>-vault.pki.path=certify/conductor/production</string>
         <string>-vault.auth.type=github</string>
         <string>-vault.auth.github.token.path=/opt/dev/var/private/git_credential_store</string>
