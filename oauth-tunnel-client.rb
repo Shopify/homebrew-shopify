@@ -9,13 +9,13 @@ class OauthTunnelClient < Formula
 
   case
   when OS.mac? && Hardware::CPU.intel?
-    @@binary_name = "oauth-tunnel-client_darwin_amd64" 
+    @@binary_name = "oauth-tunnel-client_darwin_amd64"
   when OS.mac? && Hardware::CPU.arm?
     @@binary_name = "oauth-tunnel-client_darwin_arm64"
   when OS.linux? && Hardware::CPU.intel?
     @@binary_name = "oauth-tunnel-client_linux_386"
   when OS.linux? && Hardware::CPU.arm?
-    @@binary_name = "oauth-tunnel-client_linux_arm64" 
+    @@binary_name = "oauth-tunnel-client_linux_arm64"
   else
     odie "Unexpected platform!"
   end
