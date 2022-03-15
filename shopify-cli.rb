@@ -24,6 +24,7 @@ class ShopifyCli < Formula
       ohai("Fetching shopify-cli from gem source")
       cache.cd do
         ENV["GEM_SPEC_CACHE"] = "#{cache}/gem_spec_cache"
+
         _, err, status = Open3.capture3("gem", "fetch", "shopify-cli", "--version", gem_version)
         unless status.success?
           odie err
@@ -53,8 +54,8 @@ class ShopifyCli < Formula
   include RubyBin
 
   url "shopify-cli", using: RubyGemsDownloadStrategy
-  version "2.13.0"
-  sha256 "1da9e66ffb01b6725a62099c89195925d8787be66ba25c86bf56d018fe647219"
+  version "2.14.0"
+  sha256 "59b40d8bef2416cf3616a054eac1e4c94298acca670cc5ddad1befba2154583a"
   depends_on "ruby"
   depends_on "git"
 
