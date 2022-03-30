@@ -84,6 +84,12 @@ class TrinoCertloader < Formula
   when OS.mac? && Hardware::CPU.intel?
     url "https://github.com/Shopify/certloader/releases/download/#{@@version}/certloader_darwin_amd64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
     sha256 "4b2c18336f4203c239d2dbd866b3327954adefab864352f92f0e6a3479333cea"
+  when OS.linux? && Hardware::CPU.arm?
+    url "https://github.com/Shopify/certloader/releases/download/#{@@version}/certloader_linux_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+    sha256 "1ed64c2150e0834073ad0030ba0d1b3e05020d5d5a5c931fd20138db73d4eaaa"
+  when OS.linux? && Hardware::CPU.intel?
+    url "https://github.com/Shopify/certloader/releases/download/#{@@version}/certloader_linux_amd64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+    sha256 "4b2c18336f4203c239d2dbd866b3327954adefab864352f92f0e6a3479333cea"
   else
     odie "Unexpected platform!"
   end
