@@ -70,7 +70,7 @@ class TrinoCertloader < Formula
     end
   end
 
-  @@version = "0.2.0"
+  @@version = "0.3.0"
 
   desc 'Manage mTLS certificates for Conductor and Trino'
   homepage 'https://github.com/Shopify/certloader'
@@ -80,10 +80,10 @@ class TrinoCertloader < Formula
   case
   when OS.mac? && Hardware::CPU.arm?
     url "https://github.com/Shopify/certloader/releases/download/#{@@version}/certloader_darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 "1ed64c2150e0834073ad0030ba0d1b3e05020d5d5a5c931fd20138db73d4eaaa"
+    sha256 "6efac95333b08c10cf0ac23f18c17060440d8712d37ea92dd33b5e9a0a08de39"
   when OS.mac? && Hardware::CPU.intel?
     url "https://github.com/Shopify/certloader/releases/download/#{@@version}/certloader_darwin_amd64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 "4b2c18336f4203c239d2dbd866b3327954adefab864352f92f0e6a3479333cea"
+    sha256 "67d799667be86e9bdf297376f0f32319fd4109be095a6803dcb46b6b2b233c7f"
   else
     odie "Unexpected platform!"
   end
@@ -119,8 +119,8 @@ class TrinoCertloader < Formula
         <string>-vault.auth.type=github</string>
         <string>-vault.auth.github.token.path=/opt/dev/var/private/git_credential_store</string>
         <string>-sync.interval=10s</string>
-        <string>-cert.duration=1h</string>
-        <string>-cert.renew-before=59m0s</string>
+        <string>-cert.duration=12h</string>
+        <string>-cert.renew-before=11h59m</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
