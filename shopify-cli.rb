@@ -54,8 +54,8 @@ class ShopifyCli < Formula
   include RubyBin
 
   url "shopify-cli", using: RubyGemsDownloadStrategy
-  version "2.15.4"
-  sha256 "8981d7bc4dbcc589fb0c522027e4eb8e05b4650d3c756b8feeb52a96f0b26abc"
+  version "2.15.5"
+  sha256 "a4073130f29ae51b16f5b5ea096780186c532a18e6e1a016d37786e950b03594"
   depends_on "ruby"
   depends_on "git"
 
@@ -97,7 +97,7 @@ class ShopifyCli < Formula
     file = Pathname.new("#{brew_gem_prefix}/bin/#{exe}")
     (bin + file.basename).open("w") do |f|
       f << <<~RUBY
-        #!#{ruby_bin}/ruby --disable-gems
+        #!#{ruby_bin}/ruby -rjson --disable-gems
         ENV['ORIGINAL_ENV']=ENV.to_h.to_json
         ENV['GEM_HOME']="#{prefix}"
         ENV['GEM_PATH']="#{prefix}"
