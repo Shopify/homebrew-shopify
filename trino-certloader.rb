@@ -121,6 +121,7 @@ class TrinoCertloader < Formula
         <string>-sync.interval=10s</string>
         <string>-cert.duration=12h</string>
         <string>-cert.renew-before=11h59m</string>
+        <string>-admin-addr=:5201</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
