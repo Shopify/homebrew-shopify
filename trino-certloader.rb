@@ -70,7 +70,7 @@ class TrinoCertloader < Formula
     end
   end
 
-  @@version = "0.3.0"
+  @@version = "0.3.1"
 
   desc 'Manage mTLS certificates for Conductor and Trino'
   homepage 'https://github.com/Shopify/certloader'
@@ -80,10 +80,10 @@ class TrinoCertloader < Formula
   case
   when OS.mac? && Hardware::CPU.arm?
     url "https://github.com/Shopify/certloader/releases/download/#{@@version}/certloader_darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 "6efac95333b08c10cf0ac23f18c17060440d8712d37ea92dd33b5e9a0a08de39"
+    sha256 "5f61a9f70598a05782fd898e707ab7ec7f481be8cfe0f94cc14ecb6cf594de9c"
   when OS.mac? && Hardware::CPU.intel?
     url "https://github.com/Shopify/certloader/releases/download/#{@@version}/certloader_darwin_amd64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 "67d799667be86e9bdf297376f0f32319fd4109be095a6803dcb46b6b2b233c7f"
+    sha256 "1c49943e633f9f251f6d724f99478e6e6dc366ffc0506e069841993cbe46a939"
   else
     odie "Unexpected platform!"
   end
