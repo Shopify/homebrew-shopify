@@ -10,6 +10,12 @@ class GnupgAT236 < Formula
     regex(/href=.*?gnupg[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    root_url 'https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding'
+    rebuild 1
+    sha256 arm64_monterey: "8b8d3f5562996b8d12a22af7ab2d88975ee261c9a0800a610100a0ae4a3b9fb8"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gnutls"
