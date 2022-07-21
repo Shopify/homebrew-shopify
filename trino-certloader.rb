@@ -22,8 +22,9 @@ class TrinoCertloader < Formula
       end
 
       file = File.open(creds_filepath)
-      contents = file.read.strip!
-      creds = URI.parse(contents)
+      contents = file.read.strip!.split("\n")
+      latest_raw_creds = contents.last
+      creds = URI.parse(latest_raw_creds)
 
       @github_token = creds.password
 
