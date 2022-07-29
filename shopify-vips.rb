@@ -6,12 +6,13 @@ class ShopifyVips < Formula
   sha256 "8f7cb1806bcde834ee056853254d3643407ade280e24b6d1ddb8f155c9eb25f7"
   version "8.13"
   license "LGPL-2.1-or-later"
-  revision 5
+  revision 6
 
   depends_on "pkg-config" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "glib-utils" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "cgif"
   depends_on "fftw"
   depends_on "freetype"
