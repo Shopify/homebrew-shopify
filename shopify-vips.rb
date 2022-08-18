@@ -4,9 +4,9 @@ class ShopifyVips < Formula
   homepage "https://github.com/libvips/libvips"
   url "https://github.com/libvips/libvips/archive/v8.13.0.tar.gz"
   sha256 "8f7cb1806bcde834ee056853254d3643407ade280e24b6d1ddb8f155c9eb25f7"
-  version "8.13"
+  version "8.13.0"
   license "LGPL-2.1-or-later"
-  revision 6
+  revision 7
 
   depends_on "pkg-config" => :build
   depends_on "meson" => :build
@@ -39,6 +39,8 @@ class ShopifyVips < Formula
   uses_from_macos "zlib"
 
   def install
+    # force mozjpeg to be used: the regular libjpeg / libjpeg-turbo might be present on the system as well.
+    ENV.prepend_path "PKG_CONFIG_PATH",Formula["mozjpeg"].opt_lib/"pkgconfig"
     system "meson", "setup", "build", "--prefix=#{prefix}", "-Dmagick-package=GraphicsMagick", "--buildtype=release"
     system "meson", "install", "-C", "build"
   end
