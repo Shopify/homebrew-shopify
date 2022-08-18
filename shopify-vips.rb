@@ -39,6 +39,8 @@ class ShopifyVips < Formula
   uses_from_macos "zlib"
 
   def install
+    # force mozjpeg to be used: the regular libjpeg / libjpeg-turbo might be present on the system as well.
+    ENV.prepend_path "PKG_CONFIG_PATH",Formula["mozjpeg"].opt_lib/"pkgconfig"
     system "meson", "setup", "build", "--prefix=#{prefix}", "-Dmagick-package=GraphicsMagick", "--buildtype=release"
     system "meson", "install", "-C", "build"
   end
