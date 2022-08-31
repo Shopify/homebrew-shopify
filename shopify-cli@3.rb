@@ -7,16 +7,16 @@ require "fileutils"
 class ShopifyCliAT3 < Formula
   desc "A CLI tool to build for the Shopify platform"
   homepage "https://github.com/shopify/cli#readme"
-  url "https://registry.npmjs.org/@shopify/cli/-/cli-3.9.1.tgz"
-  sha256 "c474b45e3d9b676b3ea7550db3530a385405fe4dfeae242fac22112349975d09"
+  url "https://registry.npmjs.org/@shopify/cli/-/cli-3.9.2.tgz"
+  sha256 "ee93663d85f20e0ea96c794ff11dcf828f73f4c5246ed2d11ba6d4b07998b9bd"
   license "MIT"
   depends_on "node"
   depends_on "ruby"
   depends_on "git"
 
   resource "cli-theme-commands" do
-    url "https://registry.npmjs.org/@shopify/theme/-/theme-3.9.1.tgz"
-    sha256 "7fae6db4c06320bbf0614828b0c1ab811e6289dd39240e619ab0cc335fbee568"
+    url "https://registry.npmjs.org/@shopify/theme/-/theme-3.9.2.tgz"
+    sha256 "41e9b772ff5e735b50379928c47f67ac8949d67e14ec4f07a377231fdb1bafe9"
   end
 
   livecheck do
@@ -40,7 +40,7 @@ class ShopifyCliAT3 < Formula
     executable_content = <<~SCRIPT
       #!/usr/bin/env node
 
-      process.env.SHOPIFY_RUBY_BINDIR = Formula["ruby"].opt_bin
+      process.env.SHOPIFY_RUBY_BINDIR = "#{Formula["ruby"].opt_bin}"
 
       import("./shopify");
     SCRIPT
