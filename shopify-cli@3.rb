@@ -2,20 +2,21 @@
 
 require "formula"
 require "language/node"
+require "fileutils"
 
 class ShopifyCliAT3 < Formula
   desc "A CLI tool to build for the Shopify platform"
   homepage "https://github.com/shopify/cli#readme"
-  url "https://registry.npmjs.org/@shopify/cli/-/cli-3.9.0.tgz"
-  sha256 "8e0993fbac81eea63774bcb4a11518dce424548257acc5015674934f2f07a617"
+  url "https://registry.npmjs.org/@shopify/cli/-/cli-3.9.1.tgz"
+  sha256 "c474b45e3d9b676b3ea7550db3530a385405fe4dfeae242fac22112349975d09"
   license "MIT"
   depends_on "node"
   depends_on "ruby"
   depends_on "git"
 
   resource "cli-theme-commands" do
-    url "https://registry.npmjs.org/@shopify/theme/-/theme-3.9.0.tgz"
-    sha256 "51c8b26ee5a2ef131fced3593ee891536346dbd51bd5c42e75e588a08c1d60e9"
+    url "https://registry.npmjs.org/@shopify/theme/-/theme-3.9.1.tgz"
+    sha256 "7fae6db4c06320bbf0614828b0c1ab811e6289dd39240e619ab0cc335fbee568"
   end
 
   livecheck do
@@ -35,11 +36,18 @@ class ShopifyCliAT3 < Formula
 
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
 
-    executable_path = "#{libexec}/bin/shopify"
-    executable_3_path = "#{libexec}/bin/shopify3"
-    File.symlink executable_path, executable_3_path
+    executable_path = "#{libexec}/bin/shopify3"
+    executable_content = <<~SCRIPT
+      #!/usr/bin/env node
 
-    bin.install_symlink executable_3_path
+      process.env.SHOPIFY_RUBY_BINDIR = Formula["ruby"].opt_bin
+
+      import("./shopify");
+    SCRIPT
+    File.write executable_path, executable_content
+    FileUtils.chmod("+x", executable_path)
+
+    bin.install_symlink executable_path
 
     resource("cli-theme-commands").stage {
       system "npm", "install", *Language::Node.std_npm_install_args(libexec)
