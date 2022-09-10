@@ -3,7 +3,7 @@
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 
 class Toxiproxy < Formula
-  app_version = "2.4.0"
+  app_version = "2.5.0"
   homepage "https://github.com/Shopify/toxiproxy"
   license "MIT"
   version app_version
@@ -11,16 +11,16 @@ class Toxiproxy < Formula
   case
   when OS.mac? && Hardware::CPU.intel?
     url "https://github.com/Shopify/toxiproxy/releases/download/v#{app_version}/toxiproxy-server-darwin-amd64"
-    sha256 "2bc449ba835d04f72324ea0f9b558f55eea8ec8a5344d3da9b5b1bb4ed4f6ccd"
+    sha256 "6f2b28320aecce19235c6efc380a31a7b59d34c63a9d5a50c81485c6f0ac2297"
   when OS.mac? && Hardware::CPU.arm?
     url "https://github.com/Shopify/toxiproxy/releases/download/v#{app_version}/toxiproxy-server-darwin-arm64"
-    sha256 "b89b2165bb390e2e585af16a55f1f870fdd36e50b454aa91903eaa56ebee9202"
+    sha256 "407ed0214b95298f5b7e72c2bda4e330a06f3208a0aa6361ee64b9ead90d32af"
   when OS.linux? && Hardware::CPU.intel?
     url "https://github.com/Shopify/toxiproxy/releases/download/v#{app_version}/toxiproxy-server-linux-amd64"
-    sha256 "fb5fa5efe16b8fea0b5e320ee402598c7a31b17403a593e640e75c502c40085f"
+    sha256 "6f2b28320aecce19235c6efc380a31a7b59d34c63a9d5a50c81485c6f0ac2297"
   when OS.linux? && Hardware::CPU.arm?
     url "https://github.com/Shopify/toxiproxy/releases/download/v#{app_version}/toxiproxy-server-linux-arm64"
-    sha256 "3cca9c1ac0e6a1236447ee7cffee58fec757d2d2da1bbe0d7c19bd0e9fcc486e"
+    sha256 "aca979240a41045a42faa144a91c094349899cf383f4282a50623030ec1345ff"
   else
     odie "Unexpected platform!"
   end
@@ -29,16 +29,16 @@ class Toxiproxy < Formula
     case
     when OS.mac? && Hardware::CPU.intel?
       url "https://github.com/Shopify/toxiproxy/releases/download/v#{app_version}/toxiproxy-cli-darwin-amd64"
-      sha256 "8ee8fec748cae05fb22139ebbfc41ec1ab63bb4dbd3b5455e9cefca64190ab9b"
+      sha256 "ea7e828e8b7c4534ef3ba5c96c26646fa914f6641c5f11783de1ae00355706ad"
     when OS.mac? && Hardware::CPU.arm?
       url "https://github.com/Shopify/toxiproxy/releases/download/v#{app_version}/toxiproxy-cli-darwin-arm64"
-      sha256 "71e02906a77d218638a64bc29395677617d80a0a1bf9310cdfb100d788933250"
+      sha256 "7ff659c70b63c32dc9a0794e81fecbeb66c4ed63798c5597553e6ce1cbffbf34"
     when OS.linux? && Hardware::CPU.intel?
       url "https://github.com/Shopify/toxiproxy/releases/download/v#{app_version}/toxiproxy-cli-linux-amd64"
-      sha256 "eea74262da68074ab6d501c9da7384b6640b20fbb9f7eaecff452914a892a924"
+      sha256 "efaef5c096c2633cd6a96b5ec9ec0c2c0938c654764cbb1c8a6319b9277e2b15"
     when OS.linux? && Hardware::CPU.arm?
       url "https://github.com/Shopify/toxiproxy/releases/download/v#{app_version}/toxiproxy-cli-linux-arm64"
-      sha256 "7ab838c964728de271d1dae6d8ee95d0c608845e3edbe3e4d9ebd25d97bcd6a4"
+      sha256 "5166394c6c069d85f0908f24be2ceb7ba6a22f73ad95f542b703ee85069b3c53"
     end
   end
 
