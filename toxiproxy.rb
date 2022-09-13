@@ -11,7 +11,7 @@ class Toxiproxy < Formula
   case
   when OS.mac? && Hardware::CPU.intel?
     url "https://github.com/Shopify/toxiproxy/releases/download/v#{app_version}/toxiproxy-server-darwin-amd64"
-    sha256 "6f2b28320aecce19235c6efc380a31a7b59d34c63a9d5a50c81485c6f0ac2297"
+    sha256 "d54356d9cf8bb0c3e77ff7c9a5c7b5a32fccd1a807b3e50f40d5c0435c989d49"
   when OS.mac? && Hardware::CPU.arm?
     url "https://github.com/Shopify/toxiproxy/releases/download/v#{app_version}/toxiproxy-server-darwin-arm64"
     sha256 "407ed0214b95298f5b7e72c2bda4e330a06f3208a0aa6361ee64b9ead90d32af"
