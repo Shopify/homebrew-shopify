@@ -54,8 +54,8 @@ class ShopifyCli < Formula
   include RubyBin
 
   url "shopify-cli", using: RubyGemsDownloadStrategy
-  version "2.24.0"
-  sha256 "517c2ebd635a4b607e264301d99a7925018e1222a3894c6f600c48295cc8598f"
+  version "2.25.0"
+  sha256 "c7c8b43cc157597662b012e51e62e04f18db6f1af18f6163617c089d0c87b871"
   depends_on "ruby"
   depends_on "git"
 
