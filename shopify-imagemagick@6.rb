@@ -9,6 +9,11 @@ class ShopifyImagemagickAT6 < Formula
   sha256 "aa5f6b1e97bd98fbf642c47487531bea0faf675c728d01130b52d2b46849104a"
   head "https://github.com/imagemagick/imagemagick.git", :branch => "ImageMagick-6"
 
+  bottle do
+    root_url 'https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding'
+    sha256 arm64_monterey: "77162c495611f55383042a98879456d92785a4afb1a6c46d76614c78a8820365"
+  end
+
   conflicts_with "imagemagick@6", :because => "imagemagick@6 is newer but unsupported in rmagick"
 
   keg_only :versioned_formula
