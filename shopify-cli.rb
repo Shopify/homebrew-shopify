@@ -37,13 +37,14 @@ class ShopifyCli < Formula
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
 
     executable_path = "#{libexec}/bin/shopify"
+    FileUtils.move(executable_path, "#{executable_path}-original")
     executable_content = <<~SCRIPT
       #!/usr/bin/env node
 
       process.env.SHOPIFY_RUBY_BINDIR = "#{Formula["ruby"].opt_bin}"
       process.env.SHOPIFY_HOMEBREW_FORMULA = "shopify-cli"
 
-      import("./shopify");
+      import("./shopify-original");
     SCRIPT
     File.write executable_path, executable_content
     FileUtils.chmod("+x", executable_path)
