@@ -1,111 +1,74 @@
 # frozen_string_literal: true
-#
-# The canonical copy of this file is hosted at
-# https://github.com/Shopify/shopify-cli/blob/main/packaging/homebrew/shopify-cli.base.rb
-# so please make all updates there.
-#
-# Modified from formula originally generated via `brew-gem` using
-# `brew gem formula shopify-cli`
 
 require "formula"
+require "language/node"
 require "fileutils"
 
 class ShopifyCli < Formula
-  module RubyBin
-    def ruby_bin
-      Formula["ruby"].opt_bin
-    end
-  end
-
-  class RubyGemsDownloadStrategy < AbstractDownloadStrategy
-    include RubyBin
-
-    def fetch(_timeout: nil, **_options)
-      ohai("Fetching shopify-cli from gem source")
-      cache.cd do
-        ENV["GEM_SPEC_CACHE"] = "#{cache}/gem_spec_cache"
-
-        _, err, status = Open3.capture3("gem", "fetch", "shopify-cli", "--version", gem_version)
-        unless status.success?
-          odie err
-        end
-      end
-    end
-
-    def cached_location
-      Pathname.new("#{cache}/shopify-cli-#{gem_version}.gem")
-    end
-
-    def cache
-      @cache ||= HOMEBREW_CACHE
-    end
-
-    def gem_version
-      @version ||= @resource&.version if defined?(@resource)
-      raise "Unable to determine version; did Homebrew change?" unless @version
-      @version
-    end
-
-    def clear_cache
-      cached_location.unlink if cached_location.exist?
-    end
-  end
-
-  include RubyBin
-
-  url "shopify-cli", using: RubyGemsDownloadStrategy
-  version "2.29.0"
-  sha256 "28eb7ccd277ef3037f28d405cda6dcec41320926350be9e9a7445e5929a144bd"
+  desc "A CLI tool to build for the Shopify platform"
+  homepage "https://github.com/shopify/cli#readme"
+  url "https://registry.npmjs.org/@shopify/cli/-/cli-3.20.1.tgz"
+  sha256 "d1b0476325e3c88e48aa535a150942d73f2b31fca1cdb1131f139fa2db72a184"
+  license "MIT"
+  depends_on "node"
   depends_on "ruby"
   depends_on "git"
 
+  resource "cli-theme-commands" do
+    url "https://registry.npmjs.org/@shopify/theme/-/theme-3.20.1.tgz"
+    sha256 "ce8be59b80ae7e5f0650349b2a66b84a06b8583aed1d941272c747c6ab3f891b"
+  end
+
+  livecheck do
+    url :stable
+  end
+
   def install
-    # set GEM_HOME and GEM_PATH to make sure we package all the dependent gems
-    # together without accidently picking up other gems on the gem path since
-    # they might not be there if, say, we change to a different rvm gemset
-    ENV["GEM_HOME"] = prefix.to_s
-    ENV["GEM_PATH"] = prefix.to_s
+    existing_cli_path = `which shopify`
+    unless existing_cli_path.empty? || existing_cli_path.include?("homebrew")
+      opoo <<~WARNING
+      We've detected an installation of the Shopify CLI at #{existing_cli_path} that's not managed by Homebrew.
 
-    # Use /usr/local/bin at the front of the path instead of Homebrew shims,
-    # which mess with Ruby's own compiler config when building native extensions
-    if defined?(HOMEBREW_SHIMS_PATH)
-      ENV["PATH"] = ENV["PATH"].sub(HOMEBREW_SHIMS_PATH.to_s, "/usr/local/bin")
+      Please ensure that the Homebrew line in your shell configuration is at the bottom so that Homebrew-managed
+      tools take precedence.
+      WARNING
     end
 
-    system(
-      "gem",
-      "install",
-      cached_download,
-      "--no-document",
-      "--no-wrapper",
-      "--no-user-install",
-      "--install-dir", prefix,
-      "--bindir", bin,
-      "--",
-      "--skip-cli-build"
-    )
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
 
-    raise "gem install 'shopify-cli' failed with status #{$CHILD_STATUS.exitstatus}" unless $CHILD_STATUS.success?
+    executable_path = "#{libexec}/bin/shopify"
+    executable_content = <<~SCRIPT
+      #!/usr/bin/env node
 
-    bin.rmtree if bin.exist?
-    bin.mkpath
+      process.env.SHOPIFY_RUBY_BINDIR = "#{Formula["ruby"].opt_bin}"
+      process.env.SHOPIFY_HOMEBREW_FORMULA = "shopify-cli"
 
-    brew_gem_prefix = "#{prefix}/gems/shopify-cli-#{version}"
+      import("./shopify");
+    SCRIPT
+    File.write executable_path, executable_content
+    FileUtils.chmod("+x", executable_path)
 
-    ruby_libs = Dir.glob("#{prefix}/gems/*/lib")
-    exe = "shopify"
-    file = Pathname.new("#{brew_gem_prefix}/bin/#{exe}")
-    (bin + "#{file.basename}").open("w") do |f|
-      f << <<~RUBY
-        #!#{ruby_bin}/ruby -rjson --disable-gems
-        ENV['ORIGINAL_ENV']=ENV.to_h.to_json
-        ENV['GEM_HOME']="#{prefix}"
-        ENV['GEM_PATH']="#{prefix}"
-        ENV['RUBY_BINDIR']="#{ruby_bin}/"
-        require 'rubygems'
-        $:.unshift(#{ruby_libs.map(&:inspect).join(",")})
-        load "#{file}"
-      RUBY
-    end
+    bin.install_symlink executable_path
+
+    resource("cli-theme-commands").stage {
+      system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    }
+  end
+
+  def post_install
+    message = <<~POSTINSTALL_MESSAGE
+      Congratulations, you've successfully installed Shopify CLI 3!
+
+      Global installations of Shopify CLI 3 should only be used to work on Shopify
+      themes. To learn about the changes to theme workflows in this version, refer
+      to https://shopify.dev/themes/tools/cli/migrate#workflow-changes
+
+      If you want to keep using Shopify CLI 2, then you can install it again using
+      `brew install shopify-cli@2` and run commands using the `shopify2` program
+      name (for example, `shopify2 theme push` and `shopify2 extension push`).
+      Note however that Shopify CLI 2 will be sunset in H1 2023 - specific date
+      to be announced in Q4 2022.
+    POSTINSTALL_MESSAGE
+    message.each_line { |line| ohai line.chomp }
   end
 end
