@@ -31,6 +31,7 @@ class ShopifyVips < Formula
   depends_on "librsvg"
   depends_on "libtiff"
   depends_on "libxml2"
+  depends_on "openjpeg"
   depends_on "mozjpeg"
   depends_on "openexr"
   depends_on "pango"
