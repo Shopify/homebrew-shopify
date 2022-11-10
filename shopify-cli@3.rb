@@ -40,7 +40,7 @@ class ShopifyCliAT3 < Formula
     executable_path = "#{original_executable_path}3"
     FileUtils.move(original_executable_path, "#{executable_path}-original")
     executable_content = <<~SCRIPT
-      #!/usr/bin/env #{libexec}/bin/node
+      #!/usr/bin/env #{Formula["node"].opt_bin}/node
 
       process.env.SHOPIFY_RUBY_BINDIR = "#{Formula["ruby"].opt_bin}"
       process.env.SHOPIFY_HOMEBREW_FORMULA = "shopify-cli@3"
