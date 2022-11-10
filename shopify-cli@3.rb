@@ -36,8 +36,9 @@ class ShopifyCliAT3 < Formula
 
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
 
-    executable_path = "#{libexec}/bin/shopify3"
-    FileUtils.move(executable_path, "#{executable_path}-original")
+    original_executable_path = "#{libexec}/bin/shopify"
+    executable_path = "#{original_executable_path}3"
+    FileUtils.move(original_executable_path, "#{executable_path}-original")
     executable_content = <<~SCRIPT
       #!/usr/bin/env #{libexec}/bin/node
 
