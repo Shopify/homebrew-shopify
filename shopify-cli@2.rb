@@ -54,8 +54,8 @@ class ShopifyCliAT2 < Formula
   include RubyBin
 
   url "shopify-cli", using: RubyGemsDownloadStrategy
-  version "2.32.0"
-  sha256 "9bb7c9cd2a4620c2fd8086220639d9a972f8af52cd8033cb23c24c4d7f4a98ff"
+  version "2.32.1"
+  sha256 "095a32f8f1ea352bbcf5877144e18bfc8ab14d18ac62ea26b215f59653364932"
   depends_on "ruby"
   depends_on "git"
 
@@ -107,5 +107,13 @@ class ShopifyCliAT2 < Formula
         load "#{file}"
       RUBY
     end
+  end
+
+  def post_install
+    message = <<~POSTINSTALL_MESSAGE
+      Note that Shopify CLI 2.x will be sunset on May 31, 2023.
+      More info: https://shopify.dev/changelog/cli-2-0-to-be-sunset-on-may-31-2023
+    POSTINSTALL_MESSAGE
+    message.each_line { |line| ohai line.chomp }
   end
 end
