@@ -6,12 +6,17 @@ class ShopifyVips < Formula
   sha256 "a4a6b282216f7522b42ebb5cd64cfd82a0d1a632033e9c0502f021e945fed641"
   version "8.14.1"
   license "LGPL-2.1-or-later"
-  revision 0
+  revision 1
 
   depends_on "pkg-config" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "gobject-introspection" => :build
+  # weird issue with libxcb:
+  # cairo needs it. libxcb specifies that it needs libpthread-stubs in the pkg-config (.pc) file,
+  # but the libxcb Homebrew formula doesn't depend on libpthread-stubs anymore.
+  # Fix (for now) by depend on libpthread-stubs for build. This should potentially be reported upstream.
+  depends_on "libpthread-stubs" => :build
   depends_on "cgif"
   depends_on "fftw"
   depends_on "freetype"
