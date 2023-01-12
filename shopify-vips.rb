@@ -6,7 +6,7 @@ class ShopifyVips < Formula
   sha256 "a4a6b282216f7522b42ebb5cd64cfd82a0d1a632033e9c0502f021e945fed641"
   version "8.14.1"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   depends_on "pkg-config" => :build
   depends_on "meson" => :build
@@ -45,7 +45,30 @@ class ShopifyVips < Formula
   def install
     # force mozjpeg to be used: the regular libjpeg / libjpeg-turbo might be present on the system as well.
     ENV.prepend_path "PKG_CONFIG_PATH",Formula["mozjpeg"].opt_lib/"pkgconfig"
-    system "meson", "setup", "build", "--prefix=#{prefix}", "-Dmagick-package=GraphicsMagick", "--buildtype=release"
+    system "meson", "setup", "build", "--prefix=#{prefix}", "--buildtype=release",
+    "-Dintrospection=false", \
+    "-Ddeprecated=false", \
+    "-Dexamples=false", \
+    "-Dcplusplus=false", \
+    "-Dmodules=disabled", \
+    "-Dmagick-package=GraphicsMagick", \
+    "-Danalyze=false", \
+    "-Dcfitsio=disabled", \
+    "-Dfftw=disabled", \
+    "-Dfontconfig=disabled", \
+    "-Dgsf=disabled", \
+    "-Dopenjpeg=disabled", \
+    "-Dmatio=disabled", \
+    "-Dnifti=disabled", \
+    "-Dopenexr=disabled", \
+    "-Dopenslide=disabled", \
+    "-Dorc=disabled", \
+    "-Dpangocairo=disabled", \
+    "-Dpdfium=disabled", \
+    "-Dpoppler=disabled", \
+    "-Dppm=false", \
+    "-Dquantizr=disabled", \
+    "-Dradiance=false"
     system "meson", "install", "-C", "build"
   end
 
