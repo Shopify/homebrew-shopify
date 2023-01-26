@@ -1,5 +1,5 @@
 # This is an older version from homebrew-core
-# https://github.com/dongjoon-hyun/homebrew-core/blob/f005e9ba865311d3a623f38f43f158e397c5fe1b/Formula/apache-spark.rb
+# https://github.com/Homebrew/homebrew-core/blob/14e86a7b32195dc9568cad515dc8f4b146cb2faf/Formula/apache-spark.rb
 class ApacheSparkAT312 < Formula
   desc "Engine for large-scale data processing"
   homepage "https://spark.apache.org/"
@@ -9,8 +9,6 @@ class ApacheSparkAT312 < Formula
   sha256 "0d9cf9dbbb3b4215afebe7fa4748b012e406dd1f1ad2a61b993ac04adcb94eaa"
   license "Apache-2.0"
   head "https://github.com/apache/spark.git"
-
-  bottle :unneeded
 
   depends_on "openjdk@11"
 
