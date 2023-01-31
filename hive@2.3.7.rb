@@ -4,7 +4,7 @@ class HiveAT237 < Formula
   url "https://archive.apache.org/dist/hive/hive-2.3.7/apache-hive-2.3.7-bin.tar.gz"
   sha256 "e55149b0ca1181931b0538d7012ac3b0e5b022bf26ed06fe1709cd2e5d2be5bb"
 
-  depends_on :java => "1.7+"
+  depends_on "openjdk@11"
   depends_on "hadoop"
 
   def install
