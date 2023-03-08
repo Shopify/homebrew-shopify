@@ -114,58 +114,14 @@ class BuildkiteAgent < Formula
     EOS
   end
 
-  plist_options :manual => "buildkite-agent start"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}/bin</string>
-
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{HOMEBREW_PREFIX}/bin/buildkite-agent</string>
-          <string>start</string>
-          <string>--config</string>
-          <string>#{agent_config_path}</string>
-          <!--<string>--debug</string>-->
-        </array>
-
-        <key>EnvironmentVariables</key>
-        <dict>
-          <key>PATH</key>
-          <string>#{HOMEBREW_PREFIX}/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
-        </dict>
-
-        <key>RunAtLoad</key>
-        <true/>
-
-        <key>KeepAlive</key>
-        <dict>
-          <key>SuccessfulExit</key>
-          <false/>
-        </dict>
-
-        <key>ProcessType</key>
-        <string>Interactive</string>
-
-        <key>ThrottleInterval</key>
-        <integer>30</integer>
-
-        <key>StandardOutPath</key>
-        <string>#{var}/log/buildkite-agent.log</string>
-
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/buildkite-agent.log</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"buildkite-agent", "start", "--config", agent_config_path]
+    process_type :interactive
+    working_dir HOMEBREW_PREFIX
+    environment_variables PATH: std_service_path_env
+    keep_alive { succesful_exit: false }
+    log_path var/"log/buildkite-agent.log"
+    error_log_path var/"log/buildkite-agent.log"
   end
 
   def agent_token_reminder

@@ -76,7 +76,6 @@ class TrinoCertloader < Formula
   desc 'Manage mTLS certificates for Conductor and Trino'
   homepage 'https://github.com/Shopify/certloader'
   version @@version
-  plist_options manual: "export GIN_MODE=release && #{HOMEBREW_PREFIX}/opt/trino-certloader/bin/trino-certloader"
 
   case
   when OS.mac? && Hardware::CPU.arm?
@@ -95,45 +94,26 @@ class TrinoCertloader < Formula
     mkdir_p var/"trino-certloader/certs"
   end
 
-  def plist
-    home = Dir.home
-    <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>EnvironmentVariables</key>
-      <dict>
-       <key>GIN_MODE</key>
-       <string>release</string>
-      </dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{bin}/trino-certloader</string>
-        <string>-o=#{var}/trino-certloader/certs</string>
-        <string>--no-tracing</string>
-        <string>--log-metrics</string>
-        <string>--combined-pem</string>
-        <string>-vault.pki.path=certify/conductor/production</string>
-        <string>-vault.auth.type=github</string>
-        <string>-vault.auth.github.token.path=/opt/dev/var/private/git_credential_store</string>
-        <string>-sync.interval=10s</string>
-        <string>-cert.duration=12h</string>
-        <string>-cert.renew-before=11h59m</string>
-        <string>-admin-addr=:5201</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>StandardErrorPath</key>
-      <string>#{var}/log/trino-certloader/trino-certloader_err.log</string>
-      <key>StandardOutPath</key>
-      <string>#{var}/log/trino-certloader/trino-certloader.log</string>
-    </dict>
-    </plist>
-    EOS
+  service do
+    run [
+      bin/"trino-certloader",
+      "-o=#{var}/trino-certloader/certs",
+      "--no-tracing",
+      "--log-metrics",
+      "--combined-pem",
+      "-vault.pki.path=certify/conductor/production",
+      "-vault.auth.type=github",
+      "-vault.auth.github.token.path=/opt/dev/var/private/git_credential_store",
+      "-sync.interval=10s",
+      "-cert.duration=12h",
+      "-cert.renew-before=11h59m",
+      "-admin-addr=:5201",
+    ]
+    environment_variables GIN_MODE: "release"
+    log_path var/"log/trino-certloader/trino-certloader_err.log"
+    error_log_path var/"log/trino-certloader/trino-certloader.log"
   end
+
   test do
     system "#{bin}/certloader", "--help"
   end
