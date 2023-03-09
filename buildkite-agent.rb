@@ -119,7 +119,7 @@ class BuildkiteAgent < Formula
     process_type :interactive
     working_dir HOMEBREW_PREFIX
     environment_variables PATH: std_service_path_env
-    keep_alive { succesful_exit: false }
+    keep_alive { succesful_exit => false }
     log_path var/"log/buildkite-agent.log"
     error_log_path var/"log/buildkite-agent.log"
   end
