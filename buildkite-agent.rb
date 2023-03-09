@@ -115,11 +115,11 @@ class BuildkiteAgent < Formula
   end
 
   service do
-    run [opt_bin/"buildkite-agent", "start", "--config", agent_config_path]
+    run [opt_bin/"buildkite-agent", "start", "--config", f.agent_config_path]
     process_type :interactive
     working_dir HOMEBREW_PREFIX
     environment_variables PATH: std_service_path_env
-    keep_alive { succesful_exit: false }
+    keep_alive successful_exit: false
     log_path var/"log/buildkite-agent.log"
     error_log_path var/"log/buildkite-agent.log"
   end
