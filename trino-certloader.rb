@@ -12,6 +12,7 @@ class TrinoCertloader < Formula
       super
       set_github_token
       parse_url_pattern
+      @url = download_url
     end
 
     def set_github_token
