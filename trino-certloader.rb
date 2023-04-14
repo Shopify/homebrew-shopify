@@ -24,7 +24,7 @@ class TrinoCertloader < Formula
 
       file = File.open(creds_filepath)
       contents = file.read.strip!.split("\n")
-      latest_raw_creds = contents.last
+      latest_raw_creds = contents.reverse.find{|credential| credential.strip.end_with?("@github.com")}
       creds = URI.parse(latest_raw_creds)
 
       @github_token = creds.password
