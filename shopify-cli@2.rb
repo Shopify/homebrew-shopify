@@ -58,7 +58,6 @@ class ShopifyCliAT2 < Formula
   sha256 "9d8cd40b92ffb3b3ed3915ad3ebb24e239ec132ae383439ac63e71c6d9ecb11c"
   depends_on "ruby"
   depends_on "git"
-  deprecate! date: "2023-05-25", because: "CLI2 sunset"
   disable! date: "2023-05-31", because: "CLI2 sunset"
 
   def install
