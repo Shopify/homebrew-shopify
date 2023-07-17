@@ -72,7 +72,7 @@ class TrinoCertloader < Formula
     end
   end
 
-  @@version = "0.4.3"
+  @@version = "0.6.0"
 
   desc 'Manage mTLS certificates for Conductor and Trino'
   homepage 'https://github.com/Shopify/certloader'
@@ -81,10 +81,10 @@ class TrinoCertloader < Formula
   case
   when OS.mac? && Hardware::CPU.arm?
     url "https://github.com/Shopify/certloader/releases/download/#{@@version}/certloader_darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 "9dcedf01559c30e121070f1c6ec4858546de1d7844826c37e1370514e7193c80"
+    sha256 "f18141b9a174093586e260aebf2cf929f4cbc1aba860f536e83f69cadcdaddf1"
   when OS.mac? && Hardware::CPU.intel?
     url "https://github.com/Shopify/certloader/releases/download/#{@@version}/certloader_darwin_amd64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 "a1d7d173c68f367d82bea395c5afe9af8563f8b087f02bab30f2c9f928ade85f"
+    sha256 "885b0c1f20d79c2e4db0e4483dd062c87d858eec6d9b4fe650c6df3f53cc6ebc"
   else
     odie "Unexpected platform!"
   end
@@ -102,9 +102,11 @@ class TrinoCertloader < Formula
       "--no-tracing",
       "--log-metrics",
       "--combined-pem",
-      "-vault.pki.path=certify/conductor/production",
-      "-vault.auth.type=github",
-      "-vault.auth.github.token.path=/opt/dev/var/private/git_credential_store",
+      "-googleca.ca-pool=trino-conductor-root",
+      "-googleca.issuing-ca-id=trino-conductor-root",
+      "-googleca.location=us-central1", 
+      "-googleca.key-algorithm=RSA", 
+      "-googleca.project=shopify-certificate-authority",
       "-sync.interval=10s",
       "-cert.duration=12h",
       "-cert.renew-before=11h59m",
