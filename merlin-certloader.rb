@@ -72,7 +72,7 @@ class MerlinCertloader < Formula
     end
   end
 
-  @@version = "0.4.3"
+  @@version = "0.6.0"
 
   desc 'Manage mTLS certificates for Merlin'
   homepage 'https://github.com/Shopify/certloader'
@@ -103,7 +103,7 @@ class MerlinCertloader < Formula
         "--no-tracing",
         "--log-metrics",
         "--combined-pem",
-        "-googleca.ca-pool=merlin-adhoc-root"
+        "-googleca.ca-pool=merlin-adhoc-root",
         "-googleca.issuing-ca-id=merlin-adhoc-root",
         "-googleca.location=us-central1",
         "-googleca.key-algorithm=RSA",
