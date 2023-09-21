@@ -72,7 +72,7 @@ class TrinoCertloader < Formula
     end
   end
 
-  @@version = "0.6.0"
+  @@version = "0.7.7"
 
   desc 'Manage mTLS certificates for Conductor and Trino'
   homepage 'https://github.com/Shopify/certloader'
@@ -81,10 +81,10 @@ class TrinoCertloader < Formula
   case
   when OS.mac? && Hardware::CPU.arm?
     url "https://github.com/Shopify/certloader/releases/download/#{@@version}/certloader_darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 "f18141b9a174093586e260aebf2cf929f4cbc1aba860f536e83f69cadcdaddf1"
+    sha256 "d8045f6cec20b0055c58aedca7f22247187c321e16b861dad93bd06390c5d529"
   when OS.mac? && Hardware::CPU.intel?
     url "https://github.com/Shopify/certloader/releases/download/#{@@version}/certloader_darwin_amd64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 "885b0c1f20d79c2e4db0e4483dd062c87d858eec6d9b4fe650c6df3f53cc6ebc"
+    sha256 "3da0cbde1b540a23af2d807e259317f77dc859882cd8e0f7d7fa5be25d0aff47"
   else
     odie "Unexpected platform!"
   end
@@ -104,12 +104,10 @@ class TrinoCertloader < Formula
       "--combined-pem",
       "-googleca.ca-pool=trino-conductor-root",
       "-googleca.issuing-ca-id=trino-conductor-root",
-      "-googleca.location=us-central1", 
-      "-googleca.key-algorithm=RSA", 
+      "-googleca.location=us-central1",
+      "-googleca.key-algorithm=RSA",
       "-googleca.project=shopify-certificate-authority",
-      "-sync.interval=10s",
-      "-cert.duration=12h",
-      "-cert.renew-before=11h59m",
+      "-cert.duration=24h",
       "-admin-addr=:5201",
     ]
     environment_variables GIN_MODE: "release"
