@@ -104,12 +104,11 @@ class TrinoCertloader < Formula
       "--combined-pem",
       "-googleca.ca-pool=trino-conductor-root",
       "-googleca.issuing-ca-id=trino-conductor-root",
-      "-googleca.location=us-central1", 
-      "-googleca.key-algorithm=RSA", 
+      "-googleca.location=us-central1",
+      "-googleca.key-algorithm=RSA",
       "-googleca.project=shopify-certificate-authority",
-      "-sync.interval=10s",
-      "-cert.duration=12h",
-      "-cert.renew-before=11h59m",
+      "-sync.interval=60m",
+      "-cert.duration=24h",
       "-admin-addr=:5201",
     ]
     environment_variables GIN_MODE: "release"
