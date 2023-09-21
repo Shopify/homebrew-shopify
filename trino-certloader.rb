@@ -107,7 +107,6 @@ class TrinoCertloader < Formula
       "-googleca.location=us-central1",
       "-googleca.key-algorithm=RSA",
       "-googleca.project=shopify-certificate-authority",
-      "-sync.interval=60m",
       "-cert.duration=24h",
       "-admin-addr=:5201",
     ]
