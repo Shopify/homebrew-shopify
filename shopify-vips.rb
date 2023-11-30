@@ -2,11 +2,11 @@ class ShopifyVips < Formula
   desc "Image processing library"
   conflicts_with "vips"
   homepage "https://github.com/libvips/libvips"
-  url "https://github.com/libvips/libvips/archive/65c99219af5b3f4a8e9d4a9daf7886a6c97cf619.tar.gz"
-  sha256 "22caaa9ca16541b61379368be48a73b0cdb4f30032e84f64749d3df7728e4f92"
+  url "https://github.com/libvips/libvips/releases/download/v8.15.0/vips-8.15.0.tar.xz"
+  sha256 "d33f81c6ab4bd1faeedc36dc32f880b19e9d5ff69b502e59d175332dfb8f63f1"
   version "8.15.0"
   license "LGPL-2.1-or-later"
-  revision 0
+  revision 1
 
   depends_on "pkg-config" => :build
   depends_on "meson" => :build
