@@ -46,7 +46,7 @@ class ShopifyVips < Formula
     # force mozjpeg to be used: the regular libjpeg / libjpeg-turbo might be present on the system as well.
     ENV.prepend_path "PKG_CONFIG_PATH",Formula["mozjpeg"].opt_lib/"pkgconfig"
     system "meson", "setup", "build", "--prefix=#{prefix}", "--buildtype=release",
-    "-Dintrospection=false", \
+    "-Dintrospection=disabled", \
     "-Ddeprecated=false", \
     "-Dexamples=false", \
     "-Dcplusplus=false", \
@@ -56,7 +56,6 @@ class ShopifyVips < Formula
     "-Dcfitsio=disabled", \
     "-Dfftw=disabled", \
     "-Dfontconfig=disabled", \
-    "-Dgsf=disabled", \
     "-Dopenjpeg=disabled", \
     "-Dmatio=disabled", \
     "-Dnifti=disabled", \
