@@ -7,16 +7,16 @@ require "fileutils"
 class ShopifyCliNightly < Formula
   desc "A CLI tool to build for the Shopify platform"
   homepage "https://github.com/shopify/cli#readme"
-  url "https://registry.npmjs.org/@shopify/cli/-/cli-0.0.0-nightly-20240129172617.tgz"
-  sha256 "91c8da374d2cbf1731cf85c2f0e05ef6ae53771ceaa0bb1d894e24590f67ea1e"
+  url "https://registry.npmjs.org/@shopify/cli/-/cli-0.0.0-nightly-20240130110124.tgz"
+  sha256 "c7011d07d077ea626b79b2643e20feaaeace580e32f90ae23a4a90bb3b294ff6"
   license "MIT"
   depends_on "node"
   depends_on "ruby"
   depends_on "git"
 
   resource "cli-theme-commands" do
-    url "https://registry.npmjs.org/@shopify/theme/-/theme-0.0.0-nightly-20240129172617.tgz"
-    sha256 "ced633b2997917effa5e077f75447daa5ae1cf2587f559984f4df1f9bc9d92c0"
+    url "https://registry.npmjs.org/@shopify/theme/-/theme-0.0.0-nightly-20240130110124.tgz"
+    sha256 "f28272069e825b34a1ee9a2ce51df61e5b05034be98485a71aec6c6ef3b3e4af"
   end
 
   livecheck do
