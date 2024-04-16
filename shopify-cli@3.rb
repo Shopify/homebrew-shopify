@@ -7,17 +7,12 @@ require "fileutils"
 class ShopifyCliAT3 < Formula
   desc "A CLI tool to build for the Shopify platform"
   homepage "https://github.com/shopify/cli#readme"
-  url "https://registry.npmjs.org/@shopify/cli/-/cli-3.58.2.tgz"
-  sha256 "dc58e6aac047fcf90a6b80b0197271f240bf020937f14b31d91c99cd2d797319"
+  url "https://registry.npmjs.org/@shopify/cli/-/cli-3.59.0.tgz"
+  sha256 "6d437ffe47062ad1c33c5ea2757477b614618105259a8ce5dea1fdd1510cfa69"
   license "MIT"
   depends_on "node"
   depends_on "ruby"
   depends_on "git"
-
-  resource "cli-theme-commands" do
-    url "https://registry.npmjs.org/@shopify/theme/-/theme-3.58.2.tgz"
-    sha256 "664887f9d3a3076efa69e24007bc2b05e12531a6271abbb69f23adc3fd08a4a7"
-  end
 
   livecheck do
     url :stable
@@ -52,10 +47,6 @@ class ShopifyCliAT3 < Formula
     FileUtils.chmod("+x", executable_path)
 
     bin.install_symlink executable_path
-
-    resource("cli-theme-commands").stage {
-      system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    }
   end
 end
 
