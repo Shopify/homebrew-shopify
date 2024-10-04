@@ -11,7 +11,6 @@ class ShopifyCliAT3 < Formula
   sha256 "1d8d9726b5de830a1b55807f84b41992369a2af41727a936cbbfbbffef19ee83"
   license "MIT"
   depends_on "node"
-  depends_on "ruby"
   depends_on "git"
 
   livecheck do
@@ -38,7 +37,6 @@ class ShopifyCliAT3 < Formula
     executable_content = <<~SCRIPT
       #!/usr/bin/env #{Formula["node"].opt_bin}/node
 
-      process.env.SHOPIFY_RUBY_BINDIR = "#{Formula["ruby"].opt_bin}"
       process.env.SHOPIFY_HOMEBREW_FORMULA = "shopify-cli@3"
 
       import("#{new_original_executable_path}")
