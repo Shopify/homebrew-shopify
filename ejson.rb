@@ -1,31 +1,36 @@
 class Ejson < Formula
-  desc 'EJSON is a small library to manage encrypted secrets using asymmetric encryption.'
-  homepage 'https://github.com/Shopify/ejson'
-  url 'https://github.com/Shopify/ejson/archive/v1.3.1.tar.gz'
-  sha256 '5c2bd9f1bec018f64be97d68a0ef1dc48763613e0c85d731ba96705b0720b779'
+  desc "Small library to manage encrypted secrets using asymmetric encryption"
+  homepage "https://github.com/Shopify/ejson"
+  version "1.5.4"
+  license "MIT"
 
-  bottle do
-    root_url 'https://github.com/Shopify/homebrew-shopify/releases/download/bag-of-holding'
-    sha256 cellar: :any_skip_relocation, arm64_monterey: '6f308923a7d1e00640692bcf19b30d491cb6fcb5836a091931d65a57fa0e8b12'
-    sha256 cellar: :any_skip_relocation, monterey: '4ffdee0338de07d3983b2b2bba0e0c20cad9cdcb9fd52369228a144956374a14'
-    sha256 cellar: :any_skip_relocation, big_sur: '2088c44098a4c9ea9cc7ac93c76af45711e6abe46ba81e7d5e5722638713898e'
+  on_macos do
+    on_arm do
+      url "https://github.com/Shopify/ejson/releases/download/v#{version}/ejson_#{version}_darwin_arm64.tar.gz"
+      sha256 "3fd3de884d448b4c42a368f0bef0fa1a639be3e971c0a6154dd2fdaac3d65e0a"
+    end
+    on_intel do
+      url "https://github.com/Shopify/ejson/releases/download/v#{version}/ejson_#{version}_darwin_amd64.tar.gz"
+      sha256 "5ad5921b4045cd89a1f5f5f93c6d0016f0cb486154dd172d84ec9231370615cb"
+    end
   end
 
-  depends_on 'go' => :build
+  on_linux do
+    on_arm do
+      url "https://github.com/Shopify/ejson/releases/download/v#{version}/ejson_#{version}_linux_arm64.tar.gz"
+      sha256 "b991dbfaeb7e5db63ee9ad05a998e4c501e0f154bae63a45d5df141ba1847b44"
+    end
+    on_intel do
+      url "https://github.com/Shopify/ejson/releases/download/v#{version}/ejson_#{version}_linux_amd64.tar.gz"
+      sha256 "2bb8300cf4f3cd41f56493e4277d2321eaab4f08208a5046e1b62a05337c3aee"
+    end
+  end
 
   def install
-    ENV['GEM_HOME'] = buildpath/'.gem'
-    ENV['PATH'] = "#{ENV['GEM_HOME']}/bin:#{ENV['PATH']}"
-    system('gem', 'install', 'bundler')
-    system('bundle', 'install')
-    ENV['GOPATH'] = buildpath/'.gopath'
-    system('mkdir', '-p', buildpath/'.gopath/src/github.com/Shopify')
-    system('ln', '-sf', buildpath, buildpath/'.gopath/src/github.com/Shopify/ejson')
-    system('go', 'build', '-o', 'ejson', 'github.com/Shopify/ejson/cmd/ejson')
-    system('make', 'man')
+    bin.install "ejson"
+  end
 
-    bin.install 'ejson'
-    man1.install Dir[buildpath/'build/man/man1/*']
-    man5.install Dir[buildpath/'build/man/man5/*']
+  test do
+    assert_match version.to_s, shell_output("#{bin}/ejson --version")
   end
 end
