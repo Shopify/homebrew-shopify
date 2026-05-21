@@ -4,7 +4,7 @@ require "formula"
 require "language/node"
 require "fileutils"
 
-class ShopifyCli < Formula
+class ShopifyCliAT4 < Formula
   desc "A CLI tool to build for the Shopify platform"
   homepage "https://github.com/shopify/cli#readme"
   url "https://registry.npmjs.org/@shopify/cli/-/cli-4.0.0.tgz"
@@ -31,13 +31,13 @@ class ShopifyCli < Formula
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
 
     original_executable_path = "#{libexec}/bin/shopify"
-    executable_path = "#{original_executable_path}"
+    executable_path = "#{original_executable_path}4"
     new_original_executable_path = "#{executable_path}-original"
     FileUtils.move(original_executable_path, new_original_executable_path)
     executable_content = <<~SCRIPT
       #!/usr/bin/env #{Formula["node"].opt_bin}/node
 
-      process.env.SHOPIFY_HOMEBREW_FORMULA = "shopify-cli"
+      process.env.SHOPIFY_HOMEBREW_FORMULA = "shopify-cli@4"
 
       import("#{new_original_executable_path}")
     SCRIPT
