@@ -6,16 +6,12 @@ cask 'zulu-jdk15' do
 
     url "https://cdn.azul.com/zulu/bin/zulu#{version.before_comma}-ca-jdk#{version.after_comma}-macosx_x64.dmg",
         referer: 'https://www.azul.com/downloads/zulu-community/'
-
-    depends_on macos: '>= :high_sierra'
   else
     version '15.36.13,15.0.5'
     sha256 'c255dcf3e1165864846f3d67b7da96dd07230a8def64b4693ad66b12cea0a301'
 
     url "https://cdn.azul.com/zulu/bin/zulu#{version.before_comma}-ca-jdk#{version.after_comma}-macosx_aarch64.dmg",
         referer: 'https://www.azul.com/downloads/zulu-community/'
-
-    depends_on macos: '>= :big_sur'
   end
 
   name 'Azul Zulu® JDK 15'
