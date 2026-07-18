@@ -16,7 +16,7 @@ class BazelAT10 < Formula
   end
 
   depends_on "openjdk@8"
-  depends_on :macos => :yosemite
+  depends_on :macos => :el_capitan
 
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
