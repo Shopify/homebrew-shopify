@@ -7,8 +7,6 @@ cask 'zulu-jdk7' do
     name 'Azul Zulu® JDK 7'
     homepage 'https://www.azul.com/downloads/zulu-community/'
 
-    depends_on macos: '>= :high_sierra'
-
     pkg "Double-Click to Install Azul Zulu JDK #{version.major}.pkg"
 
     uninstall pkgutil: "com.azulsystems.zulu.#{version.major}"
